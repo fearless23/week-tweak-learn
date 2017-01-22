@@ -7,19 +7,19 @@ import { HttpModule }          from '@angular/http';
 // Shared Pipes: Declare and export
 import { CapitalizePipe }      from './pipes/capitalize.pipe';
 // Shared Directives: Declare and export
-import { MenuComponent }      from '../menu/menu.component';
+//import { MenuComponent }      from '../menu/menu.component';
 
 @NgModule({
   imports:      [ CommonModule//, AppRoutingModule 
   ],
   declarations: [ 
       //pipes
-      CapitalizePipe, MenuComponent
+      CapitalizePipe//, MenuComponent
       //directives
     ],
   exports:      [ CommonModule, FormsModule, HttpModule, //AppRoutingModule,
         // pipes
-        CapitalizePipe, MenuComponent
+        CapitalizePipe, //MenuComponent
         // directives
    ]
 })
