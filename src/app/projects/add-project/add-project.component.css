@@ -1,0 +1,136 @@
+.add-project-wrapper {
+	display: block;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.55);
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+
+.add-project-container {
+	box-shadow: 2px 3px 5px 0px hsl(207,6%,32%);
+	width: 27em;
+	background-color: #6046ff;
+	animation: slide-in 0.4s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+.add-project-topbar {
+	padding: 0.5em 1em;
+	font-weight: bold;
+	color: #Ef233C;
+	display: flex;
+	background: #eee;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.add-project-middle {
+	margin-top: 1em;
+	animation: sluide-in 0.2s ease-in;
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateX(-10em);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.add-project-content {
+	padding: 0.75em 2em;
+	position: relative;
+}
+
+.add-project-content-title {
+	color: white;
+	margin-bottom: 0.5em;
+}
+
+input[id="project-title"] {
+	border-bottom: 1px solid hsl(207,6%,50%);
+	padding: 0.25em 0.5em;
+	width: 63%;
+	background-color: #6046ff;
+	color: white;
+}
+
+input[id="project-title"]:focus {
+	border-bottom: 1px solid whitesmoke;
+}
+
+input[id="project-title"] + div.project-title-help {
+	display: none;
+	position: absolute;
+	left: 65%;
+	top: -50%;
+	width: 24em;
+	height: 14em;
+	padding: 1em;
+	background-color: hsl(168,58%,30%);
+	color: white;
+	z-index: 99999;
+}
+
+input[id="project-title"] + div.project-title-help:before {
+	content: "";
+	position: absolute;
+	left: -1em;
+	top: 50%;
+	transform: translateY(-2em);
+	
+	height: 0px;
+	width: 0px;
+    border-bottom: 1em solid transparent;
+    border-top: 1em solid transparent;
+    border-right: 1em solid hsl(168,58%,30%);
+}
+
+input[id="project-title"]:active + div.project-title-help, 
+input[id="project-title"]:focus + div.project-title-help {
+	display: flex;
+} 
+
+
+.project-category-toggle {
+	display: block;
+	font-size: 0.9em;
+	padding: 0.75em 0;
+}
+
+.project-category-toggle label {
+	padding: 0.65em 1.2em;
+	margin-right: 1em;
+	width: 7em;
+	background: #eaeaea;
+	cursor: pointer;
+}
+
+input[name="project-category"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	
+}
+
+input[name="project-category"]:checked + label {
+	background-color: #00a8e8;
+	color: #fff;
+}
+
+.add-project-description {
+	background-color: #6046ff;
+	color: white;
+}
+
+.add-project-bottom {
+	padding: 0.5em 1em;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	border: 0px dashed black;
+	background: #eee;
+}

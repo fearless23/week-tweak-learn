@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+<div class="content-container">
+<div class="content-topbar">
+    <div class="topbar-top">
+        <div class="topbar-top-title">
+            <span><a routerLink="../../projects/{{project.info.category}}">{{project.info.category | capitalize}}</a></span>
+            <span>{{project.info.title | capitalize}}</span>
+        </div>
+        <div class="settings">
+            <a href="#" title="Settings"><img src="assets/svg/config.svg"></a>
+            <a href="#" title="Notifications"><img src="assets/svg/bell.svg"></a>
+            <label for="more-toggle" title="More" class="more">&#x22EE;</label>
+            <input id="more-toggle" type="text">
+            <div class="more-container">MORE</div>
+
+        </div>
+    </div>
+    <div class="tab-bar-container">
+        <div class="tabs-title-container">
+            <a routerLink="./" routerLinkActive="project-tab-active" [routerLinkActiveOptions] ="{exact: true}" class="project-tab" title="Project OVerview">Overview</a>
+            <a routerLink="./steps" routerLinkActive="project-tab-active" class="project-tab" title="Action Steps">Action Steps</a>
+            <label for="social-tab" class="project-tab">Files</label>
+            <label for="pro-tab" class="project-tab">More</label>
+        </div>
+        <div class="tab-bar-icon-container">
+            <button class="btn btn-sm btn-red">+ New Action Step</button>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+</div>

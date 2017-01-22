@@ -1,1 +1,311 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono';
+
+/* Reset Styles */
+
+* {
+  vertical-align: baseline;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0; 
+}
+
+address, caption, cite, code, dfn, em,
+h1, h2, h3, h4, h5, h6, strong, th, var {
+  font-weight: normal;
+  font-style: normal; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.0em; 
+}
+
+ul, li {
+  list-style: none; 
+}
+
+a, ins {
+  text-decoration: none; 
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+
+fieldset, img, abbr {
+  border: 0; 
+}
+
+caption, th {
+  text-align: left; 
+}
+
+blockquote, q {
+  quotes: none; 
+}
+
+blockquote:before, 
+blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; 
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; 
+}
+
+/* Main Styles */
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #FFF;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2; 
+}
+
+h1 {
+  font-size: 3.247rem;
+  font-weight: 300;
+  margin-top: 0.53rem;
+  margin-bottom: 0.53rem;
+  text-transform: uppercase; 
+}
+
+h2 {
+  font-size: 2.566em;
+  font-weight: 300;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em; 
+}
+
+h3 {
+  font-size: 2.027em;
+  font-weight: 800;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em; 
+}
+
+h4 {
+  font-size: 1.602em;
+  font-weight: 800;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em; 
+}
+
+h5 {
+  font-size: 1.266em;
+  font-weight: 700;
+  margin-top: 0.94em;
+  margin-bottom: 0.94em; 
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em; 
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1.5em; 
+}
+
+strong {
+  font-weight: 700; 
+}
+
+em {
+  font-style: italic; 
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer; 
+}
+
+button, .btn {
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none !important;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0.625em;
+  padding: 1em 1.3em;
+  border: 0 none;
+  border-radius: 0.25em;
+  color: #333;
+  background: #eaeaea;
+  transition: all 60ms ease-in-out; 
+}
+
+.btn:hover, button:hover {
+  transition: all 60ms ease-in-out;
+  opacity: 0.85; 
+}
+
+.btn:active, button:active {
+  transition: all 60ms ease-in-out;
+  transform: scale(0.97);
+  opacity: 0.75; 
+}
+
+.btn:focus, button:focus {
+  outline: none; 
+}
+
+.btn:disabled, button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed; 
+}
+
+.btn-blue {
+  color: #fff;
+  background: #00a4e6; 
+}
+
+.btn-green {
+  color: #fff;
+  background: #2ca58d; 
+}
+
+.btn-yellow {
+  color: #333;
+  background: #edff24; 
+}
+
+.btn-red {
+  color: #fff;
+  background: #ef253c; 
+}
+
+.btn-black {
+  color: #fff;
+  background: #4d5256; 
+}
+
+.btn-clear {
+  color: #333;
+  background: #fff; 
+}
+
+.btn-outline {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #00a4e6;
+  color: #333;
+  background: #fff;
+  transition: all 600ms ease-in-out; 
+}
+
+.btn-outline:hover {
+  color: #fff;
+  background: #00a4e6;
+  transition: all 600ms ease-in-out; 
+}
+
+.btn-sm {
+  font-size: 0.8em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.8em 1.1em; 
+}
+
+.btn-lg {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0.8em;
+  padding: 1.2em 1.7em; 
+}
+
+.btn-circle {
+  border-radius: 50%;
+  padding: 1em; 
+}
+
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: inline-block;
+  padding: 10px;
+  display: block; 
+}
+
+.btn-off, .btn-off:focus, .btn-off:active, .btn-off:hover {
+  opacity: 0.8;
+  cursor: not-allowed;
+  color: #4d5256;
+  background-color: #fff;
+  transform: scale(1); 
+}
+
+body:before {
+  background-color: #FCF8E3;
+  border-bottom: 1px solid #FBEED5;
+  border-left: 1px solid #FBEED5;
+  color: #C09853;
+  font: small-caption;
+  padding: 3px 6px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5; 
+}
+
+.content-container {
+	background-color: hsl(190, 6%, 80%);
+	/*background-color: hsla(207,6%,32%,0.8);*/
+	display: block;
+	height: 100vh;
+	overflow: auto; /* work if height is 100vh */
+	margin: 0;
+	margin-top: 5em;
+}
+
+@media (min-width: 28em) {
+	.content-container {
+		margin-left: 6em; /*if icon-sidebar */
+		margin-top: 0em;
+	}
+}
+
+@media (max-width: 47.75em) {
+	.content-container {
+		display: none;
+	}
+}

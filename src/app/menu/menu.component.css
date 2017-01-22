@@ -1,0 +1,179 @@
+.main-menu-container {
+	width: 6em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: hsl(207,6%,12%);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
+
+	transition: width 0.2s ease-in;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.logo-area {
+	height: 6em;
+    min-height: 6em;
+	/*background-color: #00a4e6;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	height: 4em; /* same as content-topbar*/
+	width: 4em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-image: url(assets/img/logo-white.png);
+	background-size: cover;
+}
+
+.logo-area span {
+	display: none;
+}
+
+input[name="ert"]:checked + .main-menu-container .logo-area span {
+	display: block;
+}
+
+
+.top-icon {
+	height: 4em;
+    min-height: 4em;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.user-pic {
+	width: 100%;
+	height: 4em;
+	border-bottom: 2px solid #2ca58d;
+	background-image: url(assets/img/messi.jpg);
+	background-size: cover;
+}
+
+.user-name {
+	font-size: 0.9em;
+	margin: 0;
+}
+
+.sidebar-icon-list {
+	display: flex column;
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	flex-grow: 1;
+}
+
+
+.sidebar-icon {
+	color: #eaeaea;
+	width: 100%;
+	border-left: 3px solid hsl(207,6%,12%);
+	height: 3em;
+	margin: 1em 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.3s linear;
+}
+
+.sidebar-icon span {
+	font-size: 0.75em;
+	opacity: 0;
+	position: absolute;
+	transition: all 0.1s linear;
+}
+
+.menu-active {
+	border-left: 3px solid #EEFF22;
+	color: #EEFF22;
+}
+
+.sidebar-icon:hover {
+	color: #fff;
+	border-left: 3px solid #EEFF22;
+}
+
+/* cool trick by me yeah */
+.sidebar-icon:hover:after {
+	content: '';
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 0px;
+	z-index: 110;
+	background-color: #00a8e8;
+	border-bottom: 16px solid white;
+}
+
+img {
+	color: #fff;
+	width: 2em;
+	height: 2em;
+}
+
+.sidebar-wt {
+	display: flex;
+    min-height: 2em;
+	justify-content: flex-end;
+}
+
+.sidebar-wt label{
+	cursor: pointer;
+}
+
+input[name="ert"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+input[name="ert"]:checked + .main-menu-container {
+	width: 12em;
+	transition: width .3s linear;
+}
+
+input[name="ert"]:checked + .main-menu-container .logo-area {
+	height: 6em;
+}
+
+input[name="ert"]:checked + .main-menu-container .sidebar-icon-list .sidebar-icon {
+	flex-direction: row;
+	justify-content: flex-start;
+	padding-left: 1em;
+	transition: all 0.3s linear;
+}
+
+input[name="ert"]:checked + .main-menu-container .sidebar-icon-list .sidebar-icon span {
+	font-size: 0.75em;
+	opacity: 1;
+	position: relative;
+	transition: all 0.3s linear;
+	margin-left: 1em;
+}
+
+.main-menu-container .sidebar-wt label img {
+	transition: all 0.3s linear;
+}
+
+input[name="ert"]:checked + .main-menu-container .sidebar-wt label img {
+	transform: rotateZ(180deg);
+	transition: all 0.3s linear;
+}
+
+@media (min-width: 20em) {}

@@ -1,0 +1,16 @@
+<div class="login-container">
+  <div class="form-container">
+    <h3> Login To Week Tweak </h3>
+    <img src="assets/svg/lock.svg" id="lock">
+    <span class="error" *ngIf="error">{{ error }}</span>
+    <button (click)="loginGoogle()" class="btn btn-sm btn-red btn-block" id="google">Login With Google</button><br>
+    <button (click)="loginFb()" class="btn btn-sm btn-blue btn-block" id="fb">Login With Facebook</button><br>
+    <button routerLink="/login-email" class="btn btn-sm btn-blue btn-block" id="email">Login With Email</button><br>
+    <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+    <!--<div *ngIf="auth"> Auth True </div>
+      <div *ngIf="!auth"> Auth Fals </div>
+      <div *ngIf="Auth"> Auth True </div>
+      <div *ngIf="!loggedin"> logged in  Fals </div>
+      <div *ngIf="loggedin"> logged in true </div>
+  </div>-->
+</div>

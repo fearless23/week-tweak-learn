@@ -1,0 +1,109 @@
+.card-group-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start; /* center will make a single look centered but giving margin 0 auto does the trick */
+	margin: 0 auto;
+	padding: 0px;
+	padding-top: 2.5em; /* 1.25em is already from tabs-container */
+	padding-left: 2.5em;
+	background-color: hsla(207,6%,80%,0.8);
+	/*min-height: 85vh;
+	/*background-image: url(../img/back.jpg);
+	background-blend-mode: overlay;*/
+    /*border: 1px solid black;*/
+}
+
+@media (min-width:45.5em){
+	.card-group-container{
+		width: 39.5em;
+	}
+}
+
+@media (min-width:64em){
+	.card-group-container{
+		width: 58em;
+	}
+}
+
+@media (min-width:82.5em){
+	.card-group-container{
+		width: 76.5em;
+	}
+}
+
+.card-container {
+	position: relative;
+	width: 16em;
+	height: 24em;
+	margin-bottom: 2.5em;
+	margin-right: 2.5em;
+	background-color: #fff;
+	box-shadow:0 0 10px #fff 0.2;
+
+	color: #333;
+	padding: 1.25em;
+	padding-bottom: 0.5em;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+/*.card-container:after {
+	content: '';
+	position: absolute;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0.1;
+}*/
+
+/*.card-container:hover {
+	transform: rotateY(-45deg);
+	transform-origin: 0px;
+}*/
+
+.card-title {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.card-subtitle {
+	font-size: 0.75em;
+}
+
+.card-description {
+	font-size: 0.85em;
+	margin-top: 1em;
+	flex-grow: 1;
+}
+
+.card-bottom {
+	font-size: 0.7em;
+}
+
+.card-orange {
+	color: #fff;
+	background: linear-gradient(135deg, orange 0%, #2ca58d 100%);
+}
+
+.card-blue {
+	color: #fff;
+	background: linear-gradient(135deg, #00a8e8 0%, #2ca58d 100%);
+}
+
+.card-red {
+	color: #fff;
+	background: linear-gradient(135deg, #ef233c 0%, #2ca58d 100%);
+}
+
+.card-violet {
+	color: #fff;
+	background: linear-gradient(135deg, crimson 0%, #eeff22 100%);
+}
+
+.card-green {
+	color: #fff;
+	background: linear-gradient(135deg, #2ca58d 0%, #eeff22 100%);
+}

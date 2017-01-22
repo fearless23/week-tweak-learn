@@ -1,0 +1,26 @@
+.screen-message {
+    display: none;
+}
+
+
+@media (max-width: 47.75em) {
+	.screen-message {
+		display: block;
+        margin-left: 6em;
+        text-align: center;
+        background: rebeccapurple;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .screen-message div {
+        padding: 2em;
+        max-width: 16em;
+    }
+
+    
+}

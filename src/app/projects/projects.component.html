@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<div class="content-container">
+<div class="content-topbar">
+    <div class="topbar-top">
+        <div class="topbar-top-title">
+            <span>{{username}}`s</span>
+            <span>Projects</span>
+        </div>
+        <div class="settings">
+            <a href="#" title="Settings" style="position: relative;"><img src="assets/svg/bell.svg"><span class="badge">3</span></a>
+            <a href="#" routerLink="./../contact"title="{{user.displayName}}`s Profile"><img src="{{user.photoURL}}" class="user-img"></a>
+            <label for="more-toggle" title="More" class="more" (click)="isClassVisible = !isClassVisible; rty = !rty">&#x22EE;</label>
+            <!--<input id="more-toggle" type="text">-->
+            <div [ngClass]="{'hidden-panel': !rty, 'more-container': isClassVisible}">
+                <ul class="more-items">
+                    <li class="more-item">Profile</li>
+                    <li class="more-item">Settings</li>
+                    <li class="more-item">Log Out</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="tab-bar-container">
+        <div class="tabs-title-container">
+            <a routerLink="./base" routerLinkActive="project-tab-active" class="project-tab" title="Base Projects">Base</a>
+            <a routerLink="./personal" routerLinkActive="project-tab-active" class="project-tab" title="Personal Projects">Personal</a>
+            <a routerLink="./pro" routerLinkActive="project-tab-active" class="project-tab" title="Pro Projects">Pro</a>
+            <a routerLink="./social" routerLinkActive="project-tab-active" class="project-tab" title="Social Projects">Social</a>
+
+        </div>
+        <div class="tab-bar-icon-container">
+            <label for="modal-toggle" class="btn btn-sm btn-red">+ New Project</label>
+        </div>
+    </div>
+    
+</div>
+
+<router-outlet></router-outlet>
+
+<app-add-project></app-add-project>
+</div>

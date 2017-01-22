@@ -1,0 +1,8 @@
+<div class="card-group-container">
+    <a class="card-container card-{{k.color}}" routerLink="../../project/{{k.$key}}" *ngFor="let k of baseProjects">
+        <div class="card-title">{{k.title}}</div>
+        <div class="card-subtitle">roles, nature {{len}}</div>
+        <div class="card-description">{{k.summary}}</div>
+        <div class="card-bottom">Active 3 weeks ago</div>
+    </a>
+</div>

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Sharpen the Saw",
+        "description": "Improve yourself and your personality, sharpen your mentality !",
+        "category": "base",
+        "color": "green"
+    },
+    {
+        "title": "Fitness",
+        "description": "All your health projects are included here",
+        "category": "base",
+        "color": "orange"
+    },
+    {
+        "title": "Finances",
+        "description": "manage your finances here",
+        "category": "base",
+        "color": "blue"
+    }
+]
