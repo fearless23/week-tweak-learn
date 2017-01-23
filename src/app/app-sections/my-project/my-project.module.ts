@@ -4,7 +4,7 @@
 import { NgModule } from '@angular/core';  
 
 // Shared Module: Forms, Common, Http
-import { SharedModule } from '../shared/shared.module';  
+import { SharedModule } from '../../shared/shared.module';  
 // Other Required Things
 import 'rxjs/Rx';
 

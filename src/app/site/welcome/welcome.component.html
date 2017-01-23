@@ -1,0 +1,22 @@
+<div class="container">
+
+    <div class="start-container">
+        <div class="start-nav">
+            <ul>
+                <li class="start-nav-item">Home</li>
+                <li class="start-nav-item">Blog</li>
+                <li class="start-nav-item">App</li>
+            </ul>
+            <ul>
+                <li class="start-nav-item">Login</li>
+                <li class="start-nav-item">SignUp</li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+    <div *ngIf="loggedin"> Welcome {{userName}} Go To App </div>
+    <div *ngIf="!loggedin"> Login </div>	
+
+</div>

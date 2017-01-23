@@ -9,7 +9,7 @@ let rand = Math.floor(Math.random()*4);
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.css', '../../shared/styles/modal.css'],
+  styleUrls: ['./add-project.component.css', '../../../shared/styles/modal.css'],
   
 })
 

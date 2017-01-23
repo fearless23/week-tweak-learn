@@ -21,8 +21,8 @@ const routes: Routes = [
     { path: '', 
       component: StartComponent, canActivate: [AuthGuard],
       children:[
-        { path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
-        { path: 'project/:id', loadChildren: 'app/my-project/my-project.module#MyProjectModule', canActivate: [AuthGuard] },
+        { path: 'projects', loadChildren: 'app/app-sections/projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
+        { path: 'project/:id', loadChildren: 'app/app-sections/my-project/my-project.module#MyProjectModule', canActivate: [AuthGuard] },
         { path: 'project', pathMatch: 'full', redirectTo: 'projects', canActivate: [AuthGuard]},
         { path: '', pathMatch: 'full', component: RtyComponent, canActivate: [AuthGuard]},
 

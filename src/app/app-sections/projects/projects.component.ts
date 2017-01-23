@@ -6,7 +6,7 @@ declare var firebase: any;
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css', '../shared/styles/content-topbar.css'],
+  styleUrls: ['./projects.component.css', '../../shared/styles/content-topbar.css'],
   providers: [ProjectsService]
   
 })

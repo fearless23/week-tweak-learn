@@ -12,25 +12,26 @@ export const firebaseConfig = {
   storageBucket: "week-tweak-learn.appspot.com",
   messagingSenderId: "847520306136"
 };
-// Root Component
-import { AppComponent } from './app.component';
-//import { MenuComponent }      from './menu/menu.component';
+
 // Roouter for Root Modules
 import { AppRoutingModule, rc } from './app.routing';
-
 import {ContactModule} from './contact/contact.module';
+
 import { AuthGuard } from './auth.service';
+
+// Root Component
+import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     ContactModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    
   ],
   declarations: [
     AppComponent,
-    //MenuComponent,
     rc
   ],
   providers: [  AuthGuard],

@@ -6,7 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 //import {StartComponent } from './start.component';
 // Root Component
-import { MenuComponent }      from './../menu/menu.component';
+import { MenuComponent }      from './menu/menu.component';
 // Roouter for Root Modules
 import { StartRoutingModule, rc } from './start.routing';
 
