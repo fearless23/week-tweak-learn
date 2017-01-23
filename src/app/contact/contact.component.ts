@@ -18,7 +18,7 @@ export class ContactComponent {
 
   logout() {
      this.af.auth.logout();
-     this.router.navigateByUrl('');
+     this.router.navigateByUrl('/signout');
      console.log('logged out');
   }
 

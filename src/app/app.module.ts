@@ -14,7 +14,7 @@ export const firebaseConfig = {
 };
 // Root Component
 import { AppComponent } from './app.component';
-import { MenuComponent }      from './menu/menu.component';
+//import { MenuComponent }      from './menu/menu.component';
 // Roouter for Root Modules
 import { AppRoutingModule, rc } from './app.routing';
 
@@ -30,7 +30,7 @@ import { AuthGuard } from './auth.service';
   ],
   declarations: [
     AppComponent,
-    MenuComponent,
+    //MenuComponent,
     rc
   ],
   providers: [  AuthGuard],
