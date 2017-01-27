@@ -1,4 +1,4 @@
-<input type="checkbox" name="modal-toggle" id="modal-toggle"[(ngModel)]="modalState">
+<input type="checkbox" name="modal-toggle" id="modal-toggle" [(ngModel)]="modalState">
 <div class="modal-wrapper">
     <!--<div class="modal-container">-->
       <div class="add-project-wrapper">
@@ -56,9 +56,9 @@
           </div>
 
           <div class="add-project-bottom">
-
-            <button class="btn btn-sm">Cancel</button>
-            <button class="btn btn-blue btn-sm" (click)="addProject(title, summary, category) ">Create Project</button>
+                          
+            <button class="btn btn-sm" (click)=reset(title,summary,category)>Cancel</button>
+            <button class="btn btn-blue btn-sm" (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">Create Project</button>
           </div>
         </div>
       

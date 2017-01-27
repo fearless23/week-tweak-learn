@@ -8,16 +8,20 @@ export class MyProjectService {
 
 
   sub: any;
+  stepsDb;
   db;
   id;
   userId;
   project={
     info: "",
   };
+  milestones;
+  steps=[];
   constructor( private route: ActivatedRoute, af: AngularFire) {
     af.auth.subscribe( auth =>
       this.userId = auth.uid
     );
+    this.stepsDb = af.database;
     this.route = route;
     this.sub = this.route.params.subscribe(params => this.id = params['id']);
     this.db = af.database.list('users/'+this.userId+'/projects', { preserveSnapshot: true });
@@ -30,6 +34,14 @@ export class MyProjectService {
         })
       })
     });
+    /*af.database.list('users/'+this.userId+'/milestones').subscribe( data =>{ 
+      for(let milestone of data){
+        if(milestone.project === 'fgh'){ this.milestones = milestone};
+    }});*/
+    af.database.list('users/'+this.userId+'/steps').subscribe( data =>{ 
+      for(let step of data){
+        if(step.projectKey === this.id){ this.steps.push(step);}
+    }});
   }
 
   /*ngOnInit() {

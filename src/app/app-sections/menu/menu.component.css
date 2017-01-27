@@ -1,10 +1,10 @@
 .main-menu-container {
-	width: 6em;
+	width: 5.07em;
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100%;
-	background-color: hsl(207,6%,12%);
+	background-color: hsl(168,58%,30%);
 	color: #fff;
 	display: flex;
 	flex-direction: column;
@@ -16,9 +16,9 @@
 }
 
 .logo-area {
-	height: 6em;
-    min-height: 6em;
-	/*background-color: #00a4e6;*/
+	height: 4em;
+    min-height: 4em;
+	background-color: hsla(168,58%,41%,0.8);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -26,8 +26,8 @@
 }
 
 .logo {
-	height: 4em; /* same as content-topbar*/
-	width: 4em;
+	height: 3em; /* same as content-topbar*/
+	width: 3em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -79,7 +79,7 @@ input[name="ert"]:checked + .main-menu-container .logo-area span {
 .sidebar-icon {
 	color: #eaeaea;
 	width: 100%;
-	border-left: 3px solid hsl(207,6%,12%);
+	border-left: 3px solid hsl(168,58%,30%);
 	height: 3em;
 	margin: 1em 0;
 	display: flex;
@@ -89,6 +89,15 @@ input[name="ert"]:checked + .main-menu-container .logo-area span {
 	cursor: pointer;
 	position: relative;
 	transition: all 0.3s linear;
+}
+
+.menu-active svg.icon {
+    fill: #eeff22;
+	
+}
+svg.icon {
+    fill: white;
+	width: 1.65em;
 }
 
 .sidebar-icon span {
@@ -108,41 +117,17 @@ input[name="ert"]:checked + .main-menu-container .logo-area span {
 	border-left: 3px solid #EEFF22;
 }
 
-/* cool trick by me yeah */
-.sidebar-icon:hover:after {
-	content: '';
-	position: absolute;
-	top: 16px;
-	right: 16px;
-	width: 0px;
-	z-index: 110;
-	background-color: #00a8e8;
-	border-bottom: 16px solid white;
-}
-
-img {
-	color: #fff;
-	width: 2em;
-	height: 2em;
+.sidebar-icon.menu-active svg.icon {
+  fill: #eeff22;
 }
 
 .sidebar-wt {
 	display: flex;
     min-height: 2em;
+	height: 2em;
 	justify-content: flex-end;
 }
 
-.sidebar-wt label{
-	cursor: pointer;
-}
-
-input[name="ert"] {
-	position: absolute;
-	opacity: 0;
-	width: 0;
-	height: 0;
-	overflow: hidden;
-}
 input[name="ert"]:checked + .main-menu-container {
 	width: 12em;
 	transition: width .3s linear;
@@ -167,13 +152,43 @@ input[name="ert"]:checked + .main-menu-container .sidebar-icon-list .sidebar-ico
 	margin-left: 1em;
 }
 
-.main-menu-container .sidebar-wt label img {
+.main-menu-container .sidebar-wt label svg.icon-right-angle {
 	transition: all 0.3s linear;
 }
 
-input[name="ert"]:checked + .main-menu-container .sidebar-wt label img {
+input[name="ert"]:checked + .main-menu-container .sidebar-wt label svg.icon-right-angle {
 	transform: rotateZ(180deg);
 	transition: all 0.3s linear;
 }
 
-@media (min-width: 20em) {}
+@media (max-width: 27em) {
+	.main-menu-container {
+		width: 12em;
+		position: fixed;
+		left: -12em;
+		transform: translateX(0em);
+		transition: transform .3s ease-out;
+	}
+
+	input[name="menu-toggle"]:checked ~ .main-menu-container {
+		transform: translateX(12em);
+		transition: transform .3s ease-out;
+	}
+
+	.main-menu-container .sidebar-icon-list .sidebar-icon {
+		flex-direction: row;
+		justify-content: flex-start;
+		padding-left: 1em;
+	}
+
+	.main-menu-container .sidebar-icon-list .sidebar-icon span {
+		font-size: 0.75em;
+		opacity: 1;
+		position: relative;
+		margin-left: 1em;
+	}
+
+	.main-menu-container .sidebar-wt {
+		display: none;
+	}
+}

@@ -11,18 +11,18 @@ import { WelcomeComponent }         from './site/welcome/welcome.component';
 
 // Contact Component is part of Contact Module which is eagerly loaded in Root Module
 // but not declared in Root Module, but imported here for routing purpose...
-import { ContactComponent } from './contact/contact.component';
-import { AuthGuard } from './auth.service';
+import { ContactComponent }         from './contact/contact.component';
+import { AuthGuard }                from './auth.service';
 
 // Routes
 const routes: Routes = [  
-    { path: '', loadChildren: 'app/app-sections/start.module#StartModule', canActivate: [AuthGuard] },
-    { path: 'signout', component: SignOutComponent },
-    { path: 'contact', component: ContactComponent},
-    { path: 'login', component: LoginComponent },
+    { path: '',         loadChildren: 'app/app-sections/start.module#StartModule', canActivate: [AuthGuard] },
+    { path: 'signout',  component: SignOutComponent },
+    { path: 'contact',  component: ContactComponent},
+    { path: 'login',    component: LoginComponent },
     
-    { path: 'welcome', component: WelcomeComponent},
-    {path: '**', component: NotFoundComponent}
+    { path: 'welcome',  component: WelcomeComponent},
+    { path: '**',       component: NotFoundComponent}
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ const projectsRoutes: Routes = [
         {path:'pro',      component: ProProjectsComponent      },
         {path:'social',   component: SocialProjectsComponent   },
         {path:'personal', component: PersonalProjectsComponent },
+        //{path:'add', component: AddProjectComponent },
         { path: '', pathMatch: 'full', redirectTo: 'personal'  }
       ]
     }

@@ -9,12 +9,12 @@ import { MyProjectService} from './my-project.service';
 })
 
 export class MyProjectComponent {
-  
   project;
   constructor( private mps: MyProjectService) {
     this.project = mps.project;
-  }
 
-  
+    
+  }
+ 
   
 }

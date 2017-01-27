@@ -1,15 +1,28 @@
-<!--<app-menu></app-menu>
-<div class="content-container">-->
 <div class="content-topbar">
-    <div class="topbar-top">
+    <div class="topbar-top blue">
         <div class="topbar-top-title">
+            <label for="menu-toggle" class="clickable">
+                <svg class="icon icon-menu">
+                    <use xlink:href="assets/svg/symbol-defs.svg#icon-menu"></use>
+                </svg>
+            </label>
             <span>{{username}}`s</span>
             <span>Projects</span>
         </div>
         <div class="settings">
-            <a href="#" title="Settings" style="position: relative;"><img src="assets/svg/bell.svg"><span class="badge">3</span></a>
+            <a href="#" title="Settings">
+                <svg class="icon icon-settings">
+                    <use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use>
+                </svg>
+            </a>
+            <a href="#" title="Notifications">
+                <svg class="icon icon-week" viewBox="0 0 32 32">
+                    <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
+                </svg>
+                <span class="badge">3</span>
+            </a>           
             <a href="#" routerLink="./../contact"title="{{user.displayName}}`s Profile"><img src="{{user.photoURL}}" class="user-img"></a>
-            <label for="more-toggle" title="More" class="more" (click)="isClassVisible = !isClassVisible; rty = !rty">&#x22EE;</label>
+            <label for="more-toggle" title="More" class="more" (click)="isClassVisible = !isClassVisible; rty = !rty">&#x2026;</label>
             <!--<input id="more-toggle" type="text">-->
             <div [ngClass]="{'hidden-panel': !rty, 'more-container': isClassVisible}">
                 <ul class="more-items">

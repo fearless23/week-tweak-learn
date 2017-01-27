@@ -17,6 +17,7 @@ export class AddProjectComponent {
   db;
   project;
   userId;
+  modalState=false;
 
   constructor(private projectsservice: ProjectsService, private router: Router) {
     this.db = projectsservice.db;
@@ -26,9 +27,13 @@ export class AddProjectComponent {
   addProject(a:"none",b:"none", c) {
       this.project = {"title": a, "summary": b, "category": c, "color":colors[rand], "dateAdded": new Date().getTime()};
       this.db.list('/users/'+this.userId+'/projects/'+c).push(this.project);
-      //list(c).push(this.project);
-      //this.router.navigateByUrl('/projects/'+c);
+      this.modalState = false;
+      this.router.navigateByUrl('/projects/'+c);
   };
+
+  reset(a,b,c){
+    a = ''; b='', c='';
+  }
 
   ngOnInit() { }
 

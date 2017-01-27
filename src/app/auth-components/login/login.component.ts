@@ -8,14 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loggedin = false;
   error: any;
   constructor(public af: AngularFire,private router: Router) {
 
       this.af.auth.subscribe(auth => { 
       if(auth) {
-        this.router.navigateByUrl('/');
-        this.loggedin = true;
+        this.router.navigateByUrl('');
       }
     });
   }
@@ -26,7 +24,7 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['']);
       }).catch(
         (err) => {
         this.error = err;
@@ -39,7 +37,7 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['']);
       }).catch(
         (err) => {
         this.error = err;

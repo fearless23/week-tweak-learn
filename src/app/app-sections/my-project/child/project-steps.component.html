@@ -1,1 +1,7 @@
-Project Steps Here
+<div *ngFor="let step of steps">
+    
+        <h3>{{step.title}}</h3>
+        <p> {{step.summary}} </p>
+        <p><em> {{step.dateAdded | date:'medium'}}</em> </p>
+        
+</div>

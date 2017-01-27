@@ -1,4 +1,5 @@
-<input type="checkbox" id="menu-expander" name="ert">
+ <input type="checkbox" id="menu-toggle"   name="menu-toggle" class="hidden">
+ <input type="checkbox" id="menu-expander" name="ert"         class="hidden">
 <div class="main-menu-container">
 
     <div class="logo-area">
@@ -8,37 +9,39 @@
 
     <ul class="sidebar-icon-list">
         <li class="sidebar-icon">
-            <img src="assets/svg/home.svg">
+            <svg class="icon icon-week"><use xlink:href="assets/svg/symbol-defs.svg#icon-week"></use></svg>
             <span>Week</span>
         </li>
         <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
-            <img src="assets/svg/cocktail.svg">
+            <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-project2"></use></svg>
             <span>Projects</span>
         </li>
         <li class="sidebar-icon" routerLink="/project/:id" routerLinkActive="menu-active" title="Life">
-            <img src="assets/svg/grid.svg">
+            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-home"></use></svg>
             <span>Life</span>
         </li>
         <li class="sidebar-icon" routerLink="/contact" routerLinkActive="menu-active" title="Life">
-            <img src="assets/svg/heart.svg">
+            <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-user"></use></svg>
             <span>Projects</span>
         </li>
         <li class="sidebar-icon" routerLink="steps" routerLinkActive="menu-active" title="Life">
-            <img src="assets/svg/diamond.svg">
+            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use></svg>
             <span>Projects</span>
         </li>
         <li class="sidebar-icon">
-            <img src="assets/svg/clock.svg">
+            <svg class="icon icon-stats-dots"><use xlink:href="assets/svg/symbol-defs.svg#icon-stats-dots"></use></svg>
             <span>Analysis</span>
         </li>
         <li class="sidebar-icon">
-            <img src="assets/svg/grid.svg">
+            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-edit"></use></svg>
             <span>Projects</span>
         </li>
     </ul>
 
     <div class="sidebar-wt">
-        <label for="menu-expander"><img src="assets/svg/angle-right.svg"></label>
+        <label for="menu-expander" class="clickable">
+            <svg class="icon icon-right-angle"><use xlink:href="assets/svg/symbol-defs.svg#icon-right-angle"></use></svg>
+        </label>
     </div>
     <div class="top-icon">
         <div class="user-pic"></div>

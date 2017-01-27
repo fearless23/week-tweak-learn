@@ -1,0 +1,26 @@
+<div class="add-project-container">
+
+    <div class="add-project-topbar">
+        <div class="title">Create New Step</div>
+    </div>
+
+    <div class="add-project-middle">
+
+        <div class="add-project-content">
+            <div class="add-project-content-title">Step Title</div>
+            <input type="text" id="project-title" placeholder="Learn painting" [(ngModel)]="title">    
+        </div>
+        <div class="add-project-content">
+            <div class="add-project-content-title">Summary</div>
+            <textarea rows="3" cols="42" placeholder="Learn oil painting this summer" class="add-project-description" [(ngModel)]="summary"></textarea>
+        </div>
+    </div>
+
+    <div class="add-project-bottom">
+                    
+        <button class="btn btn-sm" (click)=reset(title,summary,category)>Cancel</button>
+        <button class="btn btn-blue btn-sm" (click)="addStep(title, summary); title = ''; summary = '' ">Create Step</button>
+    </div>
+
+</div>
+      
