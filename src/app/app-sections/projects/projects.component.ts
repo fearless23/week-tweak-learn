@@ -16,11 +16,15 @@ export class ProjectsComponent {
   user;
   isClassVisible: false;
   rty: true;
+  drop = false;
   constructor(private ps:ProjectsService) {
     this.username = this.ps.username;
     this.ps.af.auth.subscribe(data => this.user = data.auth);
   }
 
+  onClickOutside(event:Object) {
+      this.drop = false;
+  }
   ngOnInit() { }
 
 }

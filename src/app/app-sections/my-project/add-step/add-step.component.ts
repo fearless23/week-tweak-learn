@@ -18,7 +18,8 @@ export class AddStepComponent implements OnInit {
     	this.db = mps.stepsDb;
     	this.userId = mps.userId;
 		this.projectKey = mps.id;
-	}
+		
+		}
 
 	addStep(a,b) {
     	this.step = {"title": a, "summary": b, "projectKey": this.projectKey, "dateAdded": new Date().getTime()};

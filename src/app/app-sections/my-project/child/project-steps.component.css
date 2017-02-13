@@ -1,0 +1,203 @@
+.container {
+	display: flex;
+	position: relative;
+	height: 100%;
+}
+
+.left-container {
+	width: 18.18em;
+	background-color: #19164e;
+	color: white;
+	padding: 0.44em;
+}
+
+.action-step {
+	display: flex;
+	color: white;
+	border: 2px solid hsl(168,58%,30%);
+	position: relative;
+	margin: 0.35em 0em;
+	height: 6.39em;
+}
+
+.action-step:hover {
+	opacity: 0.8;
+}
+.action-step-active:hover {
+	opacity: 1;
+}
+.action-step-active:before {
+	position: absolute;
+	content: '';
+	left: 100%;
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid transparent;
+	border-left: 1em solid hsl(168,58%,30%);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.step-progress {
+	width: 8%;
+	background-color: rgba(32, 121, 103, 0.31);
+	border-right: 2px solid hsl(168,58%,30%);
+	position: relative;
+}
+
+.wer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10%;
+	background-color: #207967;
+}
+
+.step-description {
+	padding: 0.25em;
+	padding-left: 1em;
+	font-size: 0.89em;
+	width: 92%;
+	display: flex;
+	flex-direction: column;
+}
+
+.step-description div:first-child {
+	flex-grow: 1;
+}
+
+.right-container {
+	margin: 0 auto;
+}
+
+.task-container {
+	width: 32.46em;
+	margin: 0 auto;
+	margin-top: 4.02em;
+	margin-bottom: 2em;
+}
+
+.task {
+	width: 100%;
+	height: 4em;
+	box-shadow: 4px 4px 20px 0px hsla(207,6%,32%, 0.28);
+	background-color: white;
+	margin-bottom: 1.42em;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.task-title {
+	position: relative;
+}
+
+.task-done:before {
+	position: absolute;
+	content: '';
+	left: 100%;
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid transparent;
+	border-left: 1em solid hsl(168,58%,30%);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.task-details {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	padding-left: 0.5em;
+}
+
+label.task-title {
+	transition: all 0.3s linear;
+}
+
+/*label.task-title:before {
+	border: 1px solid grey;
+	border-radius: 1.5em;
+	content: "\00a0";
+	display: inline-block;
+	font-family: "roboto mono";
+	height: 2em;
+	width: 2em;
+	margin-right: 1em;
+	vertical-align: middle;
+	line-height: 2em;
+	transition: all .3s linear;
+}
+
+input[name="task-checkbox"]:checked + label.task-title {
+	text-decoration: line-through;
+	color: hsl(207,6%,60%);
+	transition: all 0.3s linear;
+}
+input[name="task-checkbox"]:checked + label.task-title:before {
+	background: #00a8e8;
+  	color: #fff;
+  	content: "\2713";
+  	border: none;
+  	text-align: center;
+  	transition: all .3s linear;
+}*/
+
+.task-title {
+	flex-grow: 1;
+}
+
+.task-open {
+	width: 2em;
+	border-left: 1px solid #eaeaea;
+}
+
+.task-info {
+	height: 1.12em;
+	background-color: #eaa;
+	font-size: 0.89em;
+}
+
+.task-add {
+	box-shadow: 4px 4px 20px 0px hsla(207,6%,32%, 0.28);
+	background-color: white;
+	margin-bottom: 2em;
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 60em) {
+	.left-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		display: none;
+	}
+}
+
+
+input[id="step-toggle"]:checked + .left-container {
+	display: block;
+	opacity: 1;
+}
+
+.step-toggle {
+	position: absolute;
+	right: 0;
+}
+
+@media (min-width: 60em) {
+	.step-toggle {
+		display: none;
+	}
+}
+
+@media (max-width: 42em) {
+	.task-container {
+		width: 100%;
+	}
+
+	.right-container {
+		width: 100%;
+		padding: 0 2em;
+	}
+}

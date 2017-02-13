@@ -39,7 +39,11 @@
 	display: none;
 }
 
-input[name="ert"]:checked + .main-menu-container .logo-area span {
+/*input[name="ert"]:checked + .main-menu-container .logo-area span {
+	display: block;
+}*/
+
+.main-menu-container.menu-expanded .logo-area span {
 	display: block;
 }
 
@@ -128,7 +132,7 @@ svg.icon {
 	justify-content: flex-end;
 }
 
-input[name="ert"]:checked + .main-menu-container {
+/*input[name="ert"]:checked + .main-menu-container {
 	width: 12em;
 	transition: width .3s linear;
 }
@@ -150,15 +154,44 @@ input[name="ert"]:checked + .main-menu-container .sidebar-icon-list .sidebar-ico
 	position: relative;
 	transition: all 0.3s linear;
 	margin-left: 1em;
+}*/
+
+.main-menu-container.menu-expanded {
+	width: 12em;
+	transition: width .3s linear;
+}
+
+.main-menu-container.menu-expanded .logo-area {
+	height: 6em;
+}
+
+.main-menu-container.menu-expanded .sidebar-icon-list .sidebar-icon {
+	flex-direction: row;
+	justify-content: flex-start;
+	padding-left: 1em;
+	transition: all 0.3s linear;
+}
+
+.main-menu-container.menu-expanded .sidebar-icon-list .sidebar-icon span {
+	font-size: 0.75em;
+	opacity: 1;
+	position: relative;
+	transition: all 0.3s linear;
+	margin-left: 1em;
 }
 
 .main-menu-container .sidebar-wt label svg.icon-right-angle {
 	transition: all 0.3s linear;
 }
 
-input[name="ert"]:checked + .main-menu-container .sidebar-wt label svg.icon-right-angle {
+.main-menu-container.menu-expanded .sidebar-wt label svg.icon-right-angle {
 	transform: rotateZ(180deg);
 	transition: all 0.3s linear;
+}
+@media (min-width: 27em) {
+	.menu-toggle-icon {
+		display: none;
+	}
 }
 
 @media (max-width: 27em) {
@@ -170,7 +203,11 @@ input[name="ert"]:checked + .main-menu-container .sidebar-wt label svg.icon-righ
 		transition: transform .3s ease-out;
 	}
 
-	input[name="menu-toggle"]:checked ~ .main-menu-container {
+	/*input[name="menu-toggle"]:checked ~ .main-menu-container {
+		transform: translateX(12em);
+		transition: transform .3s ease-out;
+	}*/
+	.main-menu-container.show {
 		transform: translateX(12em);
 		transition: transform .3s ease-out;
 	}
@@ -191,4 +228,16 @@ input[name="ert"]:checked + .main-menu-container .sidebar-wt label svg.icon-righ
 	.main-menu-container .sidebar-wt {
 		display: none;
 	}
+
+	.menu-toggle-icon{
+		position: fixed;
+    	right: 0.5em;
+    	background-color: black;
+    	top: 0.5em;
+    	padding: 0.44em 0.5em;
+    	line-height: 0.8em;
+    	z-index: 102;
+    	border-radius: 50%;
+	}
 }
+

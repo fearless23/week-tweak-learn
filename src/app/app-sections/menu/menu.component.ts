@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  title = 'Menu works!';
+  menuExpanded = false;
+  show = false;
+  
+  onClickOutside(e){
+    this.show = false;
+  }
 }

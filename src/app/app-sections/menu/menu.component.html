@@ -1,52 +1,59 @@
- <input type="checkbox" id="menu-toggle"   name="menu-toggle" class="hidden">
- <input type="checkbox" id="menu-expander" name="ert"         class="hidden">
-<div class="main-menu-container">
+<div (clickOutside)="onClickOutside($event)"> <!-- to get expected wrapped in a extra div -->
+    <label (click)="show=!show" class="clickable menu-toggle-icon">
+        <svg class="icon icon-menu">
+            <use xlink:href="assets/svg/symbol-defs.svg#icon-menu"></use>
+        </svg>
+        
+    </label>
+    <div class="main-menu-container" [class.menu-expanded]=menuExpanded [class.show]="show" >
+        
+                
+        <div class="logo-area">
+            <div class="logo"><!--<img src="img/logo-white.png">--></div>
+            <span> Week Tweak </span>
+        </div>
 
-    <div class="logo-area">
-        <div class="logo"><!--<img src="img/logo-white.png">--></div>
-        <span> Week Tweak </span>
+        <ul class="sidebar-icon-list">
+            <li class="sidebar-icon">
+                <svg class="icon icon-week"><use xlink:href="assets/svg/symbol-defs.svg#icon-week"></use></svg>
+                <span>Week</span>
+            </li>
+            <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
+                <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-project2"></use></svg>
+                <span>Projects</span>
+            </li>
+            <li class="sidebar-icon" routerLink="/project/:id" routerLinkActive="menu-active" title="Life">
+                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-home"></use></svg>
+                <span>Life</span>
+            </li>
+            <li class="sidebar-icon" routerLink="/contact" routerLinkActive="menu-active" title="Life">
+                <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-user"></use></svg>
+                <span>Projects</span>
+            </li>
+            <li class="sidebar-icon" routerLink="steps" routerLinkActive="menu-active" title="Life">
+                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use></svg>
+                <span>Projects</span>
+            </li>
+            <li class="sidebar-icon">
+                <svg class="icon icon-stats-dots"><use xlink:href="assets/svg/symbol-defs.svg#icon-stats-dots"></use></svg>
+                <span>Analysis</span>
+            </li>
+            <li class="sidebar-icon">
+                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-edit"></use></svg>
+                <span>Projects</span>
+            </li>
+        </ul>
+
+        <div class="sidebar-wt">
+            <label class="clickable" (click)= "menuExpanded = !menuExpanded">
+                <svg class="icon icon-right-angle"><use xlink:href="assets/svg/symbol-defs.svg#icon-right-angle"></use></svg>
+            </label>
+        </div>
+        <div class="top-icon">
+            <div class="user-pic"></div>
+            <!--<div class="user-name">Jimmy</div>
+            <label for="menu-expander"><img src="svg/menu.svg">rt</label>-->
+        </div>
+
     </div>
-
-    <ul class="sidebar-icon-list">
-        <li class="sidebar-icon">
-            <svg class="icon icon-week"><use xlink:href="assets/svg/symbol-defs.svg#icon-week"></use></svg>
-            <span>Week</span>
-        </li>
-        <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
-            <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-project2"></use></svg>
-            <span>Projects</span>
-        </li>
-        <li class="sidebar-icon" routerLink="/project/:id" routerLinkActive="menu-active" title="Life">
-            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-home"></use></svg>
-            <span>Life</span>
-        </li>
-        <li class="sidebar-icon" routerLink="/contact" routerLinkActive="menu-active" title="Life">
-            <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-user"></use></svg>
-            <span>Projects</span>
-        </li>
-        <li class="sidebar-icon" routerLink="steps" routerLinkActive="menu-active" title="Life">
-            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use></svg>
-            <span>Projects</span>
-        </li>
-        <li class="sidebar-icon">
-            <svg class="icon icon-stats-dots"><use xlink:href="assets/svg/symbol-defs.svg#icon-stats-dots"></use></svg>
-            <span>Analysis</span>
-        </li>
-        <li class="sidebar-icon">
-            <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-edit"></use></svg>
-            <span>Projects</span>
-        </li>
-    </ul>
-
-    <div class="sidebar-wt">
-        <label for="menu-expander" class="clickable">
-            <svg class="icon icon-right-angle"><use xlink:href="assets/svg/symbol-defs.svg#icon-right-angle"></use></svg>
-        </label>
-    </div>
-    <div class="top-icon">
-        <div class="user-pic"></div>
-        <!--<div class="user-name">Jimmy</div>
-        <label for="menu-expander"><img src="svg/menu.svg">rt</label>-->
-    </div>
-
 </div>

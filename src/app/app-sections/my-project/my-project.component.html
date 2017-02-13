@@ -1,12 +1,7 @@
 <div class="content-topbar">
     <div class="topbar-top red">
         <div class="topbar-top-title">
-            <label for="menu-toggle" class="clickable">
-                <svg class="icon icon-menu">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-menu"></use>
-                </svg>
-            </label>
-            <span><a routerLink="../../projects/{{project.info.category}}">{{project.info.category | capitalize}}</a></span>
+            <span><a routerLink="../../projects/{{project.info.category}}" class="text-white">{{project.info.category | capitalize}} |</a></span>
             <span>{{project.info.title | capitalize}}</span>
         </div>
         <div class="settings">
@@ -22,9 +17,17 @@
                 <span class="badge">3</span>
             </a>           
             
-            <label for="more-toggle" title="More" class="more">&#x22EE;</label>
-            <!--<input id="more-toggle" type="text">
-            <div class="more-container">MORE</div>-->
+            <!--<label for="more-toggle" title="More" class="more">&#x22EE;</label>-->
+            <div class="b" (clickOutside)="onClickOutside($event)">
+                <span (click)="drop = !drop" class="more">&#x2026;</span>
+                <div class="dropdown" [class.dropdown-active]="drop">
+                    <ul class="more-items">
+                        <li class="more-item">Profile</li>
+                        <li class="more-item">Settings</li>
+                        <li class="more-item">Log Out</li>
+                    </ul>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -34,10 +37,6 @@
             <a routerLink="./steps" routerLinkActive="project-tab-active" class="project-tab" title="Action Steps">Action Steps</a>
             <label for="social-tab" class="project-tab">Files</label>
             <label for="pro-tab" class="project-tab">More</label>
-        </div>
-        <div class="tab-bar-icon-container">
-            <a routerLink="./add-step" routerLinkActive="project-tab-active" class="btn btn-blue" title="Add Step">+ New Step</a>
-            
         </div>
     </div>
 </div>

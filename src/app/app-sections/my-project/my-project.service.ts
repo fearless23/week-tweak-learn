@@ -6,7 +6,6 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class MyProjectService {
 
-
   sub: any;
   stepsDb;
   db;
@@ -17,6 +16,7 @@ export class MyProjectService {
   };
   milestones;
   steps=[];
+  tasks=[];
   constructor( private route: ActivatedRoute, af: AngularFire) {
     af.auth.subscribe( auth =>
       this.userId = auth.uid
@@ -34,29 +34,17 @@ export class MyProjectService {
         })
       })
     });
-    /*af.database.list('users/'+this.userId+'/milestones').subscribe( data =>{ 
-      for(let milestone of data){
-        if(milestone.project === 'fgh'){ this.milestones = milestone};
-    }});*/
     af.database.list('users/'+this.userId+'/steps').subscribe( data =>{ 
       for(let step of data){
         if(step.projectKey === this.id){ this.steps.push(step);}
     }});
+    /*af.database.list('users/'+this.userId+'/tasks').subscribe( data =>{ 
+      for(let task of data){
+        if(task.step === this.step_id){ this.tasks.push(task);}
+    }});*/
+
   }
 
-  /*ngOnInit() {
-
-    this.sub = this.route.params.subscribe(params => {
-    let id = params['id'];
-    console.log("ID " +id);
-  });*/
-
-  /*this.db.map( projects => {
-    const filtered = projects.filter(project => project.uid=== '-KamS40N02VGAZmmRWBF');
-    console.log("Filtered "+filtered);
-    this.project = filtered;  })
-
-  }*/
-
+  
 
 }

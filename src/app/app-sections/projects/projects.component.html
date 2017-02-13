@@ -1,11 +1,6 @@
 <div class="content-topbar">
     <div class="topbar-top blue">
         <div class="topbar-top-title">
-            <label for="menu-toggle" class="clickable">
-                <svg class="icon icon-menu">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-menu"></use>
-                </svg>
-            </label>
             <span>{{username}}`s</span>
             <span>Projects</span>
         </div>
@@ -22,15 +17,18 @@
                 <span class="badge">3</span>
             </a>           
             <a href="#" routerLink="./../contact"title="{{user.displayName}}`s Profile"><img src="{{user.photoURL}}" class="user-img"></a>
-            <label for="more-toggle" title="More" class="more" (click)="isClassVisible = !isClassVisible; rty = !rty">&#x2026;</label>
-            <!--<input id="more-toggle" type="text">-->
-            <div [ngClass]="{'hidden-panel': !rty, 'more-container': isClassVisible}">
-                <ul class="more-items">
-                    <li class="more-item">Profile</li>
-                    <li class="more-item">Settings</li>
-                    <li class="more-item">Log Out</li>
-                </ul>
+            <div class="b" (clickOutside)="onClickOutside($event)">
+                <span (click)="drop = !drop" class="more">&#x2026;</span>
+                <div class="dropdown" [class.dropdown-active]="drop">
+                    <ul class="more-items">
+                        <li class="more-item">Profile</li>
+                        <li class="more-item">Settings</li>
+                        <li class="more-item">Log Out</li>
+                    </ul>
+                </div>
             </div>
+
+
         </div>
     </div>
     <div class="tab-bar-container">
