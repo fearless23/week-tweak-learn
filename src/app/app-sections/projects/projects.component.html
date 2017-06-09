@@ -1,52 +1,8 @@
-<div class="content-topbar">
-    <div class="topbar-top blue">
-        <div class="topbar-top-title">
-            <span>{{username}}`s</span>
-            <span>Projects</span>
-        </div>
-        <div class="settings">
-            <a href="#" title="Settings">
-                <svg class="icon icon-settings">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use>
-                </svg>
-            </a>
-            <a href="#" title="Notifications">
-                <svg class="icon icon-week" viewBox="0 0 32 32">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
-                </svg>
-                <span class="badge">3</span>
-            </a>           
-            <a href="#" routerLink="./../contact"title="{{user.displayName}}`s Profile"><img src="{{user.photoURL}}" class="user-img"></a>
-            <div class="b" (clickOutside)="onClickOutside($event)">
-                <span (click)="drop = !drop" class="more">&#x2026;</span>
-                <div class="dropdown" [class.dropdown-active]="drop">
-                    <ul class="more-items">
-                        <li class="more-item">Profile</li>
-                        <li class="more-item">Settings</li>
-                        <li class="more-item">Log Out</li>
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="tab-bar-container">
-        <div class="tabs-title-container">
-            <a routerLink="./base" routerLinkActive="project-tab-active" class="project-tab" title="Base Projects">Base</a>
-            <a routerLink="./personal" routerLinkActive="project-tab-active" class="project-tab" title="Personal Projects">Personal</a>
-            <a routerLink="./pro" routerLinkActive="project-tab-active" class="project-tab" title="Pro Projects">Pro</a>
-            <a routerLink="./social" routerLinkActive="project-tab-active" class="project-tab" title="Social Projects">Social</a>
-
-        </div>
-        <div class="tab-bar-icon-container">
-            <label for="modal-toggle" class="btn btn-sm btn-red">+ New Project</label>
-        </div>
-    </div>
-    
+<app-top-section [tabsData]="projectsTabsData" [pageTitle]="pageTitle"></app-top-section>
+<div class="filter-bar">
+    <label for="modal-toggle" class="btn btn-sm btn-red">+ New Project</label>
 </div>
 
 <router-outlet></router-outlet>
 
 <app-add-project></app-add-project>
-<!--</div>-->

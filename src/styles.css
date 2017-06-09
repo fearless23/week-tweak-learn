@@ -73,8 +73,8 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  color: #333;
-  background-color: #FFF;
+  color: #4D5256;
+  background-color: rgba(71,71,71,0.21);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased; 
 }
@@ -277,38 +277,6 @@ button, .btn {
   background: #fff; 
 }
 
-/*
-body:before {
-  bottom: 0;
-  border-bottom: 1px solid #FBEED5;
-  background-color: #000;
-  border-left: 1px solid #FBEED5;
-  color: #fff;
-  font: small-caption;
-  padding: 3px 6px;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  z-index: 5; 
-}
-
-@media (min-width: 20em) {
-  body:before {
-    content: "Mobile ≥ 320px (20em)";
-  } 
-}
-@media (min-width: 46.25em) {
-  body:before {
-    content: "Tablet ≥ 740px (46.25em)"; 
-  }
-}
-@media (min-width: 61.25em) {
-  body:before {
-    content: "Desktop ≥ 980px (61.25em)";
-  }
-}*/
-
-
 /* Colors */
 
 /* ---  Primary --- */
@@ -345,7 +313,11 @@ body:before {
 svg, svg.icon {
   width: 2em;
   height: 2em;
-  fill: white;
+  fill: #B5B5B5;
+}
+
+svg:hover, svg.icon:hover {
+  fill: #4D5256;
 }
 
 .text-white {
@@ -368,12 +340,12 @@ svg, svg.icon {
 
 .content-container {
 	background-color: #eee;
-	margin-top: 4em;
+	margin-top: 3.19em;
 }
 
-@media (min-width: 27em) {
+@media (min-width: 28.91em) {
 	.content-container {
-		margin-left: 5.07em; /*if icon-sidebar */
+		margin-left: 4.52em; /*if icon-sidebar */
 		margin-top: 0em;
 		height: 100vh;
 		overflow: auto; /* work if height is 100vh */
@@ -397,8 +369,8 @@ svg, svg.icon {
 .root-loader span:before {
   content: '';
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 6.39em;
+  height: 6.39em;
   border-radius: 50%;
   border: 0.31em solid #f06;
   border-top: 0.31em solid transparent;
@@ -407,9 +379,10 @@ svg, svg.icon {
   left: -45%;
   animation: hill 1s infinite linear;
 }
+
 .root-loader span{
   position: relative;
-  margin-right: 4em;
+  margin-right: 4.02em;
 }
 
 @keyframes hill {
@@ -417,34 +390,43 @@ svg, svg.icon {
   100% { transform: rotate(360deg)}
 }
 
-.b {
+
+
+.dropdown-container {
   position: relative;
   display: inline-block;    
 }
 
-.more {
+.html-entity-style {
 	font-size: 2em;
-	margin-left: 0.5em;
+	margin-left: 0.4em;
 	cursor: pointer;
 	position: relative;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.4em;
+  display: inline-block;
 }
 
-.dropdown {
+.dropdown-container span {
+	display: flex;
+	margin-left: 0.7em;
+	align-items: center;
+}
+
+.dropdown-content {
   display: none;
   position:absolute; 
   z-index: 90;
   transition: all 0.5s linear;
 }
-  
+
 .dropdown-active {
   display: block;
   right: 0;
   box-shadow: 8px 12px 20px 4px hsla(207, 6%, 12%, 0.75);
-  animation: slide .2s linear;
+  animation: dropdown-active .25s linear;
 }
 
-@keyframes slide {
+@keyframes dropdown-active {
   0% {
     opacity:0;
   }

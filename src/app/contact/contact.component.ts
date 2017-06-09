@@ -12,13 +12,13 @@ export class ContactComponent {
   user={};
   constructor(public af: AngularFire,private router: Router) {
 
-    this.af.auth.subscribe(data => this.user = data.auth );
+    //this.af.auth.subscribe(data => this.user = data.auth );
 
   }
 
   logout() {
      this.af.auth.logout();
-     this.router.navigateByUrl('/signout');
+     this.router.navigateByUrl('/welcome');
      console.log('logged out');
   }
 

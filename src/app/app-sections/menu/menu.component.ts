@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,12 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   menuExpanded = false;
-  show = false;
-  
-  onClickOutside(e){
-    this.show = false;
+  showMainMenu = false;
+  user;
+  constructor(private af: AngularFire) {
+    this.af.auth.subscribe(data => {if(data){this.user = data.auth}});
+  }
+  onClickOutsideMainMenu(e){
+    this.showMainMenu = false;
   }
 }

@@ -4,7 +4,6 @@ import { MyProjectService} from '../my-project.service';
 @Component({
   selector: 'app-project-overview',
   templateUrl: './project-overview.component.html',
-  styleUrls: [],
   providers: [MyProjectService]
 })
 

@@ -1,0 +1,6 @@
+<app-top-section [tabsData]="homeTabsData" [pageTitle]="pageTitle"></app-top-section>
+<div style="padding:1.79em;">
+    <div (click)=showTime()> Time</div>
+    <p>{{date |date:'medium'}}</p>
+    <router-outlet></router-outlet>
+</div>

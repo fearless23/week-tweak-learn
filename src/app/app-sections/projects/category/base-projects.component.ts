@@ -4,7 +4,7 @@ import {ProjectsService} from '../projects.service';
 @Component({
   selector: 'app-base-projects',
   templateUrl: './base-projects.component.html',
-  styleUrls: ['./projects-card.css'],
+  styleUrls: ['./project-v1.css'],
   providers: [ProjectsService]
 })
 

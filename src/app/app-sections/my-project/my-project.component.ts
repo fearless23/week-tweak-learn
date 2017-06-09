@@ -9,22 +9,27 @@ import { MyProjectService} from './my-project.service';
 })
 
 export class MyProjectComponent {
+  tabsData = [
+		{
+			"title": "Overview",
+			"link" : "./"
+		},
+		{
+			"title": "Steps",
+			"link" : "./steps"
+		},
+		{
+			"title": "Files",
+			"link" : "./a"
+		},
+		{
+			"title": "Settings",
+			"link" : "./b"
+		},
+	];
   project;
-  drop = false;
-  drop2 = false;
-   
   constructor( private mps: MyProjectService) {
-    this.project = mps.project;
-
-    
-  }
- 
-  onClickOutside(event:Object) {
-      this.drop = false;
-  }
-  
-  onClickOutside2(event:Object) {
-     this.drop2= false;
+    this.project = mps.project;    
   }
   
 }

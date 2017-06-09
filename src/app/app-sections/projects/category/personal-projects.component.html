@@ -1,8 +1,35 @@
 <div class="card-group-container">
-    <a class="card-container card-{{k.color}}" routerLink="../../project/{{k.$key}}" *ngFor="let k of personalProjects">
-        <div class="card-title">{{k.title}}</div>
-        <div class="card-subtitle">roles, nature</div>
-        <div class="card-description">{{k.summary}}</div>
-        <div class="card-bottom">Added on {{k.dateAdded | date:'medium'}}</div>
-    </a>
+    <div class="card-container" *ngFor="let k of personalProjects">
+        <div class="card-top create">
+            <span class="project-type">Create</span>
+            <div class="blur"></div>
+        </div>
+        <div class="progress">
+            <span> 60 %</span>
+        </div>
+        <div class="content">
+            <div class="details">
+                <span> Added on {{k.dateAdded | date:'longDate'}}</span>
+                <span>...</span>
+                <button (click)=removeProject(k.$key) class="btn-sm">Delete</button>
+            </div>
+            <div class="title">{{k.title}}</div>
+            <div class="summary">{{k.summary}}</div>
+            <button class="btn btn-outline open-project" routerLink="../../project/{{k.$key}}"> Open Project</button>
+            <div class="project-info">
+                <div class="info">
+                    <span>06</span>
+                    <span>Steps</span>
+                </div>
+                <div class="info">
+                    <span>29</span>
+                    <span>Tasks</span>
+                </div>
+                <div class="info">
+                    <span>03</span>
+                    <span>Weeks</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

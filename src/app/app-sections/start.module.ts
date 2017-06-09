@@ -6,7 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 
 //import {StartComponent } from './start.component';
 // Root Component
-import { MenuComponent }      from './menu/menu.component';
+import { MenuComponent }       from './menu/menu.component';
+//import { TopSectionComponent } from './top-section/top-section.component';
 // Roouter for Root Modules
 import { StartRoutingModule, rc } from './start.routing';
 
@@ -20,6 +21,7 @@ import { AuthGuard } from './../auth.service';
   declarations: [
     //StartComponent,
     MenuComponent,
+    //TopSectionComponent,
     rc
   ],
   providers: [  AuthGuard]

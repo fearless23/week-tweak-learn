@@ -9,23 +9,16 @@ import { Routes, RouterModule }     from '@angular/router';
 
 import { AuthGuard } from './../auth.service';
 import { StartComponent} from './start.component';
-import { RtyComponent} from './rty/rty.component';
 // Routes
 const routes: Routes = [  
-    // Lazy Loaded Modules
-    //{ path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
-    //{ path: 'project/:id', loadChildren: 'app/my-project/my-project.module#MyProjectModule', canActivate: [AuthGuard] },
-    //{ path: 'project', pathMatch: 'full', redirectTo: 'projects', canActivate: [AuthGuard]},
-    //{ path: '', pathMatch: 'full', component: StartComponent, canActivate: [AuthGuard]},
-    //{ path: '', component: StartComponent},
-    { path: '', 
+   { path: '', 
       component: StartComponent, canActivate: [AuthGuard],
       children:[
         { path: 'projects', loadChildren: 'app/app-sections/projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
         { path: 'project/:id', loadChildren: 'app/app-sections/my-project/my-project.module#MyProjectModule', canActivate: [AuthGuard] },
         { path: 'project', pathMatch: 'full', redirectTo: 'projects', canActivate: [AuthGuard]},
-        { path: '', pathMatch: 'full', component: RtyComponent, canActivate: [AuthGuard]},
-
+        { path: 'account', loadChildren: 'app/app-sections/account/account.module#AccountModule', canActivate: [AuthGuard]},
+        { path: '', loadChildren: 'app/app-sections/home/home.module#HomeModule', canActivate: [AuthGuard]}
       ]
     }
 ];
@@ -36,5 +29,4 @@ const routes: Routes = [
 })
 export class StartRoutingModule { }
 
-export const rc = [RtyComponent, StartComponent
-]
+export const rc = [StartComponent]

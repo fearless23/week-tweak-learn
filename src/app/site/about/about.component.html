@@ -7,16 +7,19 @@
                 <li class="start-nav-item">Blog</li>
                 <li class="start-nav-item">App</li>
             </ul>
-            <ul>
-                <li class="start-nav-item">Login</li>
+            <ul *ngIf="!loggedin">
+                <li class="start-nav-item"><a routerLink= "/login" > Login </a></li>
                 <li class="start-nav-item">SignUp</li>
+            </ul>
+             <ul *ngIf="loggedin">
+                <li class="start-nav-item"><a routerLink= "/" > Welcome {{userName}} Go To App </a>   </li>
+                
             </ul>
             
         </div>
 
     </div>
 
-    <div *ngIf="loggedin"> Welcome {{userName}} Go To App </div>
-    <div *ngIf="!loggedin"> Login </div>	
+    
 
 </div>

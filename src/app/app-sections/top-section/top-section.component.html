@@ -1,0 +1,40 @@
+ <div class="main-topbar">
+    <div class="page-title">{{pageTitle}}</div>
+    <div class="icon-group">
+        
+        <a href="" title="Search Projects">
+            <svg class="icon icon-lock" viewBox="0 0 32 32">
+                <use xlink:href="assets/svg/symbol-defs.svg#icon-search"></use>
+            </svg>
+        </a>
+        
+        <a href="" title="Notifications">
+            <svg class="icon icon-bell" viewBox="0 0 80 80">
+                <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
+            </svg>
+            <span class="badge">2</span>
+        </a>
+            
+        <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
+            <span class="clickable" title="user-account" (click)="drop = !drop">
+                <svg class="icon icon-horizontal-dots" viewBox="0 0 20 20">
+                    <use xlink:href="assets/svg/symbol-defs.svg#icon-horizontal-dots"></use>
+                </svg>
+            </span>
+            <div class="dropdown-content" [class.dropdown-active]="drop">
+                <ul class="more-items">
+                    <li class="more-item">Profile</li>
+                    <li class="more-item">Settings</li>
+                    <li class="more-item" (click)="logout()">Log Out</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+                
+               
+<div class="tabs-group" >
+    <a *ngFor="let item of tabsData" class="tab" routerLink="{{item.link}}" 
+    routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: true}">{{item.title}}</a>
+</div>

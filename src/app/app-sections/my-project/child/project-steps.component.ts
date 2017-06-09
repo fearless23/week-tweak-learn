@@ -41,7 +41,7 @@ export class ProjectStepsComponent {
 			for(let task of data){
         if(task.stepKey === this.stepKey){ this.tasks.push(task); }
       };
-      this.completion(this.tasks);  
+      this.completion(this.tasks);
     });    
   }
 
@@ -65,7 +65,7 @@ export class ProjectStepsComponent {
     for(var task of array) {
       if(task.isDone === true){ this.completedTasksLength = this.completedTasksLength+1; }
     }
-    this.percentageOfStepDone= (this.completedTasksLength/array.length)*100;
+    this.percentageOfStepDone= Math.round((this.completedTasksLength/array.length)*10000)/100;
  }
 
 

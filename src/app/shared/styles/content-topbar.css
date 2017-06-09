@@ -1,8 +1,4 @@
-.content-topbar {
-	width: 100%;
-}
-
-.topbar-top {
+.app-topbar {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -13,7 +9,7 @@
 }
 
 @media (max-width: 27em) {
-	.topbar-top {
+	.app-topbar {
 		position: fixed;
 		top: 0;
 		width: 100%;
@@ -27,8 +23,6 @@
 	align-items: center;
 	font-family: 'Roboto Mono', monospace;
 }
-
-
 
 .topbar-top-title span {
 	margin-right: 0.5em;
@@ -73,7 +67,7 @@ span.badge {
 
 .more-items {
 	width: 100%;
-	color: #000;
+	font-size: 1.42em;
 }
 
 .more-item {
@@ -84,12 +78,14 @@ span.badge {
 	padding: 0em 1em;
 	background-color: white;
 	cursor: pointer;
+	color: rgba(0, 0, 0, 0.85);
 }
 
 .more-item:hover {
 	color: #00a8e8;
 }
 
+/* TAB BAR CONTAINER */
 
 .tab-bar-container {
 	letter-spacing: 1px;
@@ -140,7 +136,4 @@ span.badge {
 	font-weight: bold;
 	border-bottom: 2px solid #00a5e6;
 }
-
-
-/* GHJ */
 
