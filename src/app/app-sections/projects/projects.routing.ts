@@ -10,6 +10,7 @@ import { PersonalProjectsComponent }   from './category/personal-projects.compon
 import { ProProjectsComponent }        from './category/pro-projects.component';
 import { SocialProjectsComponent }     from './category/social-projects.component';
 import {AddProjectComponent}           from './add-project/add-project.component';
+
 // Routes
 const projectsRoutes: Routes = [
     { path: '', 

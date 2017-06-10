@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-menu',
@@ -9,9 +9,16 @@ import { AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
 export class MenuComponent {
   menuExpanded = false;
   showMainMenu = false;
-  user;
-  constructor(private af: AngularFire) {
-    this.af.auth.subscribe(data => {if(data){this.user = data.auth}});
+  userName;
+  userPhoto;
+  constructor(private afa: AngularFireAuth) {
+    afa.authState.subscribe(data => {
+      if(data) {
+        this.userName = data.displayName;
+        this.userPhoto = data.photoURL;
+      }
+    });
+   
   }
   onClickOutsideMainMenu(e){
     this.showMainMenu = false;

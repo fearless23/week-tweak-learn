@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   loggedin = false;
   error: any;
-  constructor(public af: AngularFire,private router: Router) {
-
-      this.af.auth.subscribe(auth => { 
+  constructor(public af: AngularFireAuth, private router: Router) {
+      this.af.authState.subscribe(auth => { 
       if(!auth) {
         this.router.navigateByUrl('/login');
       }
@@ -20,3 +20,5 @@ export class AppComponent {
   }
 
 }
+
+// Upgraded angularfire2 v4+

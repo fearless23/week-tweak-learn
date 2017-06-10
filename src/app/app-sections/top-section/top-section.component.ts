@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,21 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './top-section.component.html',
   styleUrls: ['./top-section.component.css']
 })
+
 export class TopSectionComponent {
+
   @Input() topSectionData;
   @Input() tabsData;
   @Input() pageTitle;
+
   drop = false;
+
   onClickOutside(event:Object) {
       this.drop = false;
   }
-  constructor(public af: AngularFire,private router: Router) {
 
-    //this.af.auth.subscribe(data => this.user = data.auth );
+  constructor(public afa: AngularFireAuth, private router: Router) {}
 
-  }
   logout() {
-     this.af.auth.logout();
+     this.afa.auth.signOut();
      this.router.navigateByUrl('/signout');
      console.log('logged out');
   }

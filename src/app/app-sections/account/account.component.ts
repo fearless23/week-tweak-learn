@@ -29,14 +29,19 @@ export class AccountComponent {
   pageTitle;
   b='`s Account';
   user;
+  userName;
   drop = false;
-  constructor(private ps:AccountService) {
-    this.user = this.ps.user;
+
+  constructor(private as:AccountService) {
+    this.user = this.as.user;
+    this.userName = this.as.userName;
+    console.log(this.userName+"com");
   }
 
   onClickOutside(event:Object) {
       this.drop = false;
   }
+  
   ngOnInit() { }
 
 }

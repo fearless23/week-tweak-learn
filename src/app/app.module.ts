@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDDZqq-ZunPtltpY-zrt8uoFCE3i-tRUT0",
@@ -26,6 +28,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AppRoutingModule,
     ContactModule,
     

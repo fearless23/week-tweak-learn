@@ -39,7 +39,7 @@ export class ProjectsComponent {
   topSectionData = "passing this";
   constructor(private ps:ProjectsService) {
     this.username = this.ps.username;
-    this.ps.af.auth.subscribe(data => this.user = data.auth);
+    this.ps.afa.authState.subscribe(data => this.user = data);
   }
 
   onClickOutside(event:Object) {

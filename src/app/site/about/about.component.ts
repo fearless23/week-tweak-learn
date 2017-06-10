@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
 	selector: 'site-about',
@@ -11,12 +11,12 @@ export class AboutComponent implements OnInit {
 	loggedin = false;
 	error: any;
 	userName;
-  	constructor(public af: AngularFire) {
+  	constructor(public afa: AngularFireAuth) {
 
-		this.af.auth.subscribe(auth => { 
+		this.afa.authState.subscribe(auth => { 
 			if(auth) { 
 				this.loggedin = true;
-				this.userName = auth.auth.displayName;
+				this.userName = auth.displayName;
 			}
 			
 		});

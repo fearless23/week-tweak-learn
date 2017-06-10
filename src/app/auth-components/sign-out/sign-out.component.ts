@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-
-
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
 	selector: 'sign-out',
@@ -11,9 +9,9 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 export class SignOutComponent implements OnInit {
   error: any;
   loggedin;
-  constructor(public af: AngularFire) {
+  constructor(public afa: AngularFireAuth) {
 
-     this.af.auth.subscribe(auth => { 
+     this.afa.authState.subscribe(auth => { 
 			if(auth) { 
 				this.loggedin = true;
 			}

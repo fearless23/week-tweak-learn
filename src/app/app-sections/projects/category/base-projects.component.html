@@ -4,12 +4,7 @@
     </p>
 </div>
 <div class="card-group-container">
-    <!--<a class="card-container card-{{k.color}}" routerLink="../../project/{{k.$key}}" *ngFor="let k of baseProjects">
-        <div class="card-title">{{k.title}}</div>
-        <div class="card-subtitle">roles, nature <button (click)=removeProject(k.$key)>Delete</button></div>
-        <div class="card-description">{{k.summary}}</div>
-        <div class="card-bottom">Added on {{k.dateAdded | date:'medium'}}</div>
-    </a>-->
+    
     <div class="card-container" *ngFor="let k of baseProjects">
         <div class="card-top learn">
             <span class="project-type">Learn</span>

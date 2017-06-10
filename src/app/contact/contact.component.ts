@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';;
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,14 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ContactComponent {
   user={};
-  constructor(public af: AngularFire,private router: Router) {
-
-    //this.af.auth.subscribe(data => this.user = data.auth );
-
-  }
+  constructor(public afa: AngularFireAuth, private router: Router) {}
 
   logout() {
-     this.af.auth.logout();
+     this.afa.auth.signOut();
      this.router.navigateByUrl('/welcome');
      console.log('logged out');
   }
@@ -25,10 +21,3 @@ export class ContactComponent {
   ngOnInit() {} 
   }
 
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

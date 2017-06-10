@@ -1,48 +1,4 @@
-<!--<div class="content-topbar">
-    <div class="topbar-top blue">
-        <div class="topbar-top-title">
-            <span>{{user.displayName}}`s</span>
-            <span>Account</span>
-        </div>
-        <div class="settings">
-            <a href="#" title="Settings">
-                <svg class="icon icon-settings">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-settings"></use>
-                </svg>
-            </a>
-            <a href="#" title="Notifications">
-                <svg class="icon icon-week" viewBox="0 0 32 32">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
-                </svg>
-                <span class="badge">3</span>
-            </a>           
-            <a href="#" routerLink="./../contact"title="{{user.displayName}}`s Profile"><img src="{{user.photoURL}}" class="user-img"></a>
-            <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
-                <span (click)="drop = !drop" class="html-entity-style">&#x2026;</span>
-                <div class="dropdown-content" [class.dropdown-active]="drop">
-                    <ul class="more-items">
-                        <li class="more-item">Profile</li>
-                        <li class="more-item">Settings</li>
-                        <li class="more-item">Log Out</li>
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="tab-bar-container">
-        <div class="tabs-title-container">
-            <a routerLink="./" routerLinkActive="project-tab-active" [routerLinkActiveOptions] ="{exact: true}" class="project-tab" title="Base Projects">Account</a>
-            <a routerLink="./profile" routerLinkActive="project-tab-active" class="project-tab" title="Personal Projects">Profile</a>
-            <a routerLink="./settings" routerLinkActive="project-tab-active" class="project-tab" title="Pro Projects">Settings</a>
-        </div>
-        
-    </div>
-    
-</div>-->
-
-<app-top-section [tabsData]="tabsData" [pageTitle]="user.displayName+b"></app-top-section>
+<app-top-section [tabsData]="tabsData" [pageTitle]="displayName"></app-top-section>
 
 <div style="padding:1.79em;"><router-outlet></router-outlet></div>
 

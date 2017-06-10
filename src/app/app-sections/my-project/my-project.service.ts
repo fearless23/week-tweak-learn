@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFire, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -17,14 +18,14 @@ export class MyProjectService {
   milestones;
   steps=[];
   tasks=[];
-  constructor( private route: ActivatedRoute, af: AngularFire) {
-    af.auth.subscribe( auth =>
+  constructor( private route: ActivatedRoute, afa: AngularFireAuth, afdb: AngularFireDatabase) {
+    afa.authState.subscribe( auth =>
       this.userId = auth.uid
     );
-    this.stepsDb = af.database;
+    this.stepsDb = afdb;
     this.route = route;
     this.sub = this.route.params.subscribe(params => this.id = params['id']);
-    this.db = af.database.list('users/'+this.userId+'/projects', { preserveSnapshot: true });
+    this.db = afdb.list('users/'+this.userId+'/projects', { preserveSnapshot: true });
     this.db.subscribe(snapshots => {
       snapshots.forEach(snapshot => {
         snapshot.forEach(myproject =>{
@@ -34,7 +35,7 @@ export class MyProjectService {
         })
       })
     });
-    af.database.list('users/'+this.userId+'/steps').subscribe( data =>{ 
+    afdb.list('users/'+this.userId+'/steps').subscribe( data =>{ 
       for(let step of data){
         if(step.projectKey === this.id){ this.steps.push(step);}
     }});
