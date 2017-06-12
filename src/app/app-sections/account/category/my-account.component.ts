@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {AccountService} from '../account.service';
+import { Component, OnInit } from '@angular/core';
+import { AccountService    } from '../account.service';
 
 @Component({
   selector: 'app-my-account',
@@ -8,9 +8,15 @@ import {AccountService} from '../account.service';
 })
 
 export class MyAccountComponent {
+
   user;
-   constructor( as: AccountService){
-     this.user = as.user;
-   }
-   ngOnInit() {}
+
+  constructor( private as: AccountService){
+    this.as.user.subscribe(data => this.user = data);
+  }
+
+  ngOnInit() {
+   //this.as.user.subscribe(data => this.user = data);
+
+  }
 }

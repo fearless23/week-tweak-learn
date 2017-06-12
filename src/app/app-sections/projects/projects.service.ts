@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
-import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class ProjectsService {
-
-  project;
-  db;
-  username;
   userId;
-  user: Observable<firebase.User>;
-  constructor(public afa: AngularFireAuth, private afdb: AngularFireDatabase) {
-    /*this.afa.authState.subscribe(auth => { 
-      if(auth) { this.userId = auth.uid; this.username = auth.displayName; }
-    });*/
-    this.user = this.afa.authState;
-    this.user.subscribe(data => this.userId = data.photoURL );
-    console.log('From Projects Service - '+ this.userId);
-    this.db=this.afdb;
-   }
- 
-    
+  
+  db;
+  baseProjects;
+  personalProjects;
+  proProjects;
+  socialProjects;
 
+  constructor(public afdb: AngularFireDatabase, public afa: AngularFireAuth) {
+    afa.authState.subscribe(data => {
+      if(data) {
+        this.userId = data.uid;
+        let userID = data.uid;
+        let url1 = '/users/'+userID+'/projects/base';
+        let url2 = '/users/'+userID+'/projects/personal';
+        let url3 = '/users/'+userID+'/projects/pro';
+        let url4 = '/users/'+userID+'/projects/social';
+        this.baseProjects =     afdb.list(url1);//.subscribe(data => this.personalProjects = data);
+        this.personalProjects = afdb.list(url2);
+        this.proProjects =      afdb.list(url3);
+        this.socialProjects =   afdb.list(url4);
+      }
+    });
+    this.db = afdb;
+  }
+
+  ngOnInit() {
+   
+  }
 }

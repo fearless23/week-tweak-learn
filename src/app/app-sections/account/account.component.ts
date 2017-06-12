@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
-import {AccountService} from './account.service';
-
-declare var firebase: any;
+import { Component, OnInit } from '@angular/core';
+import { AccountService }    from './account.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css', '../../shared/styles/content-topbar.css'],
+  styleUrls: ['./account.component.css'],
   providers: [AccountService]
-  
 })
 
 export class AccountComponent {
+
   tabsData = [
 		{
 			"title": "Account",
@@ -26,22 +24,20 @@ export class AccountComponent {
 			"link" : "./settings"
 		}
 	];
+
   pageTitle;
-  b='`s Account';
-  user;
-  userName;
   drop = false;
 
-  constructor(private as:AccountService) {
-    this.user = this.as.user;
-    this.userName = this.as.userName;
-    console.log(this.userName+"com");
+  constructor(private as:AccountService) {}
+
+  ngOnInit() {
+    this.pageTitle = this.as.userName+'`s Account';
   }
 
   onClickOutside(event:Object) {
-      this.drop = false;
+    this.drop = false;
   }
   
-  ngOnInit() { }
+  
 
 }

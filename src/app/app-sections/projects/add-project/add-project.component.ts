@@ -19,10 +19,14 @@ export class AddProjectComponent {
   userId;
   modalState=false;
 
-  constructor(private projectsservice: ProjectsService, private router: Router) {
-    this.db = projectsservice.db;
-    this.userId = projectsservice.userId;
+  constructor(private ps: ProjectsService, private router: Router) {
+    
   }
+
+  ngOnInit() {
+    this.db = this.ps.db;
+    this.userId = this.ps.userId;
+   }
 
   addProject(a:"none",b:"none", c) {
       this.project = {"title": a, "summary": b, "category": c, "color":colors[rand], "dateAdded": new Date().getTime()};
@@ -35,6 +39,6 @@ export class AddProjectComponent {
     a = ''; b='', c='';
   }
 
-  ngOnInit() { }
+  
 
 }

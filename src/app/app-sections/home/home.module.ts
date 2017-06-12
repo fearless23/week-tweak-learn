@@ -2,7 +2,7 @@
 
 // Angular Module Decorator
 import { NgModule } from '@angular/core';  
-import { AngularFireModule } from 'angularfire2';
+
 // Shared Module : Forms, common, Http
 import { SharedModule} from '../../shared/shared.module';
 // Other required things

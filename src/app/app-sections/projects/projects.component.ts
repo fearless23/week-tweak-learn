@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import {ProjectsService} from './projects.service';
-
-declare var firebase: any;
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css', '../../shared/styles/content-topbar.css'],
-  providers: [ProjectsService]
-  
+  styleUrls: ['./projects.component.css']  
 })
 
 export class ProjectsComponent {
+
   projectsTabsData = [
 		{
 			"title": "Base",
@@ -30,21 +26,11 @@ export class ProjectsComponent {
 			"link" : "/projects/social"
 		},
 	];
-  pageTitle= "My Projects";
-  username;
-  user;
-  isClassVisible: false;
-  rty: true;
-  drop = false;
-  topSectionData = "passing this";
-  constructor(private ps:ProjectsService) {
-    this.username = this.ps.username;
-    this.ps.afa.authState.subscribe(data => this.user = data);
-  }
 
-  onClickOutside(event:Object) {
-      this.drop = false;
-  }
-  ngOnInit() { }
+  pageTitle= "My Projects";
+  
+  constructor() {}
+
+  ngOnInit() {}
 
 }

@@ -1,11 +1,6 @@
-<div>
-    <p *ngFor="let category of temp">
-        {{ category | json}}
-    </p>
-</div>
 <div class="card-group-container">
     
-    <div class="card-container" *ngFor="let k of baseProjects">
+    <div class="card-container" *ngFor="let k of baseProjects | async">
         <div class="card-top learn">
             <span class="project-type">Learn</span>
             <div class="blur"></div>
@@ -39,4 +34,6 @@
         </div>
     </div>
 </div>
+
+
 

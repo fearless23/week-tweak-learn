@@ -2,7 +2,8 @@
     <div class="page-title">{{pageTitle}}</div>
     <div class="icon-group">
         
-        <a href="" title="Search Projects">
+        <app-search-box></app-search-box>
+        <!--<a href="" title="Search Projects">
             <svg class="icon icon-lock" viewBox="0 0 32 32">
                 <use xlink:href="assets/svg/symbol-defs.svg#icon-search"></use>
             </svg>
@@ -13,7 +14,19 @@
                 <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
             </svg>
             <span class="badge">2</span>
-        </a>
+        </a>-->
+
+        <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
+            <span class="clickable" title="user-account" (click)="dropNotification = !dropNotification">
+                <svg class="icon icon-bell" viewBox="0 0 80 80">
+                    <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
+                </svg>
+                <span class="badge">2</span>
+            </span>
+            <div class="dropdown-content" [class.dropdown-active]="dropNotification">
+                Notifications
+            </div>
+        </div>
             
         <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
             <span class="clickable" title="user-account" (click)="drop = !drop">

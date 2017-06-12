@@ -14,17 +14,17 @@ export class AddStepComponent implements OnInit {
   	userId;
   	modalState=false;
 
-  	constructor(private mps: MyProjectService, private router: Router) {
-    	this.db = mps.stepsDb;
-    	this.userId = mps.userId;
-		this.projectKey = mps.id;
-		
-		}
+  	constructor(private mps: MyProjectService, private router: Router) {}
+	
+	ngOnInit() {
+		this.db = this.mps.stepsDb;
+    	this.userId = this.mps.userId;
+		this.projectKey = this.mps.id;
+	}
 
 	addStep(a,b) {
     	this.step = {"title": a, "summary": b, "projectKey": this.projectKey, "dateAdded": new Date().getTime()};
       	this.db.list('/users/'+this.userId+'/steps').push(this.step);
 	};
-
-	ngOnInit() { }
+	
 }

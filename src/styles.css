@@ -359,56 +359,68 @@ svg:hover, svg.icon:hover {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #2ca58d;
+  background-color: #4d5256;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
 }
 
+.root-loader span{
+  position: relative;
+  margin-bottom: 2.53em;
+  border-radius: 50%;
+  border: 0.31em solid #4d5256;
+  box-shadow: 4px 0 4px #222425, -4px 0 4px #222425, 0 4px 4px #222425, 0 -4px 4px #222425;
+  background-color: #4d5256;
+}
+
 .root-loader span:before {
   content: '';
-  position: absolute;
+  display: block;
   width: 6.39em;
   height: 6.39em;
   border-radius: 50%;
   border: 0.31em solid #f06;
   border-top: 0.31em solid transparent;
   border-bottom: 0.31em solid transparent;
-  top: -100%;
-  left: -45%;
   animation: hill 1s infinite linear;
 }
 
-.root-loader span{
-  position: relative;
-  margin-right: 4.02em;
+.root-loader span:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 5.07em;
+  height: 5.07em;
+  border-radius: 50%;
+  border: 0.31em solid #eeff22;
+  border-top: 0.31em solid transparent;
+  border-bottom: 0.31em solid transparent;
+  top: 0.66em;
+  left: 0.66em;
+  animation: hill reverse 0.7s infinite linear
 }
+
+
 
 @keyframes hill {
   0% { transform: rotate(0deg)}
+  20% { transform: rotate(180deg)}
+  40% { transform: rotate(90deg)}
   100% { transform: rotate(360deg)}
 }
 
-
+/* DROPDOWN STYLES */
 
 .dropdown-container {
   position: relative;
   display: inline-block;    
 }
 
-.html-entity-style {
-	font-size: 2em;
-	margin-left: 0.4em;
-	cursor: pointer;
-	position: relative;
-	margin-bottom: 0.4em;
-  display: inline-block;
-}
-
 .dropdown-container span {
 	display: flex;
-	margin-left: 0.7em;
+  margin-left: 0.7em;
 	align-items: center;
 }
 
@@ -419,11 +431,12 @@ svg:hover, svg.icon:hover {
   transition: all 0.5s linear;
 }
 
-.dropdown-active {
-  display: block;
-  right: 0;
-  box-shadow: 8px 12px 20px 4px hsla(207, 6%, 12%, 0.75);
-  animation: dropdown-active .25s linear;
+.dropdown-content.dropdown-active {
+    display: block;
+    right: 0;
+    top: 0;
+    box-shadow: 3px 3px 6px 0px #B5B5B5;
+    animation: dropdown-active 0.31s linear;
 }
 
 @keyframes dropdown-active {

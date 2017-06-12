@@ -1,5 +1,5 @@
 <div class="card-group-container">
-    <div class="card-container" *ngFor="let k of personalProjects">
+    <div class="card-container" *ngFor="let k of personalProjects | async">
         <div class="card-top create">
             <span class="project-type">Create</span>
             <div class="blur"></div>

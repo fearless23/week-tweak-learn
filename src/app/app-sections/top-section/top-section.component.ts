@@ -15,9 +15,14 @@ export class TopSectionComponent {
   @Input() pageTitle;
 
   drop = false;
+  dropNotification = false;
 
   onClickOutside(event:Object) {
       this.drop = false;
+  }
+
+  onClickOutsideNotification(event:Object) {
+      this.dropNotification = false;
   }
 
   constructor(public afa: AngularFireAuth, private router: Router) {}

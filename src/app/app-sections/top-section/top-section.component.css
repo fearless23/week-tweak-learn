@@ -66,49 +66,7 @@ span.badge {
     color: white;
 }
 
-.dropdown-container {
-  position: relative;
-  display: inline-block;    
-}
-
-.html-entity-style {
-	font-size: 2em;
-	margin-left: 0.4em;
-	cursor: pointer;
-	position: relative;
-	margin-bottom: 0.4em;
-  	display: inline-block;
-}
-
-.dropdown-container span {
-	display: flex;
-	align-items: center;
-}
-
-.dropdown-content {
-  display: none;
-  position:absolute; 
-  z-index: 90;
-  transition: all 0.5s linear;
-  animation: slide 2s linear reverse;
-}
-
-.dropdown-active {
-    display: block;
-    right: 0;
-    top: 0;
-    box-shadow: 3px 3px 12px 0px hsla(207, 6%, 12%, 0.75);
-    animation: dropdown-active 0.31s linear;
-}
-
-@keyframes dropdown-active {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/* DROPDOWN STYLES FROM MAIN STYLES */
 
 .more-items {
 	background-color: white;

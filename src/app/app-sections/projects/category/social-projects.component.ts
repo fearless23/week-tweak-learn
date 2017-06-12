@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {ProjectsService} from '../projects.service';
+import { Component }       from '@angular/core';
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-social-projects',
@@ -9,14 +9,11 @@ import {ProjectsService} from '../projects.service';
 })
 
 export class SocialProjectsComponent {
-  userId;
   socialProjects;
   
-  constructor(private projectsservice: ProjectsService) {
-    this.userId = projectsservice.userId;
-    let url = '/users/'+this.userId+'/projects/social';
-    this.projectsservice.db.list(url).subscribe(data => this.socialProjects = data);
+  constructor(private ps: ProjectsService) {}  
+   
+  ngOnInit() {
+    this.socialProjects = this.ps.socialProjects;
   }
-
-  ngOnInit() {}
 }

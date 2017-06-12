@@ -10,6 +10,7 @@ import { CapitalizePipe }    from './pipes/capitalize.pipe';
 // Shared Directives: Declare and export
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { TopSectionComponent }      from '../app-sections/top-section/top-section.component';
+import { SearchBoxComponent }      from '../app-sections/top-section/search-box/search-box.component';
 
 @NgModule({
   imports:      [ CommonModule, MomentModule, RouterModule
@@ -19,14 +20,16 @@ import { TopSectionComponent }      from '../app-sections/top-section/top-sectio
       CapitalizePipe,
       //directives
       ClickOutsideDirective,
-      TopSectionComponent
+      TopSectionComponent,
+      SearchBoxComponent
     ],
   exports:      [ CommonModule, FormsModule, HttpModule, MomentModule,//AppRoutingModule,
         // pipes
         CapitalizePipe, //MenuComponent
         // directives
         ClickOutsideDirective,
-        TopSectionComponent
+        TopSectionComponent,
+        SearchBoxComponent
    ]
 })
 export class SharedModule { }

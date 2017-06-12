@@ -11,7 +11,10 @@ export class ProjectOverviewComponent {
 
   project;
   constructor(private mps: MyProjectService){
-    this.project = mps.project;
+    
   }
 
+  ngOnInit(){
+    this.project = this.mps.project;
+  }
 }

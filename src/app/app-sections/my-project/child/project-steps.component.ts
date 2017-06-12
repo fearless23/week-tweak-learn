@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { MyProjectService} from '../my-project.service';
+import { Component, OnInit } from '@angular/core';
+import { MyProjectService }  from '../my-project.service';
 
 @Component({
   selector: 'app-project-steps',
   templateUrl: './project-steps.component.html',
   styleUrls: ['./project-steps.component.css']
 })
-export class ProjectStepsComponent {
+
+export class ProjectStepsComponent implements OnInit {
   userId;
   db;
   milestones;
@@ -19,7 +20,9 @@ export class ProjectStepsComponent {
   percentageOfStepDone;
   selectedIndex = 0;
   taskIndex;
-  constructor( private mps: MyProjectService) {
+  constructor( private mps: MyProjectService) {}
+
+  ngOnInit(){
     this.milestones = this.mps.milestones;
     this.steps = this.mps.steps;
     this.db = this.mps.stepsDb;
@@ -32,7 +35,6 @@ export class ProjectStepsComponent {
       this.completion(this.tasks);
     });
   }
-
   setStepId(key, i){
     this.selectedIndex=i;
     this.stepKey = key;
