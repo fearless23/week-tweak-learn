@@ -10,7 +10,7 @@ let rand = Math.floor(Math.random()*4);
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css', '../../../shared/styles/modal.css'],
-  
+  providers: [ProjectsService]
 })
 
 export class AddProjectComponent {
@@ -18,7 +18,9 @@ export class AddProjectComponent {
   project;
   userId;
   modalState=false;
-
+  title;
+  summary;
+  category;
   constructor(private ps: ProjectsService, private router: Router) {
     
   }

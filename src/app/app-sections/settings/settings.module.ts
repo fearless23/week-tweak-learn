@@ -9,16 +9,16 @@ import { SharedModule} from '../../shared/shared.module';
 import 'rxjs/Rx';
 
 // Routing Module and Components
-import { AccountRoutingModule, rc } from './account.routing';
+import { SettingsRoutingModule, rc } from './settings.routing';
  
 //Services, Pipes, Other
-import { AccountService } from './account.service';
+import { SettingsService } from './settings.service';
 
 
 @NgModule({
-  imports: [ SharedModule, AccountRoutingModule ],
+  imports: [ SharedModule, SettingsRoutingModule ],
   declarations: [rc],
-  providers:[AccountService]
+  providers:[SettingsService]
 })
 
-export class AccountModule { }  
+export class SettingsModule { }  

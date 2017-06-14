@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 
 export class TopSectionComponent {
 
-  @Input() topSectionData;
   @Input() tabsData;
   @Input() pageTitle;
 

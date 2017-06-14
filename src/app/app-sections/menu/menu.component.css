@@ -31,8 +31,22 @@
 	display: flex;
 }
 
-.logo span:first-child{
+.logo span:first-child,.logo span:nth-child(2){
 	color: rgba(0, 168, 232, 0.71);
+}
+
+.logo span:nth-child(2n){
+	position: absolute;
+	width: 0;
+	opacity: 0;
+	transition: all 0.2s linear;
+}
+
+.main-menu-container.menu-expanded .logo span:nth-child(2n) {
+	position: relative;
+	width: auto;
+	opacity: 1;
+	transition: all 0.2s linear;
 }
 
 .user-area {

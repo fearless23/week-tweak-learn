@@ -1,9 +1,8 @@
-<p>UID: {{ user.uid }}</p>
+{{(userInfo | async)?.nickName}}
 
-<!--p>UID: {{ (user | async)?.uid }}</p>
-<p>UID: {{ user.uid }}</p>
 <p>Name: {{ (user | async)?.displayName }}</p>
+
 <p> Photo: <img src="{{(user | async)?.photoURL}}" style="width: 4em; height: 4em"></p>
 <p> Email: {{(user | async)?.email}}</p>
 <p> Email Verified: {{(user | async)?.emailVerified}}</p>
-<p> Is User Anonymous: {{(user | async)?.isAnonymous}}</p>-->
+<p> Is User Anonymous: {{(user | async)?.isAnonymous}}</p>

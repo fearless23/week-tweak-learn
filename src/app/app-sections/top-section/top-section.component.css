@@ -52,18 +52,13 @@
 }
 
 span.badge {
-	display: flex;
-    align-items: center;
-    justify-content: center;
-	position: absolute;
-    width: 1.26em;
-    height: 1.26em;
-    line-height: .8em;
-    right: -0.44em;
-    top: -0.56em;
+	 position: absolute;
+    width: 0.89em;
+    height: 0.89em;
+    top: -0.4em;
     background-color: #00a8e8;
     border-radius: 50%;
-    color: white;
+    color: #fff;
 }
 
 /* DROPDOWN STYLES FROM MAIN STYLES */
@@ -98,9 +93,8 @@ span.badge {
 }
 
 .tab {
-	height: 2.25em;
 	margin-right: 1.79em;
-	padding: 0.5em;
+	padding: 0.44em 0.5em;
 	color: hsl(207,6%,20%);
 	font-size: 0.8em;
 	cursor: pointer;

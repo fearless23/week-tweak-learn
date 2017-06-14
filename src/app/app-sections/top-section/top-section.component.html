@@ -3,25 +3,12 @@
     <div class="icon-group">
         
         <app-search-box></app-search-box>
-        <!--<a href="" title="Search Projects">
-            <svg class="icon icon-lock" viewBox="0 0 32 32">
-                <use xlink:href="assets/svg/symbol-defs.svg#icon-search"></use>
-            </svg>
-        </a>
-        
-        <a href="" title="Notifications">
-            <svg class="icon icon-bell" viewBox="0 0 80 80">
-                <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
-            </svg>
-            <span class="badge">2</span>
-        </a>-->
-
         <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
             <span class="clickable" title="user-account" (click)="dropNotification = !dropNotification">
                 <svg class="icon icon-bell" viewBox="0 0 80 80">
                     <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
                 </svg>
-                <span class="badge">2</span>
+                <span class="badge"></span>
             </span>
             <div class="dropdown-content" [class.dropdown-active]="dropNotification">
                 Notifications
@@ -37,7 +24,7 @@
             <div class="dropdown-content" [class.dropdown-active]="drop">
                 <ul class="more-items">
                     <li class="more-item">Profile</li>
-                    <li class="more-item">Settings</li>
+                    <li class="more-item" routerLink="/settings" title="Settings">Settings</li>
                     <li class="more-item" (click)="logout()">Log Out</li>
                 </ul>
             </div>

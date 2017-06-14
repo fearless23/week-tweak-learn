@@ -1,0 +1,158 @@
+.content-box {
+	padding: 0.89em;
+	background: white;
+	min-height: 100%;
+}
+
+@media (min-width: 46em){
+	.content-box {
+		padding: 1.79em;
+	}	
+}
+
+.row {
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+@media (min-width: 46em){
+	.row {
+		flex-direction: row;
+	}	
+}
+
+.vmenu {
+	min-width: 10.18em;
+	width: 100%;
+	margin-bottom: 1.42em;
+}
+
+@media (min-width: 46em){
+	.vmenu {
+		min-width: 10.18em;
+		width: 14.41em;
+		border: 1px solid rgba(181,181,181,0.5);
+		border-radius: 0.5em;
+		margin-right: 1.42em;
+	}	
+}
+
+.vmenu h4 {
+	margin: 0;
+	padding: 0.63em 0.71em;
+	font-size: 1.12em;
+}
+
+@media (min-width: 46em){
+	.vmenu h4 {
+		background-color: rgba(181,181,181,0.15);
+	}	
+}
+
+.vmenu-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+@media (min-width: 46em){
+	.vmenu-list {
+		flex-direction: column;
+		flex-wrap: no-wrap;
+	}	
+}
+
+.vmenu-list-item {
+	font-size: 0.89em;
+	padding: 0.63em 0.71em;
+	cursor: pointer;
+	color: #00A8E8;
+	position: relative;
+}
+
+@media (min-width: 46em) {
+	.vmenu-list-item {
+		width: 100%;
+		border-top: 1px solid rgba(181,181,181,0.5);
+	}
+}
+
+.vmenu-list-item:hover {
+	background-color: rgba(181,181,181,0.15);
+}
+
+.vmenu-list-item.vmenu-list-item--active{
+	background-color: transparent;
+	color: #4d5256;
+	font-weight: bold;
+}
+
+@media (min-width: 46em){
+	.vmenu-list-item.vmenu-list-item--active::before{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 2px;
+		content: "";
+		background-color: #2ca58D;
+	}
+}
+
+.vmenu-list-item.vmenu-list-item--active:hover {
+	background-color: transparent;
+	cursor: default;
+}
+
+/* SETTINGS CONTENT */
+
+.full-grow-column {
+	padding: 0em;
+}
+
+@media (min-width: 46em){
+	.full-grow-column {
+		padding: 0 0.71em;
+	}
+}
+
+.section {
+	margin-bottom: 3.19em;
+}
+
+.section-title {
+	font-size: 1.42em;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.form-group {
+	margin: 0.89em 0;
+}
+
+.form-group .form-label {
+	font-size: 0.89em;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 0.44em;
+}
+
+input.form-control {
+	min-width: 20.41em;
+	width: 100%;
+	border: 1px solid rgba(181,181,181,0.5);
+	background-color: rgba(181,181,181,0.22);
+	font-size: 0.89em;
+	padding: 0.44em 0.63em;
+	border-radius: 0.22em;
+}
+
+input.form-control:focus {
+	border: 1px solid #00A8E8;
+	background-color: white;
+}
+
+

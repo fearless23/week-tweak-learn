@@ -13,6 +13,9 @@ export class AddStepComponent implements OnInit {
 	projectKey;
   	userId;
   	modalState=false;
+	  title;
+	  summary;
+	  category;
 
   	constructor(private mps: MyProjectService, private router: Router) {}
 	
@@ -26,5 +29,9 @@ export class AddStepComponent implements OnInit {
     	this.step = {"title": a, "summary": b, "projectKey": this.projectKey, "dateAdded": new Date().getTime()};
       	this.db.list('/users/'+this.userId+'/steps').push(this.step);
 	};
+
+	reset(a,b,){
+		a = ''; b = '';
+	}
 	
 }

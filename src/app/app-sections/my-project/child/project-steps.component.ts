@@ -20,6 +20,7 @@ export class ProjectStepsComponent implements OnInit {
   percentageOfStepDone;
   selectedIndex = 0;
   taskIndex;
+  title;
   constructor( private mps: MyProjectService) {}
 
   ngOnInit(){

@@ -17,7 +17,7 @@ const routes: Routes = [
         { path: 'projects', loadChildren: 'app/app-sections/projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
         { path: 'project/:id', loadChildren: 'app/app-sections/my-project/my-project.module#MyProjectModule', canActivate: [AuthGuard] },
         { path: 'project', pathMatch: 'full', redirectTo: 'projects', canActivate: [AuthGuard]},
-        { path: 'account', loadChildren: 'app/app-sections/account/account.module#AccountModule', canActivate: [AuthGuard]},
+        { path: 'settings', loadChildren: 'app/app-sections/settings/settings.module#SettingsModule', canActivate: [AuthGuard]},
         { path: '', loadChildren: 'app/app-sections/home/home.module#HomeModule', canActivate: [AuthGuard]}
       ]
     }
