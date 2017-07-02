@@ -4,20 +4,25 @@ import { ProjectsService } from '../projects.service';
 @Component({
   selector: 'app-base-projects',
   templateUrl: './base-projects.component.html',
-  styleUrls: ['./project-v1.css'],
+  styleUrls: ['./card.css'],
   providers: [ProjectsService]
 })
 
 export class BaseProjectsComponent {
 
-  url;
   baseProjects;
-  
-  constructor(private ps: ProjectsService) {}
-    
-  /*removeProject(key){
-    this.afdb.list(this.url).remove(key)
-  }*/
+  selected = null;
+
+  setSelected(i){
+    this.selected = i;
+  }
+
+  removeProject(key){
+    this.ps.baseProjects.remove(key);
+    this.selected = null;
+  }
+
+  constructor(private ps: ProjectsService) { }
 
   ngOnInit() {
     this.baseProjects = this.ps.baseProjects;

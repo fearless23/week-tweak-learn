@@ -1,105 +1,54 @@
 <div class="container">
-    <span title="Search" class="foo" (click)="searchBoxOpen = !searchBoxOpen">
-            <svg class="icon icon-search" viewBox="0 0 32 32">
-                <use xlink:href="assets/svg/symbol-defs.svg#icon-search"></use>
-            </svg>
-    </span>
-    <div id="wt-search" class="wt-search" [class.open]="searchBoxOpen">
-        
-        <form class="wt-search-form">
-            <input class="wt-search-input" type="search" 
-                   #search
-                   (keyup.escape)="searchBoxOpen = !searchBoxOpen" 
-                   (blur)="search.value = ''"
-                   placeholder="Search..."/>
-            <button class="wt-search-submit" type="submit">Search</button>
-        </form>
-        <div class="wt-search-content">
-            <div class="dummy-column">
-                <h2>Projects</h2>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt=""/>
-                    <h3>Learn Painting</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt="Rachel Smith"/>
-                    <h3>Week Tweak</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt="Peter Finlan"/>
-                    <h3>Peter Finlan</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt="Patrick Cox"/>
-                    <h3>Patrick Cox</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt="Tim Holman"/>
-                    <h3>Tim Holman</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img class="round" src="" alt="Shaun Dona"/>
-                    <h3>Shaun Dona</h3>
-                </a>
-            </div>
-            <div class="dummy-column">
-                <h2>Popular</h2>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="PagePreloadingEffect"/>
-                    <h3>Page Preloading Effect</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="ArrowNavigationStyles"/>
-                    <h3>Arrow Navigation Styles</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="HoverEffectsIdeasNew"/>
-                    <h3>Ideas for Subtle Hover Effects</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="FreebieHalcyonDays"/>
-                    <h3>Halcyon Days Template</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="ArticleIntroEffects"/>
-                    <h3>Inspiration for Article Intro Effects</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="DraggableDualViewSlideshow"/>
-                    <h3>Draggable Dual-View Slideshow</h3>
-                </a>
-            </div>
-            <div class="dummy-column">
-                <h2>Recent</h2>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="TooltipStylesInspiration"/>
-                    <h3>Tooltip Styles Inspiration</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="AnimatedHeaderBackgrounds"/>
-                    <h3>Animated Background Headers</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="OffCanvas"/>
-                    <h3>Off-Canvas Menu Effects</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="TabStyles"/>
-                    <h3>Tab Styles Inspiration</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="ResponsiveSVGs"/>
-                    <h3>Make SVGs Responsive with CSS</h3>
-                </a>
-                <a class="dummy-media-object" href="">
-                    <img src="" alt="NotificationStyles"/>
-                    <h3>Notification Styles Inspiration</h3>
-                </a>
-            </div>
-        </div><!-- /wt-search-content -->
-        <span class="wt-search-close" (click)="searchBoxOpen = !searchBoxOpen" >></span>
-    </div><!-- /wt-search -->
 
-    <div class="overlay"></div>
+  <span
+    title="Search Week Tweak"
+    style="font-size: 1em;"
+    class="icon-container clickable"
+    (click)="searchBoxOpen = !searchBoxOpen">
+
+    <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-search"></use></svg>
+
+  </span>
+
+  <div class="search" [class.open]="searchBoxOpen">
+
+    <span
+      title="Close Search"
+      class="clickable icon-search-close"
+      (click)="searchBoxOpen = !searchBoxOpen">
+
+      <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-cross"></use></svg>
+
+    </span>
+
+    <form class="search-form" action="">
+
+      <input class="search-input"
+        name="search"
+        type="search"
+        placeholder="Find..."
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        #search
+        (keyup.escape)="searchBoxOpen = !searchBoxOpen"
+        (blur)="search.value = ''"
+      />
+
+      <span class="search-info">Hit enter to search or ESC to close</span>
+
+    </form>
+
+    <div class="search-related">
+      <div class="search-suggestion">
+        <div class="title text-green">May We Suggest?</div>
+        <p class="text-red">#drone #funny #catgif #broken #lost #hilarious #good #red #blue #nono #why #yes #yesyes #aliens #green</p>
+      </div>
+    </div>
+
+  </div><!-- /search -->
+
+  <div class="overlay"></div>
+
 </div><!-- /container -->
-		

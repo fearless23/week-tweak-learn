@@ -5,32 +5,53 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class ProjectsService {
   userId;
-  
   db;
+  projectsDatabase;
   baseProjects;
   personalProjects;
   proProjects;
   socialProjects;
-
+  stepsDb;
+  myList;
+ 
   constructor(public afdb: AngularFireDatabase, public afa: AngularFireAuth) {
+
     afa.authState.subscribe(data => {
       if(data) {
         this.userId = data.uid;
-        let userID = data.uid;
-        let url1 = '/users/'+userID+'/projects/base';
-        let url2 = '/users/'+userID+'/projects/personal';
-        let url3 = '/users/'+userID+'/projects/pro';
-        let url4 = '/users/'+userID+'/projects/social';
-        this.baseProjects =     afdb.list(url1);//.subscribe(data => this.personalProjects = data);
-        this.personalProjects = afdb.list(url2);
-        this.proProjects =      afdb.list(url3);
-        this.socialProjects =   afdb.list(url4);
+        const userID = data.uid;
+        const url = '/users/'+userID+'/projects';
+        
+        this.projectsDatabase = afdb.list(url);
+        this.baseProjects = afdb.list(url, {
+          query: {
+            orderByChild: 'category',
+            equalTo: 'base' 
+          }
+        });
+        this.personalProjects = afdb.list(url, {
+          query: {
+            orderByChild: 'category',
+            equalTo: 'personal' 
+          }
+        });
+        this.proProjects = afdb.list(url, {
+          query: {
+            orderByChild: 'category',
+            equalTo: 'pro' 
+          }
+        });
+        this.socialProjects = afdb.list(url, {
+          query: {
+            orderByChild: 'category',
+            equalTo: 'social' 
+          }
+        });
+       
       }
     });
-    this.db = afdb;
-  }
 
-  ngOnInit() {
-   
-  }
-}
+    this.db = afdb;
+
+  }//Constructor
+}//Class

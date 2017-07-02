@@ -1,0 +1,283 @@
+.filter-box {
+  padding: 1.79em 1.79em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Containers */
+.box {
+  display: flex;
+  flex-direction: column;
+  padding: 0.89em;
+  margin: 0 auto;
+  /*background-color: #eaeaea;*/
+  animation: dropdown-active .6s linear; }
+
+@keyframes dropdown-active {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+
+.col {
+  flex: 1;
+  border: 0px solid blueviolet;
+}
+
+.col-gutter {
+  width: 1.79em;
+  height: 1.79em;
+}
+
+@media (min-width: 58em) {
+  .box {
+    flex-direction: row;
+    padding: 1.79em;
+  }
+}
+/*------------------------------------*  
+              #STEP-CONTAINER
+\*------------------------------------*/
+
+.step-container {
+  min-width: 22.92em;
+  max-width: 36.46em;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: white;
+  border: 1px solid hsla(0, 0%, 71%, 0.5);
+  border-radius: 0.22em;
+  box-shadow: 3px 3px 6px hsla(0, 0%, 71%, 0.5);
+}
+
+@media (max-width: 29.22em) {
+  .step-container {
+    width: 22.92em;
+  }
+}
+
+/*------------------------------------*  
+              #tags 
+\*------------------------------------*/
+/* TODO: make a utility */
+
+.tags-list {
+  display: flex;
+}
+
+.tag-item {
+  font-size: 0.8em;
+  padding: 0.44em 0.89em;
+  border: 1px solid rgba(181,181,181,0.5);
+  margin: 0 0.44em;
+}
+
+.tag-item:first-child {
+  margin-left: 0;
+}
+
+
+.step-description {
+  font-size: 0.89em;
+  margin: 0.63em 0 0.44em 0;
+}
+
+.step-goals {
+  padding: 0.44em 1.42em;
+}
+
+.step-goal {
+  padding-left: 2em;
+  position: relative;
+}
+
+.step-goal span {
+  position: absolute;
+  left: 0;
+  top: 0.44em;
+}
+
+.step-goal input {
+  margin: 0.5em 0;
+}
+
+/*------------------------------------*  
+              #TASK WINDOW
+\*------------------------------------*/
+.dropdown-active.dropdown-left {
+  left: 0;
+  right: auto;
+}
+
+.more-items {
+  min-width: 12.83em;
+  max-width: 14.41em;
+}
+
+.dropdown-active.dropdown-content-wide {
+  width: 21.41em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.filter-links {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.filter-link {
+  margin: 0 0.5em;
+  cursor: pointer;
+}
+
+.filter-link:hover {
+  color: #00a8e8;
+}
+
+.filter-link.filter-link-active {
+  color: #00a8e8;
+}
+
+.filter-link.filter-link-active:hover {
+  color: #00a8e8;
+  cursor: default;
+}
+
+.menu-header {
+  background-color: rgba(181,181,181,0.15); 
+  font-size: 0.89em;
+  font-weight: bold;
+}
+
+.task-list {
+  margin-top: 1em;
+  overflow-y: auto;
+  max-height: 16.19em;
+}
+
+.task {
+  padding: 0.5em 0;
+  border-bottom: 2px solid hsla(0, 0%, 71%, 0.5);
+  border-top: 0px solid hsla(0, 0%, 71%, 0.5);
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+}
+
+input.task-done {
+  color: #b5b5b5;
+  text-decoration: line-through;
+}
+
+.checkbox {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: background 150ms ease;
+  border: 2px solid #b5b5b5;
+  border-radius: 3px;
+}
+
+.checkbox:hover {
+  background: rgba(44, 165, 141, 0.5);
+}
+
+.checkbox:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 6px;
+  height: 12px;
+  transition: all 325ms ease;
+  transform: rotate(45deg) scale(0);
+  opacity: 0;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.checklist-item-title {
+  margin-left: 0.5em;
+}
+
+.task-isDone.checkbox {
+  animation: wiggle .4s ease;
+  border-color: transparent;
+  background: #2ca58d;
+}
+
+.task-isDone.checkbox:after {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+}
+
+.task-input {
+  position: relative;
+}
+.task-input.task-isDone {
+  transition: all 175ms ease;
+  text-decoration: line-through;
+  opacity: .5;
+}
+
+.pos-rel {
+  position: relative; /* TODO - make a utility or add postion: relative to fbox`s*/
+}
+.task-input-info {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  right: 2em;
+  padding: 0.22em 0.5em;
+  background: #f5f5f5;
+}
+.task-input:focus + .task-input-info {
+  display: block;
+}
+/*
+input[type=checkbox]:checked ~ .checkbox {
+  animation: wiggle .4s ease;
+  border-color: transparent;
+  background: #2ca58d;
+}
+
+input[type=checkbox]:checked ~ .checkbox:after {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+}
+
+input[type=checkbox]:checked ~ input {
+  transition: all 175ms ease;
+  text-decoration: line-through;
+  opacity: .5;
+}*/
+
+@keyframes wiggle {
+  from {  transform: scale(1, 1);  }
+  30%  {  transform: scale(1.25, 0.75);  }
+  40%  {  transform: scale(0.75, 1.25);  }
+  50%  {  transform: scale(1.15, 0.85);  }
+  65%  {  transform: scale(0.95, 1.05);  }
+  75%  {  transform: scale(1.05, 0.95);  }
+  to   {  transform: scale(1, 1);  }
+}
+
+
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0.5em;
+  display: none;
+}

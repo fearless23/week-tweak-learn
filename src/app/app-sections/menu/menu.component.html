@@ -1,19 +1,14 @@
-<div (clickOutside)="onClickOutsideMainMenu($event)"> <!-- to get expected wrapped in a extra div -->
-    <label (click)="showMainMenu=!showMainMenu" class="menu-toggle-icon clickable">
-        <svg class="icon icon-menu">
-            <use xlink:href="assets/svg/symbol-defs.svg#icon-menu"></use>
+<div (clickOutside)="onClickOutsideMainMenu($event)"> <!-- to get expected behaviour, wrapped in a extra div -->
+    <span (click)="menuToggle=!menuToggle" class="menu-toggle-icon clickable">
+        <svg class="icon">
+            <use xlink:href="assets/svg/icons.svg#icon-menu"></use>
         </svg>
         
-    </label>
-    <div class="main-menu-container" [class.menu-expanded]="menuExpanded" [class.show-main-menu]="showMainMenu" >
+    </span>
+    <div class="main-menu-container" [class.menu-toggle]="menuToggle">
         
-        <div class="logo">
-            <span>w</span>
-            <span>eek</span>
-            <span>t</span>
-            <span>weak</span>
-        </div>       
-        <div class="user-area">
+               
+        <div class="user-area" routerLink="/profile" routerLinkActive="profile-active">
             <div class="user-img">
                 <img src="{{userPhoto}}"> 
             </div>
@@ -21,18 +16,18 @@
                 <span>{{userName}}</span>
                 <ul >               
                     <li routerLink="/account" class="clickable">
-                        <svg class="icon icon-home">
-                            <use xlink:href="assets/svg/symbol-defs.svg#icon-user"></use>
+                        <svg class="icon">
+                            <use xlink:href="assets/svg/icons.svg#icon-user"></use>
                         </svg>
                     </li>
-                    <li routerLink="/account/profile" class="clickable">
-                        <svg class="icon icon-home">
-                            <use xlink:href="assets/svg/symbol-defs.svg#icon-cross"></use>
+                    <li routerLink="/profile" class="clickable">
+                        <svg class="icon">
+                            <use xlink:href="assets/svg/icons.svg#icon-cross"></use>
                         </svg>
                     </li>
-                    <li routerLink="/account/settings" class="clickable">
-                        <svg class="icon icon-home">
-                            <use xlink:href="assets/svg/symbol-defs.svg#icon-week"></use>
+                    <li routerLink="/settings" class="clickable">
+                        <svg class="icon">
+                            <use xlink:href="assets/svg/icons.svg#icon-week"></use>
                         </svg>
                     </li>
                 </ul>  
@@ -42,35 +37,38 @@
 
         <ul class="sidebar-icon-list">
             <li class="sidebar-icon" routerLink="/" routerLinkActive="menu-active" [routerLinkActiveOptions] ="{exact: true}">
-                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-home"></use></svg>
+                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-home"></use></svg>
                 <span>Week</span>
             </li>
             <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
-                <svg class="icon icon-projects2"><use xlink:href="assets/svg/symbol-defs.svg#icon-project2"></use></svg>
+                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-project"></use></svg>
                 <span>Projects</span>
             </li>
             <li class="sidebar-icon" routerLink="/files" routerLinkActive="menu-active" title="Files">
-                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-week"></use></svg>
+                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus"></use></svg>
                 <span>Files</span>
             </li>
             <li class="sidebar-icon" routerLink="/store" routerLinkActive="menu-active" title="Store">
-                <svg class="icon icon-user"><use xlink:href="assets/svg/symbol-defs.svg#icon-user"></use></svg>
+                <svg class="icon icon-user"><use xlink:href="assets/svg/icons.svg#icon-week"></use></svg>
                 <span>Store</span>
             </li>
             <li class="sidebar-icon" routerLink="/life" routerLinkActive="menu-active" title="Life">
-                <svg class="icon icon-home"><use xlink:href="assets/svg/symbol-defs.svg#icon-compass"></use></svg>
+                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-compass"></use></svg>
                 <span>Life</span>
             </li>
             <li class="sidebar-icon" routerLink="/stats" routerLinkActive="menu-active" title="Analysis">
-                <svg class="icon icon-stats-dots"><use xlink:href="assets/svg/symbol-defs.svg#icon-stats-dots"></use></svg>
+                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-stats"></use></svg>
                 <span>Analysis</span>
             </li>
         </ul>
 
-        <div class="sidebar-wt">
-            <label class="clickable" (click)= "menuExpanded = !menuExpanded">
-                <svg class="icon icon-right-angle"><use xlink:href="assets/svg/symbol-defs.svg#icon-right-angle"></use></svg>
-            </label>
+        <div class="logo">
+            <span>w</span>
+            <span>eek</span>
+            <span>t</span>
+            <span>weak</span>
         </div>
+
+        
     </div>
 </div>

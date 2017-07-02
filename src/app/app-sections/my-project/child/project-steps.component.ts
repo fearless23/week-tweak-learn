@@ -3,73 +3,104 @@ import { MyProjectService }  from '../my-project.service';
 
 @Component({
   selector: 'app-project-steps',
-  templateUrl: './project-steps.component.html',
-  styleUrls: ['./project-steps.component.css']
+  templateUrl: './steps.html',
+  styleUrls: ['./steps.css']
 })
 
 export class ProjectStepsComponent implements OnInit {
+  myProjectKey
   userId;
-  db;
-  milestones;
+  
   steps;
-  task;
+  initialStepKey;
+
   stepKey;
-  tasks = [];
-  targetedTask;
+  selectedStep;
+  tasksInStep;
+
+  task;
+
   completedTasksLength;
   percentageOfStepDone;
-  selectedIndex = 0;
-  taskIndex;
-  title;
+  
+  dropStepSelector = false;
+  onClickOutsideStepSelector(event:Object) {
+    this.dropStepSelector = false;
+  }
+
   constructor( private mps: MyProjectService) {}
 
   ngOnInit(){
-    this.milestones = this.mps.milestones;
-    this.steps = this.mps.steps;
-    this.db = this.mps.stepsDb;
+    this.myProjectKey = this.mps.projectKeyFromRoute;
     this.userId = this.mps.userId;
-    this.db.list('users/'+this.userId+'/tasks').subscribe( data =>{
-      this.tasks = [];
-			for(let task of data){
-        if(task.stepKey === this.steps[0].$key){ this.tasks.push(task); }
-      };
-      this.completion(this.tasks);
+
+    this.steps = this.mps.steps;    
+    
+    //Set a step as initial/default
+    this.steps.subscribe(data =>  {
+      if(data.lenght>0){ 
+        this.initialStepKey = data[0].$key;
+        this.setStepId(this.initialStepKey);
+      }
     });
   }
-  setStepId(key, i){
-    this.selectedIndex=i;
+
+  
+  setStepId(key){
     this.stepKey = key;
-    this.db.list('users/'+this.userId+'/tasks').subscribe( data =>{
-      this.tasks = [];
-			for(let task of data){
-        if(task.stepKey === this.stepKey){ this.tasks.push(task); }
-      };
-      this.completion(this.tasks);
-    });    
+    this.selectedStep = this.getaStep(key);
+    this.tasksInStep = this.getTasksinStep(key);
+    //this.completion(this.tasks);
+  }
+
+  getTasksinStep(x){
+    return this.mps.db.list('users/'+this.userId+'/tasks', {
+          query: {
+            orderByChild: 'stepKey',
+            equalTo: x
+          }
+        })
+  }
+
+  getaStep(x){
+    return this.mps.db.object('users/'+this.userId+'/steps/'+x)
   }
 
   addTask(title) {
-    this.task = {"title": title, "stepKey": this.stepKey, isDone: false, "dateAdded": new Date().getTime()};
-    this.db.list('/users/'+this.userId+'/tasks').push(this.task);
-    this.completion(this.tasks);
-    //this.db.list('/users/'+this.userId+'/steps').update(this.stepKey, { blah: this.percentageOfStepDone });
+    this.task = {
+      "title": title,
+      "stepKey": this.stepKey,
+      "projectKey": this.myProjectKey,
+      "isDone": false,
+      "dateAdded": new Date().getTime()
+    };
+    this.mps.tasksDatabase.push(this.task);
+    //this.completion(this.tasks);
   }
 
 
   taskStatus(key, status){
-    this.db.list('/users/'+this.userId+'/tasks').update(key, { isDone: status });
-    this.completion(this.tasks);
-    //this.db.list('/users/'+this.userId+'/steps').update(this.stepKey, { blah: this.percentageOfStepDone });
+    this.mps.tasksDatabase.update(key, { isDone: status });
+    //this.completion(this.tasks);
+   
+  }
+
+  taskEdit(key, title){
+    this.mps.tasksDatabase.update(key, { title: title });
+    //this.completion(this.tasks);
+    
   }
 
 
-  completion(array){
+  /*completion(array){
     this.completedTasksLength = 0;
-    for(var task of array) {
-      if(task.isDone === true){ this.completedTasksLength = this.completedTasksLength+1; }
-    }
-    this.percentageOfStepDone= Math.round((this.completedTasksLength/array.length)*10000)/100;
- }
-
+    array.subscribe( tasks => {
+      for(var task of array) {
+        if(task.isDone === true){ this.completedTasksLength = this.completedTasksLength+1; }
+      }
+      this.percentageOfStepDone= Math.round((this.completedTasksLength/array.length)*10000)/100;
+    })
+    
+  }*/
 
 }

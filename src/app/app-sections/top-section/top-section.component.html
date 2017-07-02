@@ -1,40 +1,75 @@
  <div class="main-topbar">
-    <div class="page-title">{{pageTitle}}</div>
-    <div class="icon-group">
+  <div class="page-title">{{pageTitle}}</div>
+  <div class="icon-group">
+
+    <app-search-box></app-search-box>
+
+    <div class="dropdown-container" (clickOutside)="onClickOutsideAddBtn($event)">
+
+      <span title="Add Project, Tasks, Steps"
+        class="clickable icon-container"
+        (click)="dropAddBtn = !dropAddBtn">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus-fat"></use></svg>
+      </span>
+
+      <div class="dropdown-content" [class.dropdown-active]="dropAddBtn">
         
-        <app-search-box></app-search-box>
-        <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
-            <span class="clickable" title="user-account" (click)="dropNotification = !dropNotification">
-                <svg class="icon icon-bell" viewBox="0 0 80 80">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-bell"></use>
-                </svg>
-                <span class="badge"></span>
-            </span>
-            <div class="dropdown-content" [class.dropdown-active]="dropNotification">
-                Notifications
-            </div>
-        </div>
-            
-        <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
-            <span class="clickable" title="user-account" (click)="drop = !drop">
-                <svg class="icon icon-horizontal-dots" viewBox="0 0 20 20">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-horizontal-dots"></use>
-                </svg>
-            </span>
-            <div class="dropdown-content" [class.dropdown-active]="drop">
-                <ul class="more-items">
-                    <li class="more-item">Profile</li>
-                    <li class="more-item" routerLink="/settings" title="Settings">Settings</li>
-                    <li class="more-item" (click)="logout()">Log Out</li>
-                </ul>
-            </div>
-        </div>
+        <ul class="more-items">
+          <li class="more-item" routerLink="/profile">Project</li>
+          <li class="more-item" routerLink="/help">Step</li>
+          <li class="more-item" routerLink="/focus">Task</li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
+
+      <span  title="Notifications"
+        class="clickable icon-container icon-container-dot"
+        (click)="dropNotification = !dropNotification">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-bell"></use></svg>
+      </span>
+
+      <div class="dropdown-content" [class.dropdown-active]="dropNotification">
+        Notifications
+      </div>
 
     </div>
+
+    <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
+
+      <span title="User Actions"
+        class="clickable icon-container"
+        (click)="drop = !drop">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-h-dots"></use></svg>
+      </span>
+
+      <div class="dropdown-content" [class.dropdown-active]="drop">
+        <span style="   background-color: rgba(181,181,181,0.15);
+                color: #4D5256;
+                padding: 0.5em 1em;
+                display: block;
+                font-weight: bold;"> Hello {{userName}} </span>
+        <ul class="more-items">
+          <li class="more-item" routerLink="/profile">Profile</li>
+          <li class="more-item" routerLink="/help">Help</li>
+          <li class="more-item" routerLink="/focus">Focus Mode</li>
+        </ul>
+        <hr style=" height: 1px; background: #b5b5b5; opacity: 0.5;">
+        <ul class="more-items">
+          <li class="more-item" routerLink="/settings" title="Settings">Settings</li>
+          <li class="more-item" routerLink="/lock" title="Settings">Lock App</li>
+          <li class="more-item" (click)="logout()">Log Out</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </div>
-                
-               
+
+
 <div class="tabs-group" >
-    <a *ngFor="let item of tabsData" class="tab" routerLink="{{item.link}}" 
-    routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: true}">{{item.title}}</a>
+  <a *ngFor="let item of tabsData" class="tab" routerLink="{{item.link}}"
+  routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: true}">{{item.title}}</a>
 </div>

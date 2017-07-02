@@ -1,0 +1,244 @@
+<div *ngIf="(steps | async)?.length===0" class="blankslate"> ADD ACTION STEP </div>
+
+<div *ngIf="(steps | async)?.length>0"class="fbox-sb p-x p-y-md">
+
+  <div    
+    style="min-width: 18.18em; position: relative;"
+    (clickOutside)="onClickOutsideStepSelector($event)">
+    
+    <div class="fbox-btn clickable" (click)="dropStepSelector = !dropStepSelector">
+      <span class="title title-sm">{{(selectedStep | async)?.title}}</span>
+      <span
+        title="Select an Action Step" 
+        class="clickable icon-container icon-container-sm">
+        <svg class="icon">
+            <use xlink:href="assets/svg/icons.svg#icon-filter"></use>
+        </svg>
+      </span>
+    </div>
+    <div class="dropdown-content dropdown-full dropdown-left" [class.dropdown-active]="dropStepSelector">
+      <div class="p-x p-y" 
+        style=" background-color: rgba(181,181,181,0.15); 
+                font-size: 0.89em; font-weight: bold;"> 
+        Select a Step
+      </div>
+      <ul class="more-items">
+        <li class="clickable more-item" *ngFor="let step of steps | async" (click)="setStepId(step.$key); dropStepSelector = !dropStepSelector">{{step.title}}</li>
+      </ul>
+      <hr>
+      
+      <add-step></add-step>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="(steps | async)?.length>0" class="box">
+
+  <div class="col">
+    <div class="step-container">
+
+      <div class="fbox-sb p-y">
+
+        <ul class="tags-list">
+          <li class="tag-item">Dev</li>
+          <li class="tag-item">Backend</li>
+          <li class="tag-item">Coding</li>
+        </ul>
+        <div class="icon-container clickable dropdown-container" title="step-actions">
+          <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-v-dots" ></use></svg>
+          <div class="dropdown-content dropdown-activex">
+            <ul class="more-items">
+              <li class="more-item">1</li>
+              <li class="more-item">2</li>
+              <li class="more-item">3</li>
+              <li class="more-item">4</li>
+            </ul>
+          </div>
+        </div>
+      
+      </div>
+
+      <div class="title m-y">{{(selectedStep | async)?.title}}</div>
+
+      <div class="step-description">{{(selectedStep | async)?.summary}}</div>
+      
+      <div class="step-goals">
+          
+        <div class="fbox-sb">
+
+          <span class="title text-blue">Goals</span>
+
+          <div class="fbox-btn">
+            <span class="title title-sm"> This Week </span>
+            <span style="margin-left: 1em;" class="icon-container icon-container-sm" title="Select Step Projects">
+              <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-selector"></use></svg>
+            </span>
+            <div class="dropdown-content dropdown-left dropdown-full dropdown-activex"><!-- edit x to see dropdown effect -->
+
+              <div class="p-x p-y menu-header"> Select a Week</div>
+
+              <ul class="more-items">
+                <li class="more-item">This Week</li>
+                <li class="more-item">Last Week</li>
+                <li class="more-item">Next Week</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+          
+        <!--GOALS LIST-->
+        <!-- use input as text mode -->
+        <div class="step-goal">
+          <span><svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-target" ></use></svg></span>
+          <input type="text" class="form-control input-as-text" value="J-Bots(AI) for Projects/Tasks">
+        </div>
+        <div class="step-goal">
+          <span><svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-target" ></use></svg></span>
+          <input type="text" class="form-control input-as-text" value="Any size of Projects, WT will scale nicely">
+        </div>
+        <div class="step-goal">
+          <span><svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-target" ></use></svg></span>
+          <input type="text" class="form-control input-as-text" value="Apps Integrations">
+        </div>
+          
+          
+          
+      </div>
+
+      <div class="fbox-sa">
+
+        <div class="card-info">
+          <span class="card-info-title">Created On </span>
+          <span class="card-info-detail el-sm">{{(selectedStep | async)?.dateAdded | date:'longDate'}}</span>
+        </div>
+
+        <div class="card-info">
+          <span class="card-info-title">Due Date</span>
+          <span class="card-info-detail el-sm">23 July 2017 </span>
+        </div>
+          
+        <div class="card-info">
+          <span class="card-info-title">Status</span>
+          <span class="card-info-detail text-green-light el-sm">In Progress</span>
+        </div>
+
+      </div>
+      <!--
+      <button type="button" class="btn btn-blue"> Open in Focus Mode </button>-->
+      
+    </div>
+  </div>
+
+  <div class="col-gutter"></div>
+
+  <div class="col">
+      <div class="step-container">
+      <div class="fbox-sb p-y">
+          
+          <div class="title text-green">Tasks</div>
+          <div class="icon-container clickable dropdown-container" title="step-actions">
+          <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-v-dots" ></use></svg>
+          <div class="dropdown-content dropdown-activex">
+              <ul class="more-items">
+              <li class="more-item">1</li>
+              <li class="more-item">2</li>
+              <li class="more-item">3</li>
+              <li class="more-item">4</li>
+              </ul>
+          </div>
+          </div>
+      
+      </div>
+                  
+      <div class="p-y-md">
+          
+        <div class="fbox-sb">
+
+          <div class="fbox-btn">
+            <span class="title title-sm"> This Week </span>
+            <span style="margin-left: .5em;" class="icon-container icon-container-sm" title="Select Step Projects">
+              <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-selector"></use></svg>
+            </span>
+            <div class="dropdown-content dropdown-left dropdown-full dropdown-activex"><!-- edit x to see dropdown effect -->
+
+              <ul class="more-items">
+                <li class="more-item">This Week</li>
+                <li class="more-item">Last Week</li>
+                <li class="more-item">Next Week</li>
+                <li class="more-item">All Tasks</li>
+              </ul>
+
+            </div>
+          </div>
+
+          <ul class="fbox-sb filter-links">
+            <li class="filter-link filter-link-active">All</li>
+            <li class="filter-link">Done</li>
+            <li class="filter-link">Left</li>
+          </ul>
+
+        </div>
+          
+         
+        <ul class="task-list">
+          <li *ngFor="let task of tasksInStep | async" class="task">
+            <div class="fbox-sb pos-rel">
+              <label class="clickable" (click)="task.isDone=!task.isDone; taskStatus(task.$key,task.isDone)">
+                <input type="checkbox" class="form-checkbox hidden" [checked]=task.isDone>
+                <span class="checkbox" [class.task-done] = "task.isDone"></span>
+              </label>
+              
+              <input type="text" #taskTitle class="form-control input-sm input-as-text task-input" [class.task-done] = "task.isDone" 
+                value="{{task.title}}" (keyup.enter)=taskEdit(task.$key,taskTitle.value)>
+              <span class="task-input-info el-sm"> Press Enter to add </span>
+            </div>
+            <div class="task-actions">
+              <div class="icon-container-sm" title="Search">
+                  <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-search"></use></svg>
+              </div>
+              <div class="icon-container-sm" title="Delete Task">
+                  <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-del"></use></svg>
+              </div>
+              <div class="icon-container-sm" title="Open">
+                  <svg class="icon" ><use xlink:href="assets/svg/icons.svg#icon-open-link"></use></svg>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="blankslate" *ngIf="(tasksInStep | async)?.length===0"> No tasks </div>
+
+          
+      </div>
+      <div class="fbox-sa">
+          <div class="card-info">
+            <span class="card-info-detail text-blue">{{(tasksInStep | async)?.length}}</span>
+            <span class="card-info-title">TASKS</span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-detail text-blue">{{completedTasksLength}}</span>
+            <span class="card-info-title">COMPLETED</span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-detail text-blue">{{percentageOfStepDone}}%</span>
+            <span class="card-info-title">PROGRESS</span>
+          </div>
+
+  
+          
+      </div>
+      
+      <div class="form-group p-y-md">
+            <label class="p-y" style="display: block;">Add an Task</label>
+            <input type="text" class="form-control input-sm input-block" #taskAddTitle (keyup.enter)="addTask(taskAddTitle.value); taskAddTitle.value = '';">
+            <span class="el-sm text-grey"> Press Enter to add </span>
+        </div>
+      
+      </div>
+  </div>
+</div>

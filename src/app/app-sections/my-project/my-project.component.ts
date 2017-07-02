@@ -4,7 +4,6 @@ import { MyProjectService} from './my-project.service';
 @Component({
   selector: 'app-my-project',
   templateUrl: './my-project.component.html',
-  styleUrls: ['./my-project.component.css', '../../shared/styles/content-topbar.css'],
   providers: [MyProjectService]
 })
 
@@ -27,9 +26,11 @@ export class MyProjectComponent {
 			"link" : "./b"
 		},
 	];
-  project;
-  constructor( private mps: MyProjectService) {
-    this.project = mps.project;    
-  }
-  
+
+	title;
+  constructor( private mps: MyProjectService) {}
+
+	ngOnInit(){
+		this.mps.myProject.subscribe(	data => this.title = data.title );
+	} 
 }

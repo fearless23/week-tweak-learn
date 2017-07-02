@@ -1,0 +1,25 @@
+<div class="p-x p-y-md">
+
+    <h2>Project Overview Here</h2>
+
+    <div class="m-y-md">
+        <span class="title p-y p-x">Title:</span>
+        <span class="p-y">{{(myProject | async)?.title}}</span>
+    </div>
+    <div class="m-y-md">
+        <span class="title p-y p-x">Summary:</span>
+        <span class="p-y">{{(myProject | async)?.summary}}</span>
+    </div>
+    <div class="m-y-md">
+        <span class="title p-y p-x">Category:</span>
+        <span class="p-y">{{(myProject | async)?.category}}</span>
+    </div>
+    <div class="m-y-md">
+        <span class="title p-y p-x">CreatedOn:</span>
+        <span class="p-y">{{(myProject | async)?.dateAdded | date:'longDate'}}</span>
+    </div>
+    <div class="m-y-md">
+        <span class="title p-y p-x">Key:</span>
+        <span class="p-y">{{(myProject | async)?.$key}}</span>
+    </div>
+</div>

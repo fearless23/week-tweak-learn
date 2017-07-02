@@ -1,35 +1,66 @@
-<div class="card-group-container">
-    <div class="card-container" *ngFor="let k of personalProjects | async">
-        <div class="card-top create">
-            <span class="project-type">Create</span>
-            <div class="blur"></div>
-        </div>
-        <div class="progress">
-            <span> 60 %</span>
-        </div>
-        <div class="content">
-            <div class="details">
-                <span> Added on {{k.dateAdded | date:'longDate'}}</span>
-                <span>...</span>
-                <button (click)=removeProject(k.$key) class="btn-sm">Delete</button>
-            </div>
-            <div class="title">{{k.title}}</div>
-            <div class="summary">{{k.summary}}</div>
-            <button class="btn btn-outline open-project" routerLink="../../project/{{k.$key}}"> Open Project</button>
-            <div class="project-info">
-                <div class="info">
-                    <span>06</span>
-                    <span>Steps</span>
-                </div>
-                <div class="info">
-                    <span>29</span>
-                    <span>Tasks</span>
-                </div>
-                <div class="info">
-                    <span>03</span>
-                    <span>Weeks</span>
-                </div>
+<div class="card-group-container" *ngIf="(personalProjects | async)?.length>0">
+
+  <div class="card-container" *ngFor="let i=index; let k of personalProjects | async">
+  
+    <div class="card-header">
+        <div class="title">{{k.title}} </div>  
+        <div class="dropdown-container">
+            <span class="icon-container clickable" (click)="setSelected(i)">
+              <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-v-dots"></use> </svg>
+            </span>
+            <div class="dropdown-content" [class.dropdown-active]="selected===i">
+              <div class="card-header" style="padding: 0 0.35em;">
+                <div class="title-sm"> Project Actions </div>
+                <span class="icon-container icon-container-sm clickable" (click)="selected=null;">
+                  <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-cross"></use> </svg>
+                </span>
+              </div>
+              <ul class="more-items">
+                  <li class="more-item">Settings</li>
+                  <li class="more-item">Progress</li>
+              </ul>
+              <hr>
+              <ul class="more-items">
+                  <li class="more-item">Mark As Done</li>
+                  <li class="more-item">Edit</li>
+                  <li class="more-item delete" (click)=removeProject(k.$key)>Delete</li>
+              </ul>   
             </div>
         </div>
     </div>
+
+    <div class="description">{{k.summary}}</div>
+
+    <div class="activity"> {{k.dateAdded | date:'longDate'}} </div>
+
+    <div class="box-f">
+
+        <div class="card-info">
+            <span class="card-info-detail text-blue">{{k.steps}}</span>
+            <span class="card-info-title text-grey">Steps</span>
+        </div>
+        <div class="card-info">
+            <span class="card-info-detail text-blue">{{k.tasks}}</span>
+            <span class="card-info-title">Tasks</span>
+        </div>
+        <div class="card-info">
+            <span class="card-info-detail text-blue">{{k.progress}}%</span>
+            <span class="card-info-title">Progress</span>
+        </div>    
+
+    </div>
+
+    <!--<div class="project-progress">
+        <span>12 / 24 Tasks Done</span>
+    </div>-->
+
+    <div class="project-actions">
+        <span class="project-active">Active</span>
+        <button type="button" class="btn btn-sm btn-outline" routerLink="../../project/{{k.$key}}">View</button>
+    </div>
+
+  </div>
+
 </div>
+
+<div *ngIf="(personalProjects | async)?.length===0" class="blankslate no-project-blankslate">Looks Like No projects ADD One</div>

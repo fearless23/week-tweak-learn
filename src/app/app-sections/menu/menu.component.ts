@@ -7,8 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  menuExpanded = false;
-  showMainMenu = false;
+  menuToggle = false
   userName;
   userPhoto;
   constructor(private afa: AngularFireAuth) {
@@ -21,6 +20,6 @@ export class MenuComponent {
    
   }
   onClickOutsideMainMenu(e){
-    this.showMainMenu = false;
+    this.menuToggle = false;
   }
 }

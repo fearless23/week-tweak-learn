@@ -3,35 +3,41 @@ import { MyProjectService }  from './../my-project.service';
 import { Router }           from '@angular/router';
 
 @Component({
-	selector: 'add-step',
-	templateUrl: 'add-step.component.html'
+  selector: 'add-step',
+  templateUrl: 'add-step.component.html'
 })
 
 export class AddStepComponent implements OnInit {
-	db;
-  	step;
-	projectKey;
-  	userId;
-  	modalState=false;
-	  title;
-	  summary;
-	  category;
+  step;
+  projectKey;
+  userId;
+  
+  title:String;
+  summary:String;
 
-  	constructor(private mps: MyProjectService, private router: Router) {}
-	
-	ngOnInit() {
-		this.db = this.mps.stepsDb;
-    	this.userId = this.mps.userId;
-		this.projectKey = this.mps.id;
-	}
+  constructor(private mps: MyProjectService, private router: Router) {}
+    
+  ngOnInit() {
+    this.userId = this.mps.userId;
+    this.projectKey = this.mps.projectKeyFromRoute;
+  }
 
-	addStep(a,b) {
-    	this.step = {"title": a, "summary": b, "projectKey": this.projectKey, "dateAdded": new Date().getTime()};
-      	this.db.list('/users/'+this.userId+'/steps').push(this.step);
-	};
+  addStepTitle(a) {
 
-	reset(a,b,){
-		a = ''; b = '';
-	}
-	
+    this.step = {
+      "title": a,
+      "summary": "",
+      "projectKey": this.projectKey,
+      "dateAdded": new Date().getTime(),
+      "numOfTasks":0,
+      "progress":0,
+    };
+
+    this.mps.stepsDatabase.push(this.step);
+  };
+
+  reset(a,b,){
+    a = ''; b = '';
+  }
+    
 }

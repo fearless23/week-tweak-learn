@@ -13,17 +13,17 @@ import {AddProjectComponent}           from './add-project/add-project.component
 
 // Routes
 const projectsRoutes: Routes = [
-    { path: '', 
-      component: ProjectsComponent, 
-      children:[
-        {path:'base',     component: BaseProjectsComponent     },
-        {path:'pro',      component: ProProjectsComponent      },
-        {path:'social',   component: SocialProjectsComponent   },
-        {path:'personal', component: PersonalProjectsComponent },
-        //{path:'add', component: AddProjectComponent },
-        { path: '', pathMatch: 'full', redirectTo: 'personal'  }
-      ]
-    }
+  { path: '', 
+    component: ProjectsComponent, 
+    children:[
+      {path:'base',     component: BaseProjectsComponent     },
+      {path:'pro',      component: ProProjectsComponent      },
+      {path:'social',   component: SocialProjectsComponent   },
+      {path:'personal', component: PersonalProjectsComponent },
+      //{path:'add', component: AddProjectComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'personal'  }
+    ]
+  }
 ];
 
 @NgModule({
@@ -40,4 +40,4 @@ export const rc = [
   ProProjectsComponent,
   SocialProjectsComponent,
   AddProjectComponent
-  ];
+];

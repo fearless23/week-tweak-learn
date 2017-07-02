@@ -15,6 +15,8 @@ export class TopSectionComponent {
 
   drop = false;
   dropNotification = false;
+  dropAddBtn = false;
+  userName;
 
   onClickOutside(event:Object) {
       this.drop = false;
@@ -24,7 +26,17 @@ export class TopSectionComponent {
       this.dropNotification = false;
   }
 
-  constructor(public afa: AngularFireAuth, private router: Router) {}
+  onClickOutsideAddBtn(event:Object) {
+      this.dropAddBtn = false;
+  }
+
+  constructor(public afa: AngularFireAuth, private router: Router) {
+    afa.authState.subscribe(data => {
+      if(data) {
+        this.userName = data.displayName;
+      }
+    });
+  }
 
   logout() {
      this.afa.auth.signOut();

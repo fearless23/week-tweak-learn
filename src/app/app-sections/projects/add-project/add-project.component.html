@@ -1,68 +1,61 @@
-<input type="checkbox" name="modal-toggle" id="modal-toggle" [(ngModel)]="modalState">
+<input type="checkbox" name="modal-toggle" id="modal-toggle" [(ngModel)]="modalState" class="hidden">
 <div class="modal-wrapper">
-    <!--<div class="modal-container">-->
-      <div class="add-project-wrapper">
-        <div class="add-project-container">
 
-          <div class="add-project-topbar">
-            <div class="title">Create New Project</div>
-              <label for="modal-toggle" class="modal-toggle" 
-                    title="Close">
-              <svg class="icon icon-cross">
-                    <use xlink:href="assets/svg/symbol-defs.svg#icon-cross"></use>
-                </svg>
-            </label>
-          </div>
+  <div class="add-project-wrapper">
 
-          <div class="add-project-middle">
+    <div class="add-project-container">
 
-            <div class="add-project-content">
-              <div class="add-project-content-title">Project Title</div>
-              <input type="text" id="project-title" placeholder="Learn painting" [(ngModel)]="title">
-              <div class="project-title-help">
-                <div>
-                  <strong>Name projects appropriately</strong>
-                  <p style="font-size: 80%;"><em>After naming your projects. choose a category that will help you organize your projects.</em></p>
-                </div>
-                <div>
-                  <img src="assets/img/messi.jpg" style="width: 6.5em">
-                </div>
-              </div>
-            </div>
-            <div class="add-project-content">
-              <div class="add-project-content-title">Select a project category</div>
+      <div class="add-project-topbar">
+        <div class="title">Create New Project</div>
+        <label for="modal-toggle" class="modal-toggle clickable" title="Close">
+          <svg class="icon icon-cross">
+            <use xlink:href="assets/svg/icons.svg#icon-cross"></use>
+          </svg>
+        </label>
+      </div>
 
-              <div class="project-category-toggle">
-                <input id="base" type="radio" name="project-category" 
-                        [(ngModel)]= "category" value="base">
-                <label for="base" >Base</label>
-                
-                <input id="personal" type="radio" name="project-category"
-                        [(ngModel)]= "category" value="personal">
-                <label for="personal">Personal</label>
-                
-                <input id="pro" type="radio" name="project-category"
-                        [(ngModel)]= "category" value="pro">
-                <label for="pro" >Pro</label>
-                
-                <input id="social" type="radio" name="project-category"
-                        [(ngModel)]= "category" value="social">
-                <label for="social">Social</label>
-        
-              </div>
-            </div>
-            <div class="add-project-content">
-              <div class="add-project-content-title">Summary</div>
-              <textarea rows="3" cols="42" placeholder="Learn oil painting this summer" class="add-project-description" [(ngModel)]="summary"></textarea>
-            </div>
-          </div>
+      <div class="add-project-middle">
 
-          <div class="add-project-bottom">
-                          
-            <button class="btn btn-sm" (click)=reset(title,summary,category)>Cancel</button>
-            <button class="btn btn-blue btn-sm" (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">Create Project</button>
+        <div class="form-group">
+          <label>Project Title</label>
+          <input type="text" id="project-title" placeholder="Learn painting" [(ngModel)]="title" class="form-control input-block">
+        </div>
+
+        <div class="form-group">
+          <label>Select a project category</label>
+
+          <div class="project-category-toggle">              
+            <input id="personal" type="radio" name="project-category"
+                    [(ngModel)]= "category" value="personal">
+            <label for="personal">Personal</label>
+            
+            <input id="pro" type="radio" name="project-category"
+                    [(ngModel)]= "category" value="pro">
+            <label for="pro" >Pro</label>
+            
+            <input id="social" type="radio" name="project-category"
+                    [(ngModel)]= "category" value="social">
+            <label for="social">Social</label>
+    
           </div>
         </div>
+
+        <div class="form-group">
+          <label>Summary</label>
+          <textarea placeholder="Learn oil painting this summer" class="form-control" [(ngModel)]="summary"></textarea>
+        </div>
+        
+      </div>
+
+      <div class="add-project-bottom">
+                      
+        <button class="btn btn-sm btn-grey" (click)=reset(title,summary,category)>Cancel</button>
+        <button class="btn btn-sm btn-blue" (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">Create Project</button>
       
+      </div>
+
     </div>
+      
+  </div>
+
 </div>
