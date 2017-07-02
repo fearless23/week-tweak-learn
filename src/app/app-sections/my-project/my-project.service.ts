@@ -18,7 +18,8 @@ export class MyProjectService {
   tasksDatabase;
   
   steps;
-
+  tasks;
+  
   constructor( private route: ActivatedRoute, private afa: AngularFireAuth, private afdb: AngularFireDatabase) {
 
     afa.authState.subscribe( auth => {
@@ -35,10 +36,15 @@ export class MyProjectService {
       this.projectsDatabase = afdb.list(projectsUrl);
       this.stepsDatabase = afdb.list(stepsUrl);
       this.tasksDatabase = afdb.list(tasksUrl);
-      
-     
 
-      this.steps = afdb.list('users/'+this.userId+'/steps', {
+      this.steps = afdb.list(stepsUrl, {
+        query: {
+          orderByChild: 'projectKey',
+          equalTo: this.projectKeyFromRoute 
+        }
+      });
+
+      this.tasks = afdb.list(tasksUrl, {
         query: {
           orderByChild: 'projectKey',
           equalTo: this.projectKeyFromRoute 

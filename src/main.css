@@ -71,7 +71,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: #4D5256;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #FFF;
   -webkit-font-smoothing: antialiased; }
 

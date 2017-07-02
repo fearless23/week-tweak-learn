@@ -5,14 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { MyProjectComponent } from './my-project.component';
-import { ProjectOverviewComponent } from './child/project-overview.component';
-import { ProjectStepsComponent } from './child/project-steps.component';
+import { ProjectOverviewComponent } from './child/overview.component';
+import { ProjectChecklistComponent } from './child/checklist.component';
+import { ProjectStepsComponent } from './child/steps.component';
 import { AddStepComponent} from './add-step/add-step.component';
 const projectRoutes: Routes = [
     { path: '', 
       component: MyProjectComponent, 
       children:[
         {path: 'add-step', component: AddStepComponent},
+        {path:'checklist', component: ProjectChecklistComponent},
         {path:'steps', component: ProjectStepsComponent},
         {path:'', component: ProjectOverviewComponent}
       ]
@@ -28,6 +30,7 @@ export class MyProjectRoutingModule { }
 export const rc = [
   MyProjectComponent, 
   ProjectOverviewComponent,
+  ProjectChecklistComponent,
   ProjectStepsComponent,
   AddStepComponent
 ];

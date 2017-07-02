@@ -18,8 +18,8 @@ export class MyProjectComponent {
 			"link" : "./steps"
 		},
 		{
-			"title": "Files",
-			"link" : "./a"
+			"title": "List",
+			"link" : "./checklist"
 		},
 		{
 			"title": "Settings",
