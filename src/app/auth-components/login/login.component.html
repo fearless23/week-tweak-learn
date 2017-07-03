@@ -15,6 +15,14 @@
 	</div>
 </div>
 
-<div style="position: absolute; top: 5em; left: 5em;">
+<div  class="error login-error">
 	{{error}}
 </div>
+
+
+<div class="error">
+    <input  class="form-control input-block" #ert (keyup.enter)=hello(ert.value)>
+	<p class="p-y-md p-x">{{foo}}</p>
+</div>
+
+

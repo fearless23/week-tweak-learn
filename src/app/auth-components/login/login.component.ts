@@ -11,13 +11,13 @@ import * as firebase from 'firebase/app';
 
 export class LoginComponent implements OnInit {
 
-  error: any;
-  
+  error;
+  foo;
   constructor(public afa: AngularFireAuth, private router: Router) {}
 
   ngOnInit() { 
     
-   }
+  }
   
   loginGoogle() {
     this.afa.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider() )
@@ -28,7 +28,11 @@ export class LoginComponent implements OnInit {
   loginFb() {
     this.afa.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then(  success => this.router.navigate([''] ) )
-    .catch( err => this.error = err                )
+    .catch( err => this.error = err               )
   }
-
+  
+  hello(x){
+    this.foo = x;
+    this.error = x;
+  }
 }

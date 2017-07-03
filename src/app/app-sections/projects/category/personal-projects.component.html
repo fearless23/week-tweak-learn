@@ -1,3 +1,4 @@
+<div *ngIf="!(personalProjects | async)"> Loading Projects </div>
 <div class="card-group-container" *ngIf="(personalProjects | async)?.length>0">
 
   <div class="card-container" *ngFor="let i=index; let k of personalProjects | async">
@@ -64,5 +65,3 @@
 </div>
 
 <div *ngIf="(personalProjects | async)?.length===0" class="blankslate no-project-blankslate">Looks Like No projects ADD One</div>
-
-<p *ngFor="let k of personalProjects |  filterArray: category:personal | async">{{k.title}}</p>
