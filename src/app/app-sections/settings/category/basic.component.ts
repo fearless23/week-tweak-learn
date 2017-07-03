@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService    } from '../settings.service';
+import { SettingsService   } from '../settings.service';
 
 @Component({
   selector: 'app-basic-settings',
@@ -8,12 +8,12 @@ import { SettingsService    } from '../settings.service';
   providers: [SettingsService]
 })
 
-export class BasicSettingsComponent {
+export class BasicSettingsComponent implements OnInit {
 
   user;
 
-  constructor( private ss: SettingsService){
-    this.ss.user.subscribe(data => this.user = data); // Sync Behaviour
+  constructor( private ss: SettingsService) {
+    this.ss.user.subscribe( data => this.user = data ); // Sync Behaviour
   }
 
   ngOnInit() {}

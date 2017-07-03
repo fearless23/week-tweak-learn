@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Router } from '@angular/router';
+import { Component, Input }  from '@angular/core';
+import { AngularFireAuth }   from 'angularfire2/auth';
+import { Router }            from '@angular/router';
 
 @Component({
   selector: 'app-top-section',
@@ -18,30 +18,32 @@ export class TopSectionComponent {
   dropAddBtn = false;
   userName;
 
-  onClickOutside(event:Object) {
-      this.drop = false;
+  onClickOutside(event: Object) {
+    this.drop = false;
   }
 
-  onClickOutsideNotification(event:Object) {
-      this.dropNotification = false;
+  onClickOutsideNotification(event: Object) {
+    this.dropNotification = false;
   }
 
-  onClickOutsideAddBtn(event:Object) {
-      this.dropAddBtn = false;
+  onClickOutsideAddBtn(event: Object) {
+    this.dropAddBtn = false;
   }
 
   constructor(public afa: AngularFireAuth, private router: Router) {
+
     afa.authState.subscribe(data => {
-      if(data) {
+      if (data) {
         this.userName = data.displayName;
       }
     });
+
   }
 
   logout() {
-     this.afa.auth.signOut();
-     this.router.navigateByUrl('/signout');
-     console.log('logged out');
+    this.afa.auth.signOut();
+    this.router.navigateByUrl('/signout');
+    console.log('logged out');
   }
-  
+
 }

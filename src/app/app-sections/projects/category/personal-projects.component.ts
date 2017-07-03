@@ -1,4 +1,4 @@
-import { Component }       from '@angular/core';
+import { Component, OnInit }       from '@angular/core';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -8,24 +8,23 @@ import { ProjectsService } from '../projects.service';
   providers: [ProjectsService]
 })
 
-export class PersonalProjectsComponent {
+export class PersonalProjectsComponent implements OnInit {
 
   personalProjects;
   selected = null;
 
-  setSelected(i){
+  setSelected(i) {
     this.selected = i;
   }
 
-  removeProject(key){
+  removeProject(key) {
     this.ps.personalProjects.remove(key);
     this.selected = null;
   }
-  
-  constructor(private ps: ProjectsService) {}  
+
+  constructor(private ps: ProjectsService) {}
 
   ngOnInit() {
     this.personalProjects = this.ps.personalProjects;
-    console.log("From BComp NGINIT - "+ this.ps.userId);
   }
 }

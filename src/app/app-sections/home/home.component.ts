@@ -6,33 +6,35 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+
   homeTabsData = [
     {
-      "title": "Overview",
-      "link" : "/"
+      'title': 'Overview',
+      'link' : '/'
     },
     {
-      "title": "Week Plan",
-      "link" : "/week-plan"
+      'title': 'Week Plan',
+      'link' : '/week-plan'
     },
     {
-      "title": "Today",
-      "link" : "/today"
+      'title': 'Today',
+      'link' : '/today'
     },
     {
-      "title": "More",
-      "link" : "/wer"
+      'title': 'More',
+      'link' : '/wer'
     },
   ];
-  pageTitle = "Week Tweak"
 
+  pageTitle = 'Week Tweak';
   date;
+
   ngOnInit() {
     this.showTime();
   }
 
-  showTime(){
+  showTime() {
     this.date = new Date();
-    setInterval(()=> this.date = new Date(), 1000);
+    setInterval(() => this.date = new Date(), 1000);
   }
 }

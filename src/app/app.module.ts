@@ -8,11 +8,11 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDDZqq-ZunPtltpY-zrt8uoFCE3i-tRUT0",
-  authDomain: "week-tweak-learn.firebaseapp.com",
-  databaseURL: "https://week-tweak-learn.firebaseio.com",
-  storageBucket: "week-tweak-learn.appspot.com",
-  messagingSenderId: "847520306136"
+  apiKey: 'AIzaSyDDZqq-ZunPtltpY-zrt8uoFCE3i-tRUT0',
+  authDomain: 'week-tweak-learn.firebaseapp.com',
+  databaseURL: 'https://week-tweak-learn.firebaseio.com',
+  storageBucket: 'week-tweak-learn.appspot.com',
+  messagingSenderId: '847520306136'
 };
 
 // Roouter for Root Modules
@@ -32,7 +32,6 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule,
     AppRoutingModule,
     ContactModule,
-    
   ],
   declarations: [
     AppComponent,

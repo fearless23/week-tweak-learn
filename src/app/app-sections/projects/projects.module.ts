@@ -1,7 +1,7 @@
 // app/characters/characters.module.ts
 
 // Angular Module Decorator
-import { NgModule } from '@angular/core';  
+import { NgModule } from '@angular/core';
 
 // Shared Module : Forms, common, Http
 import { SharedModule} from '../../shared/shared.module';
@@ -10,15 +10,15 @@ import 'rxjs/Rx';
 
 // Routing Module and Components
 import { ProjectsRoutingModule, rc } from './projects.routing';
- 
-//Services, Pipes, Other
+
+// Services, Pipes, Other
 import { ProjectsService } from './projects.service';
 
 
 @NgModule({
-  imports: [ SharedModule, ProjectsRoutingModule],
+  imports: [ SharedModule, ProjectsRoutingModule ],
   declarations: [rc],
-  providers:[ProjectsService]
+  providers: [ ProjectsService ]
 })
 
-export class ProjectsModule { }  
+export class ProjectsModule { }

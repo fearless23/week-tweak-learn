@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MyProjectService} from '../my-project.service';
+import { Component, OnInit } from '@angular/core';
+import { MyProjectService}   from '../my-project.service';
 
 @Component({
   selector: 'app-project-overview',
@@ -7,13 +7,13 @@ import { MyProjectService} from '../my-project.service';
   providers: [MyProjectService]
 })
 
-export class ProjectOverviewComponent {
+export class ProjectOverviewComponent implements OnInit {
 
   myProject;
 
-  constructor(private mps: MyProjectService){}
+  constructor(private mps: MyProjectService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.myProject = this.mps.myProject;
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MyProjectService} from './my-project.service';
 
 @Component({
@@ -7,30 +7,30 @@ import { MyProjectService} from './my-project.service';
   providers: [MyProjectService]
 })
 
-export class MyProjectComponent {
+export class MyProjectComponent implements OnInit {
   tabsData = [
-		{
-			"title": "Overview",
-			"link" : "./"
-		},
-		{
-			"title": "Steps",
-			"link" : "./steps"
-		},
-		{
-			"title": "List",
-			"link" : "./checklist"
-		},
-		{
-			"title": "Settings",
-			"link" : "./b"
-		},
-	];
+    {
+      'title': 'Overview',
+      'link' : './'
+    },
+    {
+      'title': 'Steps',
+      'link' : './steps'
+    },
+    {
+      'title': 'List',
+      'link' : './checklist'
+    },
+    {
+      'title': 'Settings',
+      'link' : './b'
+    },
+  ];
 
-	title;
+  title;
   constructor( private mps: MyProjectService) {}
 
-	ngOnInit(){
-		this.mps.myProject.subscribe(	data => this.title = data.title );
-	} 
+  ngOnInit() {
+    this.mps.myProject.subscribe(	data => this.title = data.title );
+  }
 }

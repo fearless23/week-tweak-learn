@@ -1,5 +1,5 @@
-import { Component }       from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { Component, OnInit } from '@angular/core';
+import { ProjectsService }   from '../projects.service';
 
 @Component({
   selector: 'app-social-projects',
@@ -8,22 +8,22 @@ import { ProjectsService } from '../projects.service';
   providers: [ProjectsService]
 })
 
-export class SocialProjectsComponent {
+export class SocialProjectsComponent implements OnInit {
 
   socialProjects;
   selected = null;
 
-  setSelected(i){
+  setSelected(i) {
     this.selected = i;
   }
 
-  removeProject(key){
+  removeProject(key) {
     this.ps.socialProjects.remove(key);
     this.selected = null;
   }
-  
-  constructor(private ps: ProjectsService) {}  
-   
+
+  constructor(private ps: ProjectsService) {}
+
   ngOnInit() {
     this.socialProjects = this.ps.socialProjects;
   }

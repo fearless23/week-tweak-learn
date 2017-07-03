@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';;
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: [ 'contact.component.css' ]
 })
 export class ContactComponent {
-  user={};
+
+  user= {};
   constructor(public afa: AngularFireAuth, private router: Router) {}
 
   logout() {
@@ -18,6 +19,5 @@ export class ContactComponent {
      console.log('logged out');
   }
 
-  ngOnInit() {} 
-  }
+}
 

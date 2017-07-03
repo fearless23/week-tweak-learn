@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Injectable }      from '@angular/core';
+import { ActivatedRoute }  from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase,
+         FirebaseListObservable } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -16,22 +17,22 @@ export class MyProjectService {
   projectsDatabase;
   stepsDatabase;
   tasksDatabase;
-  
+
   steps;
   tasks;
-  
+
   constructor( private route: ActivatedRoute, private afa: AngularFireAuth, private afdb: AngularFireDatabase) {
 
     afa.authState.subscribe( auth => {
       this.route.params.subscribe(params => this.projectKeyFromRoute = params['id']);
       this.userId = auth.uid;
 
-      const url = '/users/'+this.userId+'/projects/'+this.projectKeyFromRoute;
+      const url = '/users/' + this.userId + '/projects/' + this.projectKeyFromRoute;
       this.myProject = afdb.object(url);
-      
-      const projectsUrl = 'users/'+this.userId+'/projects';
-      const stepsUrl = 'users/'+this.userId+'/steps';
-      const tasksUrl = 'users/'+this.userId+'/tasks';
+
+      const projectsUrl = 'users/' + this.userId + '/projects';
+      const stepsUrl = 'users/' + this.userId + '/steps';
+      const tasksUrl = 'users/' + this.userId + '/tasks';
       this.db = afdb;
       this.projectsDatabase = afdb.list(projectsUrl);
       this.stepsDatabase = afdb.list(stepsUrl);
@@ -40,17 +41,17 @@ export class MyProjectService {
       this.steps = afdb.list(stepsUrl, {
         query: {
           orderByChild: 'projectKey',
-          equalTo: this.projectKeyFromRoute 
+          equalTo: this.projectKeyFromRoute
         }
       });
 
       this.tasks = afdb.list(tasksUrl, {
         query: {
           orderByChild: 'projectKey',
-          equalTo: this.projectKeyFromRoute 
+          equalTo: this.projectKeyFromRoute
         }
       });
-    }) // afa.authState
+    }); // afa.authState
 
   }
 

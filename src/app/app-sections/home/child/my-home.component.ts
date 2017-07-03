@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { HomeService} from '../home.service';
+import { Component }   from '@angular/core';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-my-home',
@@ -8,9 +8,7 @@ import { HomeService} from '../home.service';
 })
 
 export class MyHomeComponent {
-  
-   constructor( hs: HomeService){
-     
-   }
-   ngOnInit() {}
+
+  constructor( hs: HomeService) {}
+
 }

@@ -1,6 +1,6 @@
 // app.routing.ts
 // App Routing as a Module
-import { NgModule }                 from '@angular/core';  
+import { NgModule }                 from '@angular/core';
 import { Routes, RouterModule }     from '@angular/router';
 
 // Components
@@ -15,14 +15,13 @@ import { ContactComponent }         from './contact/contact.component';
 import { AuthGuard }                from './auth.service';
 
 // Routes
-const routes: Routes = [  
+const routes: Routes = [
     { path: '',         loadChildren: 'app/app-sections/start.module#StartModule', canActivate: [AuthGuard] },
     { path: 'signout',  component: SignOutComponent },
     { path: 'contact',  component: ContactComponent},
     { path: 'login',    component: LoginComponent },
-    
     { path: 'about',    component: AboutComponent},
-    //{ path: '',    pathMatch:'full',    redirectTo:'about'},
+    // { path: '',    pathMatch:'full',    redirectTo:'about'},
     { path: '**',       component: NotFoundComponent}
 ];
 
@@ -30,6 +29,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule { }
 
-export const rc = [LoginComponent, NotFoundComponent, AboutComponent, SignOutComponent]
+export const rc = [LoginComponent, NotFoundComponent, AboutComponent, SignOutComponent];
