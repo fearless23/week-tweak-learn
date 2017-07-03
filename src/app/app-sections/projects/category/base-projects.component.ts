@@ -1,4 +1,4 @@
-import { Component }       from '@angular/core';
+import { Component, OnInit }       from '@angular/core';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -8,16 +8,16 @@ import { ProjectsService } from '../projects.service';
   providers: [ProjectsService]
 })
 
-export class BaseProjectsComponent {
+export class BaseProjectsComponent implements OnInit {
 
   baseProjects;
   selected = null;
 
-  setSelected(i){
+  setSelected(i) {
     this.selected = i;
   }
 
-  removeProject(key){
+  removeProject(key) {
     this.ps.baseProjects.remove(key);
     this.selected = null;
   }
@@ -27,5 +27,5 @@ export class BaseProjectsComponent {
   ngOnInit() {
     this.baseProjects = this.ps.baseProjects;
   }
-  
+
 }
