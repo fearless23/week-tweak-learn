@@ -17,9 +17,9 @@ export class ProjectStepsComponent implements OnInit {
   stepKey;
   selectedStep;
   tasksInStep;
-
+  hello;
   task;
-
+  taskdone = true;
   completedTasksLength;
   percentageOfStepDone;
   
@@ -38,7 +38,7 @@ export class ProjectStepsComponent implements OnInit {
     
     //Set a step as initial/default
     this.steps.subscribe(data =>  {
-      if(data.lenght>0){ 
+      if(data.length>0){ 
         this.initialStepKey = data[0].$key;
         this.setStepId(this.initialStepKey);
       }
@@ -50,7 +50,7 @@ export class ProjectStepsComponent implements OnInit {
     this.stepKey = key;
     this.selectedStep = this.getaStep(key);
     this.tasksInStep = this.getTasksinStep(key);
-    //this.completion(this.tasks);
+    this.completion(this.tasksInStep);
   }
 
   getTasksinStep(x){
@@ -82,25 +82,24 @@ export class ProjectStepsComponent implements OnInit {
   taskStatus(key, status){
     this.mps.tasksDatabase.update(key, { isDone: status });
     //this.completion(this.tasks);
-   
   }
 
   taskEdit(key, title){
     this.mps.tasksDatabase.update(key, { title: title });
     //this.completion(this.tasks);
-    
   }
 
 
-  /*completion(array){
-    this.completedTasksLength = 0;
-    array.subscribe( tasks => {
-      for(var task of array) {
-        if(task.isDone === true){ this.completedTasksLength = this.completedTasksLength+1; }
-      }
-      this.percentageOfStepDone= Math.round((this.completedTasksLength/array.length)*10000)/100;
-    })
+  completion(passedArray){
     
-  }*/
+    this.hello = passedArray.filter(item => item.isDone === true);
+    console.log("1 - "+this.hello);
+    passedArray.subscribe( t => console.log("2 - "+t.length) );
+    
+    //this.percentageOfStepDone= Math.round((this.completedTasksLength/t.length)*10000)/100;
+     // console.log(this.completedTasksLength);
+    
+    
+  }
 
 }

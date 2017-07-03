@@ -184,7 +184,6 @@
 
         </div>
           
-         
         <ul class="task-list">
           <li *ngFor="let task of tasksInStep | async" class="task">
             <div class="fbox-sb pos-rel">
@@ -242,3 +241,5 @@
       </div>
   </div>
 </div>
+
+{{hello | async | json}}

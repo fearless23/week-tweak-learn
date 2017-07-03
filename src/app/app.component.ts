@@ -11,10 +11,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   loggedin = false;
   error: any;
-  constructor(public af: AngularFireAuth, private router: Router) {
-      
-  }
+  constructor(public af: AngularFireAuth, private router: Router) {}
 
 }
-
-// Upgraded angularfire2 v4+

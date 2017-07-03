@@ -1,6 +1,12 @@
 <app-top-section [tabsData]="homeTabsData" [pageTitle]="pageTitle"></app-top-section>
 <div style="padding:1.79em;">
     <div (click)=showTime()> Time</div>
-    <p>{{date |date:'medium'}}</p>
+    <p class="p-x p-y-md">{{date | date:'medium'}}</p>
+    <p class="p-x p-y-md">{{date | amTimeAgo}}</p>
+    <p class="p-x p-y-md">{{date | amDateFormat:'LL'}}</p>
+    <p class="p-x p-y-md">{{date | amCalendar}}</p>
+    <p class="p-x p-y-md">{{date | amDateFormat:'hh:mmA'}}</p>
+    
     <router-outlet></router-outlet>
 </div>
+
