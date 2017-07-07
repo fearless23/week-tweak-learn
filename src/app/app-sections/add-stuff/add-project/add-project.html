@@ -1,0 +1,32 @@
+<div class="form-group">
+  <label>Project Title</label>
+  <input type="text" id="project-title" placeholder="Learn painting" [(ngModel)]="title" class="form-control input-block">
+</div>
+
+<div class="form-group">
+  <label>Select a project category</label>
+
+  <div class="project-category-toggle">
+  <input id="personal" type="radio" name="project-category"
+      [(ngModel)]= "category" value="personal">
+  <label for="personal">Personal</label>
+
+  <input id="pro" type="radio" name="project-category"
+      [(ngModel)]= "category" value="pro">
+  <label for="pro" >Pro</label>
+
+  <input id="social" type="radio" name="project-category"
+      [(ngModel)]= "category" value="social">
+  <label for="social">Social</label>
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Summary</label>
+  <textarea placeholder="Learn oil painting this summer" class="form-control" [(ngModel)]="summary"></textarea>
+</div>
+
+<button class="btn btn-sm btn-blue" (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">Create Project</button>
+
+    

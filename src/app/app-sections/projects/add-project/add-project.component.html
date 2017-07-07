@@ -49,7 +49,7 @@
 
       <div class="add-project-bottom">
                       
-        <button class="btn btn-sm btn-grey" (click)=reset(title,summary,category)>Cancel</button>
+        <button class="btn btn-sm btn-grey m-x" (click)="title = ''; category = ''; summary = '' ">Reset</button>
         <button class="btn btn-sm btn-blue" (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">Create Project</button>
       
       </div>

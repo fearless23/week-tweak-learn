@@ -7,22 +7,17 @@ import { Routes, RouterModule }     from '@angular/router';
 import { LoginComponent }           from './auth-components/login/login.component';
 import { SignOutComponent }         from './auth-components/sign-out/sign-out.component';
 import { NotFoundComponent }        from './not-found/not-found.component';
-import { AboutComponent }           from './site/about/about.component';
 
 // Contact Component is part of Contact Module which is eagerly loaded in Root Module
 // but not declared in Root Module, but imported here for routing purpose...
-import { ContactComponent }         from './contact/contact.component';
 import { AuthGuard }                from './auth.service';
 
 // Routes
 const routes: Routes = [
-    { path: '',         loadChildren: 'app/app-sections/start.module#StartModule', canActivate: [AuthGuard] },
-    { path: 'signout',  component: SignOutComponent },
-    { path: 'contact',  component: ContactComponent},
-    { path: 'login',    component: LoginComponent },
-    { path: 'about',    component: AboutComponent},
-    // { path: '',    pathMatch:'full',    redirectTo:'about'},
-    { path: '**',       component: NotFoundComponent}
+    { path: '', loadChildren: 'app/app-sections/start.module#StartModule' },
+    { path: 'login',   component: LoginComponent    },
+    { path: 'signout', component: SignOutComponent  },
+    { path: '**',      component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -32,4 +27,4 @@ const routes: Routes = [
 
 export class AppRoutingModule { }
 
-export const rc = [LoginComponent, NotFoundComponent, AboutComponent, SignOutComponent];
+export const rc = [LoginComponent, SignOutComponent, NotFoundComponent];

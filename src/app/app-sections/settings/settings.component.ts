@@ -4,6 +4,7 @@ import { SettingsService }   from './settings.service';
 @Component({
   selector: 'app-account',
   templateUrl: './settings.component.html',
+  styleUrls: ['./settings.css'],
   providers: [SettingsService]
 })
 
@@ -12,7 +13,8 @@ export class SettingsComponent implements OnInit {
   tabsData = [
     {
       'title': 'Basic',
-      'link' : './'
+      'link' : '/app/settings/basic',
+      'exact': false
     },
     {
       'title': 'More',
@@ -21,14 +23,9 @@ export class SettingsComponent implements OnInit {
   ];
 
   pageTitle = 'Settings';
-  drop = false;
 
   constructor(private ss: SettingsService) {}
 
   ngOnInit() {}
-
-  onClickOutside(event: Object) {
-    this.drop = false;
-  }
 
 }

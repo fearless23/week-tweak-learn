@@ -1,11 +1,11 @@
 // This is for Module Decoration 
-import { NgModule } from '@angular/core';
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 // Modules
-import { BrowserModule } from '@angular/platform-browser';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule }         from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule }     from 'angularfire2/auth';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDDZqq-ZunPtltpY-zrt8uoFCE3i-tRUT0',
@@ -17,7 +17,6 @@ export const firebaseConfig = {
 
 // Roouter for Root Modules
 import { AppRoutingModule, rc } from './app.routing';
-import {ContactModule} from './contact/contact.module';
 
 import { AuthGuard } from './auth.service';
 
@@ -30,8 +29,7 @@ import { AppComponent } from './app.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AppRoutingModule,
-    ContactModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

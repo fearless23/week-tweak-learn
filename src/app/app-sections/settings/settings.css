@@ -1,0 +1,50 @@
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 46em){
+  .row {
+    flex-direction: row;
+  }
+}
+
+/* VMenu from main.css */
+
+/* SETTINGS CONTENT */
+
+.settings-box {
+  padding: 1em;
+  flex: 1;
+}
+
+@media (min-width: 46em){
+  .settings-box {
+    padding: 2em;
+    max-width: 40em;
+    margin: 0 auto;
+  }
+}
+
+.section {
+  margin-bottom: 3.19em;
+}
+
+.section-title {
+  font-size: 1.12em;
+  font-weight: bold;
+  padding-bottom: .44em;
+  border-bottom: 2px solid #dadada;
+}
+
+.form-group {
+  margin: 0.89em 0;
+}
+
+.form-group .form-label {
+  font-size: 0.8em;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.44em;
+}

@@ -1,74 +1,75 @@
 <div (clickOutside)="onClickOutsideMainMenu($event)"> <!-- to get expected behaviour, wrapped in a extra div -->
-    <span (click)="menuToggle=!menuToggle" class="menu-toggle-icon clickable">
-        <svg class="icon">
-            <use xlink:href="assets/svg/icons.svg#icon-menu"></use>
-        </svg>
-        
-    </span>
-    <div class="main-menu-container" [class.menu-toggle]="menuToggle">
-        
-               
-        <div class="user-area" routerLink="/profile" routerLinkActive="profile-active">
-            <div class="user-img">
-                <img src="{{userPhoto}}"> 
-            </div>
-            <div class="user-account-info">
-                <span>{{userName}}</span>
-                <ul >               
-                    <li routerLink="/account" class="clickable">
-                        <svg class="icon">
-                            <use xlink:href="assets/svg/icons.svg#icon-user"></use>
-                        </svg>
-                    </li>
-                    <li routerLink="/profile" class="clickable">
-                        <svg class="icon">
-                            <use xlink:href="assets/svg/icons.svg#icon-cross"></use>
-                        </svg>
-                    </li>
-                    <li routerLink="/settings" class="clickable">
-                        <svg class="icon">
-                            <use xlink:href="assets/svg/icons.svg#icon-week"></use>
-                        </svg>
-                    </li>
-                </ul>  
-            </div>
-                
-        </div>
+  <span (click)="menuToggle=!menuToggle" class="menu-toggle-icon clickable">
+    <svg class="icon">
+      <use xlink:href="assets/svg/icons.svg#icon-menu"></use>
+    </svg>
 
-        <ul class="sidebar-icon-list">
-            <li class="sidebar-icon" routerLink="/" routerLinkActive="menu-active" [routerLinkActiveOptions] ="{exact: true}">
-                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-home"></use></svg>
-                <span>Week</span>
-            </li>
-            <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
-                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-project"></use></svg>
-                <span>Projects</span>
-            </li>
-            <li class="sidebar-icon" routerLink="/files" routerLinkActive="menu-active" title="Files">
-                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus"></use></svg>
-                <span>Files</span>
-            </li>
-            <li class="sidebar-icon" routerLink="/store" routerLinkActive="menu-active" title="Store">
-                <svg class="icon icon-user"><use xlink:href="assets/svg/icons.svg#icon-week"></use></svg>
-                <span>Store</span>
-            </li>
-            <li class="sidebar-icon" routerLink="/life" routerLinkActive="menu-active" title="Life">
-                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-compass"></use></svg>
-                <span>Life</span>
-            </li>
-            <li class="sidebar-icon" routerLink="/stats" routerLinkActive="menu-active" title="Analysis">
-                <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-stats"></use></svg>
-                <span>Analysis</span>
-            </li>
+  </span>
+  <div class="main-menu-container" [class.menu-toggle]="menuToggle">
+
+
+    <div class="user-area" routerLink="/profile" routerLinkActive="profile-active" 
+         [routerLinkActiveOptions] ="{exact: true}">
+      <div class="user-img">
+        <img src="{{userPhoto}}">
+      </div>
+      <div class="user-account-info">
+        <span>{{userName}}</span>
+        <ul >
+          <li routerLink="/settings/basic/account" class="clickable">
+            <svg class="icon">
+              <use xlink:href="assets/svg/icons.svg#icon-user"></use>
+            </svg>
+          </li>
+          <li routerLink="/profile" class="clickable">
+            <svg class="icon">
+              <use xlink:href="assets/svg/icons.svg#icon-cross"></use>
+            </svg>
+          </li>
+          <li routerLink="/settings" class="clickable">
+            <svg class="icon">
+              <use xlink:href="assets/svg/icons.svg#icon-week"></use>
+            </svg>
+          </li>
         </ul>
+      </div>
 
-        <div class="logo">
-            <span>w</span>
-            <span>eek</span>
-            <span>t</span>
-            <span>weak</span>
-        </div>
-
-        
     </div>
+
+    <ul class="sidebar-icon-list">
+      <li class="sidebar-icon" routerLink="/" routerLinkActive="menu-active" [routerLinkActiveOptions] ="{exact: true}">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-home"></use></svg>
+        <span>Week</span>
+      </li>
+      <li class="sidebar-icon" routerLink="/projects" routerLinkActive="menu-active" title="Projects">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-project"></use></svg>
+        <span>Projects</span>
+      </li>
+      <li class="sidebar-icon" routerLink="/files" routerLinkActive="menu-active" title="Files">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus"></use></svg>
+        <span>Files</span>
+      </li>
+      <li class="sidebar-icon" routerLink="/store" routerLinkActive="menu-active" title="Store">
+        <svg class="icon icon-user"><use xlink:href="assets/svg/icons.svg#icon-week"></use></svg>
+        <span>Store</span>
+      </li>
+      <li class="sidebar-icon" routerLink="/life" routerLinkActive="menu-active" title="Life">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-compass"></use></svg>
+        <span>Life</span>
+      </li>
+      <li class="sidebar-icon" routerLink="/stats" routerLinkActive="menu-active" title="Analysis">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-stats"></use></svg>
+        <span>Analysis</span>
+      </li>
+    </ul>
+
+    <div class="logo">
+      <span>w</span>
+      <span>eek</span>
+      <span>t</span>
+      <span>weak</span>
+    </div>
+
+
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<div *ngIf="!(personalProjects | async)"> Loading Projects </div>
+<div class="inline-loader" *ngIf="!(personalProjects | async)"></div>
 <div class="card-group-container" *ngIf="(personalProjects | async)?.length>0">
 
   <div class="card-container" *ngFor="let i=index; let k of personalProjects | async">
@@ -64,4 +64,10 @@
 
 </div>
 
-<div *ngIf="(personalProjects | async)?.length===0" class="blankslate no-project-blankslate">Looks Like No projects ADD One</div>
+<div *ngIf="(personalProjects | async)?.length===0" class="blankslate no-project-blankslate">
+    
+    <img class="no-project-img" src="assets/img/projects.png">
+    
+    <div class="title text-blue m-y-md"> Welcome to Personal Projects </div>
+    <p class="">Add projects from Create a Button in top right corner </p>
+</div>

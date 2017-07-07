@@ -151,7 +151,6 @@ button,
   background: #4d5256;
   color: #FFF;
   cursor: pointer;
-  font-family: 'Roboto Mono', monospace;
   font-size: 0.89em;
   text-decoration: none;
   text-align: center;
@@ -256,12 +255,15 @@ button,
 .yellow {  background-color: #edff24; }
 .red    {  background-color: #ef253c; }
 
-.dark  {  background-color: #4d5256; }
-.dark2 {  background-color: rgba(77, 82, 86, 0.71); }
-.grey  {  background-color: #b5b5b5; }
-.grey2 {  background-color: rgba(181, 181, 181, 0.5); }
-.grey3 {  background-color: rgba(181, 181, 181, 0.22); }
-.grey4 {  background-color: #ababab; }
+.dark   {  background-color: #4d5256; }
+.dark2  {  background-color: #818487; }
+
+.grey   {  background-color: #b5b5b5; }
+.grey2  {  background-color: #dadada; }
+.grey3  {  background-color: #efefef; }
+
+.white2 {  background-color: #f5f5f5; }
+.white  {  background-color: #fff; }
 
 .title {
   font-size: 1.12em;
@@ -274,11 +276,19 @@ button,
 .el-sm { font-size: 0.8em; }
 .el-md { font-size: 1.12em; }
 
-.text-green-light {  color: #72d26b; }
-.text-green { color: #2ca58d; }
-.text-blue  { color: #00a8e8; }
-.text-grey  { color: #b5b5b5; }
+.text-green-light { color: #72d26b; }
+
+.text-green { color: #2ca58d; } 
+.text-blue  { color: #00a8e8; } 
 .text-red   { color: #ef233c; }
+
+.text-dark   { color: #4d5256; }
+.text-dark2  { color: #818487; }
+.text-grey   { color: #b5b5b5; }
+.text-grey2  { color: #dadada; }
+.text-grey3  { color: #efefef; }
+.text-white2 { color: #f5f5f5; }
+.text-white  { color: #fff; }
 
 .clickable {
   cursor: pointer; }
@@ -293,10 +303,14 @@ button,
   overflow: hidden;
   opacity: 0; }
 
+.pos-rel {
+  position: relative;
+}
+
 hr {
   border: none;
   height: 1px;
-  background-color: rgba(51, 153, 204, 0.2); }
+  background-color: #efefef; }
 
 .m-x {
   margin-left: 1em;
@@ -345,7 +359,7 @@ hr {
 
 .content-container {
   margin-top: 3.19em;
-  background-color: #f5f5f5; }
+}
 
 @media (min-width: 40.94em) {
   .content-container {
@@ -399,57 +413,62 @@ hr {
 .more-item:hover {
   color: #00a8e8; }
 
+
 .vmenu {
   min-width: 10.18em;
   width: 100%;
-  margin-bottom: 1.42em; }
+  margin-bottom: 1.42em;
+  padding: 1em;
+}
 
-@media (min-width: 46em) {
+@media (min-width: 46em){
   .vmenu {
-    min-width: 10.18em;
-    width: 33.33333333%;
-    margin-right: 1.42em; } }
-
-.vmenu-header {
-  margin: 0;
-  padding: 0.63em 0;
-  font-weight: bold;
-  font-size: 1.12em; }
+    width: 16.19em;
+    padding: 1.79em;
+  }
+}
 
 .vmenu-list {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+}
 
 @media (min-width: 46em) {
   .vmenu-list {
     flex-direction: column;
     flex-wrap: no-wrap;
-    width: 11.43em; } }
+    width: 11.43em;
+  }
+}
 
 .vmenu-list-item {
   font-size: 0.89em;
   padding: 0.63em 0;
   margin-right: 1.79em;
   cursor: pointer;
-  color: rgba(77, 82, 86, 0.71);
-  position: relative; }
+  position: relative;
+}
 
 @media (min-width: 46em) {
   .vmenu-list-item {
-    width: 100%; } }
+    width: 100%;
+  }
+}
 
 .vmenu-list-item:hover {
-  color: #4d5256; }
-
-.vmenu-list-item.vmenu-list-item--active {
   color: #2ca58d;
-  font-weight: bold; }
+}
+
+.vmenu-list-item.vmenu-list-item--active{
+  color: #2ca58d;
+  font-weight: bold;
+}
 
 .vmenu-list-item.vmenu-list-item--active:hover {
   background-color: transparent;
-  cursor: default; }
-
+  cursor: default;
+}
 
 
 
@@ -519,7 +538,7 @@ hr {
 
 /* use for tasks */
 .input-grey {
-  background-color: rgba(181, 181, 181, 0.2); }
+  background-color: #efefef;}
 
 .form-select {
   padding-right: 24px;
@@ -539,31 +558,14 @@ hr {
 
 .form-group textarea.form-control {
   width: 100%;
-  height: 200px;
-  min-height: 200px; }
+  min-height: 6.39em;
+}
 
-/*
-<form>
-  <dl class="form-group errored">
-    <dt><label>Example Text</label></dt>
-    <dd><input class="form-control" type="text" value="Example Value"></dd>
-    <dd class="error">This example input has an error.</dd>
-  </dl>
-  <br>
-  <dl class="form-group warn">
-    <dt><label>Example Text</label></dt>
-    <dd><input class="form-control" type="text" value="Example Value"></dd>
-    <dd class="warning">This example input has a warning.</dd>
-  </dl>
-</form>
-
-*/
 .form-group.warn .warning,
 .form-group.warn .error,
 .form-group.errored .warning,
 .form-group.errored .error {
-  position: static;
-  /* change to absolute, relative/static for demos*/
+  position: absolute;
   z-index: 10;
   display: inline-block;
   max-width: 450px;
@@ -576,14 +578,12 @@ hr {
   border-radius: 3px; }
 
 .form-group.errored .error {
-  color: #911;
-  background-color: #fcdede;
-  border-color: #d2b2b2; }
+  color: #ef233c;
+  background-color: #efefef;}
 
 .form-group.warn .warning {
-  color: #4c4a42;
-  background-color: #fff9ea;
-  border-color: #dfd8c2; }
+  color: #4d5256;
+  background-color: #efefef; }
 
 .form-checkbox input[type=checkbox], .form-checkbox input[type=radio] {
   position: absolute;
@@ -711,6 +711,15 @@ input[type=checkbox]:checked ~ .checkbox:after {
   border-radius: 0.22em;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); }
 
+.no-project-blankslate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: none;
+  box-shadow: none;
+}
 /*------------------------------------*            #FLASH
 \*------------------------------------*/
 /* <app-flash></app-flash> NG4 TEMPLATE */
@@ -719,7 +728,7 @@ input[type=checkbox]:checked ~ .checkbox:after {
 
 .error {
   padding: 1em 1.5em;
-  background: #c00;
+  background: #ef233c;
   color: #fff;
   font-weight: 700;
   text-align: center; }
@@ -733,6 +742,14 @@ svg, svg.icon {
 
 svg:hover, svg.icon:hover {
   fill: #4D5256; }
+
+svg.icon.icon-white {
+  fill: #fff;
+}
+
+svg.icon.icon-white:hover {
+  fill: #fff;
+}
 
 .icon-group {
   display: flex;
@@ -835,7 +852,42 @@ svg:hover, svg.icon:hover {
   100% {
     transform: rotate(360deg); } }
 
-/*------------------------------------*            #MINIONS
+.inline-loader {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 36.46em;
+  padding: 1em 0;
+  z-index: 100;
+}
+
+.inline-loader:before {
+  content: '';
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  border: 6px solid #00a8e8;
+  border-right: 6px solid hsla(0, 0%, 71%, 0.5);
+  animation: inline-loader .89s infinite ease-in-out;
+}
+
+.inline-loader-sm {
+  min-height: 0;
+}
+
+@keyframes inline-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------------------*            
+                 #MINIONS
 \*------------------------------------*/
 .badge {
   font-size: 0.71em; }
@@ -847,7 +899,8 @@ svg:hover, svg.icon:hover {
   font-size: 0.8em;
   line-height: 1; }
 
-/*------------------------------------*            #MODALS
+/*------------------------------------*            
+                 #MODALS
 \*------------------------------------*/
 .modal-wrapper {
   display: none;
@@ -870,3 +923,34 @@ input[name="modal-toggle"]:checked + .modal-wrapper {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+
+/* OVERRIDE STYLES FOR NGXDATEPICKER */
+
+.ngxmdp * {
+  font-family: 'Open Sans', Arial,Helvetica,sans-serif;
+}
+
+.ngxmdp .daycell, .ngxmdp .monthcell, .ngxmdp .monthlabel, .ngxmdp .yearcell, .ngxmdp .yearlabel {
+  color: #4d5256;
+}
+
+.ngxmdp .selectorarrow {
+  background: #F5f5f5;
+  margin-top: 40px !important;
+}
+
+.ngxmdp .selectorarrow:after, .ngxmdp .selectorarrow:before {
+  border-width: 0 !important;
+}
+
+.monthvalue {
+  display: flex;
+  justify-content: center;
+  line-height: 3;
+  align-items: center;
+}
+
+.ngxmdp .markcurrmonth {
+  text-decoration: none !important;
+}

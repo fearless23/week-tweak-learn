@@ -1,9 +1,14 @@
 import { NgModule       }    from '@angular/core';
+
+// From Angular
 import { CommonModule   }    from '@angular/common';
 import { FormsModule    }    from '@angular/forms';
 import { HttpModule     }    from '@angular/http';
-import { MomentModule   }    from 'angular2-moment';
 import { RouterModule   }    from '@angular/router';
+
+// From Dependencies
+import { MomentModule   }    from 'angular2-moment';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 // Shared Pipes: Declare and export
 import { CapitalizePipe }    from './pipes/capitalize.pipe';
@@ -18,7 +23,12 @@ import { TopSectionComponent }      from '../app-sections/top-section/top-sectio
 import { SearchBoxComponent }       from '../app-sections/top-section/search-box/search-box.component';
 
 @NgModule({
-  imports:      [ CommonModule, MomentModule, RouterModule ],
+  imports: [
+    CommonModule,
+    MomentModule,
+    RouterModule,
+    NgxMyDatePickerModule
+  ],
   declarations: [
     // Pipes
     CapitalizePipe,
@@ -30,16 +40,21 @@ import { SearchBoxComponent }       from '../app-sections/top-section/search-box
     TopSectionComponent,
     SearchBoxComponent
   ],
-  exports:      [ CommonModule, FormsModule, HttpModule, MomentModule,
-        // Pipes
-        CapitalizePipe,
-        FilterPipe,
-        TaskFilterPipe,
-        // Directives
-        ClickOutsideDirective,
-        // Components
-        TopSectionComponent,
-        SearchBoxComponent
+  exports: [
+    CommonModule,
+    FormsModule,
+    HttpModule,
+    MomentModule,
+    NgxMyDatePickerModule,
+    // Pipes
+    CapitalizePipe,
+    FilterPipe,
+    TaskFilterPipe,
+    // Directives
+    ClickOutsideDirective,
+    // Components
+    TopSectionComponent,
+    SearchBoxComponent
    ]
 })
 export class SharedModule { }

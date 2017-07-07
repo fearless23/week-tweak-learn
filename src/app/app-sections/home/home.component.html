@@ -1,12 +1,25 @@
 <app-top-section [tabsData]="homeTabsData" [pageTitle]="pageTitle"></app-top-section>
+
 <div style="padding:1.79em;">
-    <div (click)=showTime()> Time</div>
-    <p class="p-x p-y-md">{{date | date:'medium'}}</p>
-    <p class="p-x p-y-md">{{date | amTimeAgo}}</p>
-    <p class="p-x p-y-md">{{date | amDateFormat:'LL'}}</p>
-    <p class="p-x p-y-md">{{date | amCalendar}}</p>
-    <p class="p-x p-y-md">{{date | amDateFormat:'hh:mmA'}}</p>
-    
-    <router-outlet></router-outlet>
+  <div (click)=showTime()> Time</div>
+  <p class="p-x p-y-md">
+    {{date | date:'medium'}}
+    {{date | amTimeAgo}}
+    {{date | amDateFormat:'LL'}}
+    {{date | amCalendar}}
+    {{date | amDateFormat:'hh:mmA'}}
+  </p>
+
+  <router-outlet></router-outlet>
 </div>
 
+<form class=" p-x p-y-md">
+  <div class="input-group">
+     <input class="hidden" ngx-mydatepicker name="mydate"
+      [(ngModel)]="model" [options]="myOptions" #dp="ngx-mydatepicker" (dateChanged)="onDateChanged($event)"/> 
+      <button type="button" class="btn" (click)="dp.toggleCalendar()">Toggle Calendar</button>
+    
+  </div>
+</form>
+
+<p class="p-x p-y-md">{{dateFromCalendar | amDateFormat:'LL'}}</p>

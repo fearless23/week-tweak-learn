@@ -5,9 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { MyProjectComponent }        from './my-project.component';
-import { ProjectOverviewComponent }  from './child/overview.component';
-import { ProjectChecklistComponent } from './child/checklist.component';
-import { ProjectStepsComponent }     from './child/steps.component';
+import { ProjectOverviewComponent }  from './overview/overview.component';
+import { ProjectChecklistComponent } from './checklist/checklist.component';
+import { ProjectStepsComponent }     from './steps/steps.component';
 import { AddStepComponent }          from './add-step/add-step.component';
 
 const projectRoutes: Routes = [

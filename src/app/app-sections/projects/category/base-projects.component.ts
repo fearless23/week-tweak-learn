@@ -12,6 +12,7 @@ export class BaseProjectsComponent implements OnInit {
 
   baseProjects;
   selected = null;
+  contentTitle = 'Base Projects';
 
   setSelected(i) {
     this.selected = i;

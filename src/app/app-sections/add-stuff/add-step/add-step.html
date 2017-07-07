@@ -1,0 +1,24 @@
+<div class="form-group p-x m-y-md">
+  <div class="title title-sm m-y">Add Step</div>
+  
+  <div class="form-group">
+    <label>Step Title</label>
+    <input type="text" class="form-control" placeholder="Learn painting" [(ngModel)]="stepTitle">
+  </div>
+
+  <div class="form-group">
+    <label>Summary</label>
+    <textarea placeholder="Learn oil painting this summer" class="form-control" [(ngModel)]="stepSummary"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Project in which step to Add</label>
+    <select name="project-select" id="" class="form-select" [(ngModel)]= "projectKey">
+      <option  [ngValue]="project.$key" *ngFor="let project of projects | async">{{project.title}}</option>
+    </select>
+  </div>
+
+  <button class="btn btn-sm btn-blue" 
+          (click)="addStep(stepTitle, stepSummary, projectKey); stepTitle = ''; stepSummary = ''; ">Create Step</button>
+
+</div>

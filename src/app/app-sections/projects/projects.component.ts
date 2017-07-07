@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
@@ -8,22 +8,24 @@ import { Component } from '@angular/core';
 
 export class ProjectsComponent {
 
+  @Input() contentTitle;
+
   projectsTabsData = [
     {
       'title': 'Base',
-      'link' : '/projects/base'
+      'link' : './base'
     },
     {
       'title': 'Personal',
-      'link' : '/projects/personal'
+      'link' : './personal'
     },
     {
       'title': 'Pro',
-      'link' : '/projects/pro'
+      'link' : './pro'
     },
     {
       'title': 'Social',
-      'link' : '/projects/social'
+      'link' : './social'
     },
   ];
 

@@ -4,23 +4,8 @@
 
     <app-search-box></app-search-box>
 
-    <div class="dropdown-container" (clickOutside)="onClickOutsideAddBtn($event)">
-
-      <span title="Add Project, Tasks, Steps"
-        class="clickable icon-container"
-        (click)="dropAddBtn = !dropAddBtn">
-        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus-fat"></use></svg>
-      </span>
-
-      <div class="dropdown-content" [class.dropdown-active]="dropAddBtn">
-        
-        <ul class="more-items">
-          <li class="more-item" routerLink="/profile">Project</li>
-          <li class="more-item" routerLink="/help">Step</li>
-          <li class="more-item" routerLink="/focus">Task</li>
-        </ul>
-        
-      </div>
+    <div title="Add Project, Tasks, Steps" class="clickable icon-container" [routerLink]="['/add-stuff']">      
+      <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus-fat"></use></svg>
     </div>
 
     <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
@@ -46,11 +31,7 @@
       </span>
 
       <div class="dropdown-content" [class.dropdown-active]="drop">
-        <span style="   background-color: rgba(181,181,181,0.15);
-                color: #4D5256;
-                padding: 0.5em 1em;
-                display: block;
-                font-weight: bold;"> Hello {{userName}} </span>
+        <div class="p-x p-y-md grey3 title title-sm">Hi, {{userName}}</div>
         <ul class="more-items">
           <li class="more-item" routerLink="/profile">Profile</li>
           <li class="more-item" routerLink="/help">Help</li>
@@ -71,5 +52,5 @@
 
 <div class="tabs-group" >
   <a *ngFor="let item of tabsData" class="tab" routerLink="{{item.link}}"
-  routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: true}">{{item.title}}</a>
+  routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: item.exact ? false : true}">{{item.title}}</a>
 </div>

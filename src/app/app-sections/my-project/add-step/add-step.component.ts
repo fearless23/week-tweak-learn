@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MyProjectService }  from './../my-project.service';
+import { MyProjectService }  from './../utilities/my-project.service';
 import { Router }           from '@angular/router';
 
 @Component({
@@ -27,9 +27,10 @@ export class AddStepComponent implements OnInit {
 
     this.step = {
       'title': a,
-      'summary': '',
+      'summary': 'No summary. Please Add One',
       'projectKey': this.projectKey,
       'dateAdded': new Date().getTime(),
+      'dueDate': new Date().setMonth(new Date().getMonth() + 3 ),
       'numOfTasks': 0,
       'progress': 0,
     };

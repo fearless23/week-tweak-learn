@@ -1,6 +1,7 @@
 <app-top-section [tabsData]="projectsTabsData" [pageTitle]="pageTitle"></app-top-section>
 <div class="fbox-sb p-x p-y-md filter-bar">
-    <label for="modal-toggle" style="font-weight: initial;" class="btn btn-sm btn-blue">+ New Project</label>
+    <div class="title"> {{contentTitle}}</div>
+    <label for="modal-toggle" style="font-weight: initial;" class="btn btn-sm btn-blue">Create a Project</label>
 </div>
 
 <router-outlet></router-outlet>

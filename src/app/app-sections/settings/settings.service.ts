@@ -3,25 +3,19 @@ import { AngularFireAuth }           from 'angularfire2/auth';
 import { AngularFireDatabase,
          FirebaseObjectObservable }  from 'angularfire2/database';
 
-import { Observable } from 'rxjs/Observable';
-import * as firebase  from 'firebase/app';
-
 @Injectable()
 export class SettingsService {
 
-  user: Observable<firebase.User>;
-  userName;
-  userInfo= {};
+  userInfo;
+  countriesList;
 
   constructor(public afa: AngularFireAuth, private afdb: AngularFireDatabase) {
     afa.authState.subscribe( data => {
-      this.userName = data.displayName;
-      let url = '/users/' + data.uid + '/user-info';
+      let url = '/userProfiles/' + data.uid;
       this.userInfo = afdb.object(url);
     });
 
-    this.user = this.afa.authState;
-
+    this.countriesList = afdb.list('countries-list');
   }
 }
 

@@ -22,10 +22,10 @@ const routes: Routes = [
       { path: 'project/:id', loadChildren: 'app/app-sections/my-project/my-project.module#MyProjectModule',
         canActivate: [AuthGuard]
       },
-      { path: 'project', pathMatch: 'full', redirectTo: 'projects',
+      { path: 'settings', loadChildren: 'app/app-sections/settings/settings.module#SettingsModule',
         canActivate: [AuthGuard]
       },
-      { path: 'settings', loadChildren: 'app/app-sections/settings/settings.module#SettingsModule',
+      { path: 'add-stuff', loadChildren: 'app/app-sections/add-stuff/add-stuff.module#AddStuffModule',
         canActivate: [AuthGuard]
       },
       { path: 'profile', loadChildren: 'app/app-sections/profile/profile.module#ProfileModule',
