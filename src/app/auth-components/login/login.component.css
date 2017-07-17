@@ -1,49 +1,140 @@
-.login-wrapper {
-  position: relative;
-  height: 100vh;
-  width: 100%;
+.container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: #4c4646;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #4d5256;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 15%, #fafafa 15%, #fafafa 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)), radial-gradient(circle, rgba(0, 0, 0, 0) 15%, #fafafa 15%, #fafafa 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)) 50px 50px, linear-gradient(#b5b5b5 4px, transparent 4px) 0 98px, linear-gradient(90deg, #b5b5b5 4px, transparent 4px) 98px 0;
+  background-color: #fafafa;
+  background-size: 200px 200px, 100px 100px, 50px 50px, 50px 50px;
 }
+
 
 .login-container {
-  min-width: 22.5em;
-  width: 27em;
-  background: whitesmoke;
-  padding: 3em;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: auto;
 }
 
-.wt-title {
-	font-size: 1.7em;
-	font-weight: bold;
-	text-transform: inherit;
-	letter-spacing: 0.1em;
+@media (min-width: 40.94em) {
+  .login-container {
+    width: 25.74em;
+    min-height: 0;
+    height: initial;
+    margin-top: 8%;
+    box-shadow: 0px 0px 20px 4px #dadada;
+  }
 }
 
-.welcome-msg {
-	margin-top: 3em;
+@media (min-width: 60em) {
+  .login-container {
+    margin-top: 6%;
+  }
 }
 
-.welcome-msg h2 {
-	font-size: 1.6em;
-	color: #0f0f0f;
-	font-weight: normal;
-	letter-spacing: 0.1em;
+.login-form .btn {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
 }
 
-.welcome-msg h3 {
-	font-size: 1.6em;
-	color: darkgrey;
-	font-weight: normal;
-	letter-spacing: 0.1em;
+.login-form .btn img {
+  height: 18px;
+  margin-right: 24px;
+}
+
+.btn-google {
+  width: 100%;
+  background: #fff;
+}
+
+.btn-twiiter {
+  width: 100%;
+  background: #1ca1f2;
+}
+
+.btn-github {
+  width: 100%;
+  background: #08232e;
+}
+
+.btn-facebook {
+  width: 100%;
+  background: #375699;
 }
 
 .login-form {
-  margin: 1.59em 0;
+  width: 22.92em;
+  margin: 0 auto;
+  padding: 1.19em;
+  background-color: #fff;
 }
 
-.login-form .form-group {
-  margin: 1.26em 0;
+@media (min-width: 40.94em) {
+  .login-form {
+    width: 25.74em;
+    padding: 3.19em;
+  }
+}
+
+.login-form > * {
+  margin-bottom: 2em;
+}
+
+.login-form h1 {
+  font-size: 1.42em;
+  font-weight: bold;
+  text-transform: inherit;
+  letter-spacing: 0.1em;
+  margin: 0;
+  margin-bottom: 1.42em;
+}
+
+.login-form h2 {
+  font-size: 1.26em;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  margin: 0;
+  margin-bottom: 1.59em;
+}
+
+.btn-wide {
+  min-width: 10.18em;
+  justify-content: center;
+}
+
+
+.divider {
+  position: relative;
+  height: 20px;
+}
+
+.divider:before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #dadada;
+}
+
+.divider span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  padding: 0px 13px;
+  background: #fff;
+  font-size: 0.8em;
+}
+
+.foo {
+  margin-bottom: 0;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
 }

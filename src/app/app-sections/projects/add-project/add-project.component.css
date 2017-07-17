@@ -1,4 +1,4 @@
-.add-project-container {
+/*.add-project-container {
   width: 20.41em;
   background-color: #ffffff;
   border-radius: 0.5em;
@@ -67,4 +67,69 @@ input[name="project-category"]:checked + label {
   padding: 0.5em;
     display: flex;
     justify-content: flex-end;
+}*/
+
+@media (min-width: 40.94em) {
+  .form-container {
+    max-width: 28.91em;
+  }
 }
+
+.form-container .header {
+  height: 4.02em;
+  background: #f5f5f5;
+  border-bottom: 0px solid #dadada;
+  display: flex;
+  align-items: center;
+  font-size: 1.12em;
+  font-weight: bold;
+  padding: 0 1em;
+}
+
+.form-body {
+  padding: 2em;
+  padding-bottom: 0;
+}
+
+.form-group:not(last-child) {
+  margin-bottom: 1.26em;
+}
+
+.form-group > label {
+  display: block;
+  font-size: 0.89em;
+  font-weight: bold;
+  margin-bottom: .63em;
+}
+
+
+
+/* Radio Tabs */
+
+.radio-tabs {
+  display: flex;
+  font-size: 0.89em;
+}
+
+.radio-tabs label {
+	padding: 0.63em 1em;
+	background-color: #dadada;
+	cursor: pointer;
+}
+
+.radio-tabs label:not(last-child){
+  margin-right: .5em;
+}
+
+.radio-tabs input[type="radio"]:checked + label { /* so that only once we use this code*/
+	background-color: #2ca58d;
+	color: #fff;
+}
+
+/* Form footer */
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 2em 2em;
+} /* make a utility */

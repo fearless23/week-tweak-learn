@@ -4,7 +4,7 @@
 
   <div class="card-container" *ngFor="let i=index; let k of proProjects | async">
   
-    <div class="fbox-sb">
+    <div class="fbox-sb p-y">
         <div class="title">{{k.title}} </div>  
         <div class="dropdown-container">
             <span title="Project Actions" class="icon-container clickable" (click)="setSelected(i)">
@@ -35,7 +35,7 @@
 
     <div class="activity" (click)="getNumber(k.$key)"> {{k.dateAdded | date:'longDate'}} </div>
 
-    <div class="fbox-sa">
+    <div class="fbox-sa p-y-md">
 
         <div class="card-info">
             <span class="card-info-detail text-blue">{{k.steps}}</span>

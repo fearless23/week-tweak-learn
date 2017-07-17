@@ -1,14 +1,14 @@
 .main-topbar {
+  position: fixed;
+  z-index: 101;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  padding: 0 1em;
   width: 100%;
-  z-index: 101;
-  position: fixed;
   height: 3.19em;
-  top: 0;
+  padding: 0 1em;
+  background-color: #fafafa;
 }
 
 .main-topbar .page-title {
@@ -21,7 +21,8 @@
   .main-topbar {
     position: static;
     height: 2.84em;
-    padding: 0 1.79em;
+    padding: 0 1.26em;
+    
   }
   .main-topbar .page-title {
     margin-left: 0;
@@ -29,47 +30,71 @@
 
 /* TABS GROUP */
 
-.tabs-group {
+.tabs {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 1.79em;
-  letter-spacing: 1px;
-  border-bottom: 2px solid hsla(0, 0%, 71%, 0.21);
-  background-color: white;
+  padding: 0 1.12em;
+  border-bottom: 2px solid #efefef;
+  background-color: #fafafa;
 }
 
 .tab {
   margin-right: 1.12em;
   padding: 0.44em 0.5em;
-  color: hsla(207, 6%, 32%, 0.8);
+  color: #818487;
+  font-weight: bold;
   border-bottom: 2px solid transparent;
   font-size: 0.8em;
   cursor: pointer;
-  font-family: 'Roboto Mono', monospace;
-
 }
 
-.tab:last-child {
-  margin-right: 0;
+.tab:not(last-child) {
+  margin-right: 1.12em;
 }
 
 .tab:hover {
-  color: #4d5256;
+  color: #2ca58d;
 }
 
-.tab-active,.tab-active:hover {
+.tab.active,.tab.active:hover {
   color: #2ca58d;
   font-weight: bold;
   border-bottom: 2px solid #2ca58d;
   transition: border-bottom .31s linear;
 }
 
+.topbar-icon-group-toggle, .topbar-icons-close {
+  display: none;
+}
 
-.filter-bar {
-  height: 5.07em;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+/* TOPBAR ICON GROUPS */
+@media (max-width: 40.94em) {
+  .topbar-icon-group-toggle {
+    display: inherit;
+  }
+
+  .topbar-icon-group {
+    position: fixed;
+    right: 0;
+    width: 0;
+    height: 3.19em;
+    background: #fafafa;
+    justify-content: flex-end;
+    padding: 0 1em;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .topbar-icon-group.visible {
+    visibility: visible;
+    width: 100%;
+    opacity: 1;
+    transition: width .4s ease-in-out, opacity .4s ease-in-out;
+  }
+
+  .topbar-icon-group.visible .topbar-icons-close {
+    display: inherit;
+  }
 }

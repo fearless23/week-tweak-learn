@@ -1,4 +1,4 @@
-<input type="checkbox" name="modal-toggle" id="modal-toggle" [(ngModel)]="modalState" class="hidden">
+<!--<input type="checkbox" name="modal-toggle" id="modal-toggle" [(ngModel)]="modalState" class="hidden">
 <div class="modal-wrapper">
 
   <div class="add-project-wrapper">
@@ -59,3 +59,111 @@
   </div>
 
 </div>
+
+
+-->
+
+
+
+
+
+
+
+<div class="modal form-container" [class.modal-is-visible]=addProjectModalVisible>
+
+  <div class="modal-close" (click)="addProjectModalVisible = false">
+    <svg class="icon"> <use xlink:href="assets/svg/icons.svg#icon-cross-bg"></use></svg>
+  </div>
+  
+  <div class="header">Create a Project</div>
+
+  <div class="form-body">
+
+    <div class="form-group">
+      <label>Project Title </label>
+      <input 
+        type="text"
+        class="form-control input-md"  
+        placeholder="Learn painting"
+        id="project-title"             
+        [(ngModel)]="title"
+        minlength="4"
+        maxlength="30">
+     
+    </div>
+
+    <div class="form-group">
+      <label>Choose a Category</label>
+
+      <div class="radio-tabs">
+
+        <input 
+          type="radio"
+          class="hidden"
+          id="personal" 
+          name="project-category"
+          value="personal"
+          [(ngModel)]= "category">
+        <label for="personal">Personal</label>
+
+        <input 
+          type="radio"
+          class="hidden"
+          id="pro" 
+          name="project-category"
+          value="pro"
+          [(ngModel)]= "category">
+        <label for="pro">Pro</label>
+
+        <input 
+          type="radio"
+          class="hidden"
+          id="social" 
+          name="project-category"
+          value="social"
+          [(ngModel)]= "category">
+        <label for="social">Social</label>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Project Type </label>
+      <div class="radio-tabs">
+        <input id="create" type="radio" name="project-type" class="hidden">
+        <label for="create">Create</label>
+        <input id="learn" type="radio" name="project-type" class="hidden" checked>
+        <label for="learn" >Learn</label>
+        <input id="list" type="radio" name="project-type" class="hidden">
+        <label for="list" style="margin-right: 0;">List</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Summary</label>
+      <textarea 
+        class="form-control"
+        placeholder="Learn oil painting this summer"
+        minlength="30"
+        maxlength="600" 
+        [(ngModel)]="summary">
+      </textarea>
+    </div>
+
+  </div>
+
+  <div class="form-footer">
+    <button 
+      class="btn btn-white m-x" 
+      (click)="title = ''; category = ''; summary = '' ">
+      Reset
+    </button>
+    <button
+      class="btn btn-green"
+      (click)="addProject(title, summary, category); title = ''; category = ''; summary = '' ">
+      Create Project
+    </button>
+  </div>
+</div>
+
+<div class="overlay" (click)="addProjectModalVisible = false"></div>

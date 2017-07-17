@@ -31,4 +31,6 @@ export class ProjectsComponent {
 
   pageTitle= 'My Projects';
 
+  addProjectModalVisible = false;
+
 }

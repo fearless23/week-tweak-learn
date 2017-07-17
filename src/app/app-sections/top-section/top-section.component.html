@@ -1,17 +1,24 @@
  <div class="main-topbar">
   <div class="page-title">{{pageTitle}}</div>
-  <div class="icon-group">
+
+  <div class="icon-container topbar-icon-group-toggle" 
+       (click)="isTopIconsVisible = true">
+       <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-v-dots"></use></svg>
+  </div>
+
+  <div class="icon-group topbar-icon-group" 
+       [class.visible]=isTopIconsVisible>
 
     <app-search-box></app-search-box>
 
-    <div title="Add Project, Tasks, Steps" class="clickable icon-container" [routerLink]="['/add-stuff']">      
+    <div title="Add Project, Step or Task" class="clickable icon-container" [routerLink]="['/add-stuff']">      
       <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-plus-fat"></use></svg>
     </div>
 
-    <div class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
+    <div title="Your Notifications" class="dropdown-container" (clickOutside)="onClickOutsideNotification($event)">
 
       <span  title="Notifications"
-        class="clickable icon-container icon-container-dot"
+        class="icon-container icon-container-dot"
         (click)="dropNotification = !dropNotification">
         <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-bell"></use></svg>
       </span>
@@ -22,9 +29,57 @@
 
     </div>
 
+    <div class="dropdown-container" (clickOutside)="onClickOutsideProjectSelector($event)">
+
+      <span title="View all Projects"
+            class="icon-container"
+            (click)="dropProjectSelector = !dropProjectSelector">
+        <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-window"></use></svg>
+      </span>
+
+      <div class="dropdown-content" [class.dropdown-active]="dropProjectSelector">
+
+        <div class="title p-x p-y white2">Projects</div>
+        <div style="min-width: 16.19em">
+          <ul class="more-items">
+            <li routerLink="/projects/base" class="clickable title p-x m-y">Base Projects</li>
+            <li *ngFor="let project of baseProjects | async"
+                routerLink="/project/{{project.$key}}"
+                class="more-item" > {{project.title}}
+            </li>
+            <em class="p-x p-y" *ngIf="(baseProjects | async)?.length===0"> No projects </em>
+          </ul>
+          
+          <ul class="more-items">
+            <li routerLink="/projects/personal" class="clickable title p-x m-y">Personal Projects</li>
+            <li *ngFor="let project of personalProjects | async"
+                routerLink="/project/{{project.$key}}"
+                class="more-item" > {{project.title}}</li>
+          </ul>
+          
+          <ul class="more-items">
+            <li routerLink="/projects/pro" class="clickable title p-x m-y">Pro Projects</li>
+            <li *ngFor="let project of proProjects | async"
+                routerLink="/project/{{project.$key}}"
+                class="more-item" > {{project.title}}</li>
+          </ul>
+          
+          <ul class="more-items">
+            <li routerLink="/projects/social" class="clickable title p-x m-y">Social Projects</li>
+            <li *ngFor="let project of socialProjects | async"
+                routerLink="/project/{{project.$key}}"
+                class="more-item" > {{project.title}}</li>
+          </ul>
+        </div>
+        
+
+      </div>
+
+    </div>
+
     <div class="dropdown-container" (clickOutside)="onClickOutside($event)">
 
-      <span title="User Actions"
+      <span title="User Actions like Profile, Settings, Logout"
         class="clickable icon-container"
         (click)="drop = !drop">
         <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-h-dots"></use></svg>
@@ -46,11 +101,16 @@
       </div>
     </div>
 
+    <div class="icon-container topbar-icons-close"
+         (click)="isTopIconsVisible = false">
+         <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-cross"></use></svg>
+    </div>
+
   </div>
 </div>
 
 
-<div class="tabs-group" >
+<div class="tabs" >
   <a *ngFor="let item of tabsData" class="tab" routerLink="{{item.link}}"
-  routerLinkActive="tab-active" [routerLinkActiveOptions] ="{exact: item.exact ? false : true}">{{item.title}}</a>
+  routerLinkActive="active" [routerLinkActiveOptions] ="{exact: item.exact ? false : true}">{{item.title}}</a>
 </div>

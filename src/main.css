@@ -75,7 +75,7 @@ body {
   background-color: #FFF;
   -webkit-font-smoothing: antialiased; }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1601px) {
   body {
     font-size: 16px; } }
 
@@ -142,7 +142,8 @@ a {
 
 button,
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   overflow: hidden;
   transition: all 60ms ease-in-out;
   border: 0;
@@ -153,7 +154,6 @@ button,
   cursor: pointer;
   font-size: 0.89em;
   text-decoration: none;
-  text-align: center;
   white-space: nowrap; }
 
 .btn:hover, button:hover {
@@ -182,12 +182,14 @@ button,
   font-size: 1.26em; }
 
 .btn-block {
-  display: block;
-  text-align: center;
-  padding-right: 0;
-  padding-left: 0;
+  display: flex;
   width: 100%; }
 
+.btn-block-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .btn-blue {
   background: #00a8e8; }
 
@@ -213,7 +215,7 @@ button,
   background-color: #fff; }
 
 .btn-outline {
-  border: 2px solid #00a8e8;
+  border: 1px solid #00a8e8;
   background: #fff;
   color: #4d5256;
   transition: all 60ms ease-in-out; }
@@ -266,12 +268,12 @@ button,
 .white  {  background-color: #fff; }
 
 .title {
-  font-size: 1.12em;
+  font-size: 1em;
   font-weight: bold; }
 
-.title-sm { font-size: 0.8em; }
-.title-md { font-size: 1.26em; }
-.title-lg { font-size: 1.42em; }
+.title-sm { font-size: 0.89em; }
+.title-md { font-size: 1.12em; }
+.title-lg { font-size: 1.26em; }
 
 .el-sm { font-size: 0.8em; }
 .el-md { font-size: 1.12em; }
@@ -506,7 +508,6 @@ hr {
   border: 1px solid rgba(181, 181, 181, 0.5);
   border-radius: 0.22em;
   display: block;
-  min-width: 18.18em;
   padding: 0.5em 1em;
   background-color: #fff;
   color: #4d5256;
@@ -736,9 +737,9 @@ input[type=checkbox]:checked ~ .checkbox:after {
 /*------------------------------------*            #ICONS
 \*------------------------------------*/
 svg, svg.icon {
-  width: 1.42em;
-  height: 1.42em;
-  fill: #B5B5B5; }
+  width: 1.26em;
+  height: 1.26em;
+  fill: #818487; }
 
 svg:hover, svg.icon:hover {
   fill: #4D5256; }
@@ -899,6 +900,42 @@ svg.icon.icon-white:hover {
   font-size: 0.8em;
   line-height: 1; }
 
+.icon-tooltip:after {
+  content: attr(data-title);
+  position: absolute;
+  top: 30px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: auto;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #4d5256;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0.8em;
+}
+
+.icon-tooltip:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  right: 3px;
+  border: 7px solid transparent;
+  border-bottom: 7px solid #4d5256;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.icon-tooltip:hover:after, .icon-tooltip:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
 /*------------------------------------*            
                  #MODALS
 \*------------------------------------*/
@@ -910,7 +947,7 @@ svg.icon.icon-white:hover {
   width: 100%;
   height: 100%;
   z-index: 200;
-  background-color: rgba(77, 82, 86, 0.71);
+  background-color: rgba(77, 82, 86, 0.5);
   align-items: center;
   justify-content: center; }
 
@@ -923,6 +960,79 @@ input[name="modal-toggle"]:checked + .modal-wrapper {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+.modal {
+  position: absolute;
+  z-index: 203;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  visibility: hidden;
+  transform: translateZ(0);
+  transform: translateX(100%);
+  transition: transform .4s, visibility .4s;
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+@media (min-width : 40.94em) {
+  .modal {
+    top: 10%;
+    left: 0;
+    right: 0;
+    width: 80%;
+    height: auto;
+    min-height: 20em;
+    max-width: 46em;
+    margin: 0 auto;
+    transform: translateX(0);
+    will-change: transform, width, height;
+    transition: height .4s, width .4s, transform .4s, visibility .4s;
+    transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  }
+  
+}
+
+.modal.modal-is-visible {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.52em;
+  height: 4.52em;
+  cursor: pointer;
+  background-color: #4d5256;
+}
+
+.modal-close svg.icon {
+  fill: white;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 202;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  visibility: hidden;
+  transition: visibility .4s;
+  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.modal.modal-is-visible + .overlay {
+  visibility: visible;
+}
 
 
 /* OVERRIDE STYLES FOR NGXDATEPICKER */

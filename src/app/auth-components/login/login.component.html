@@ -1,39 +1,38 @@
-<div class="login-wrapper">
+<div class="container">
+
   <div class="login-container">
+    
+    <div class="login-form">
 
-    <h1 class="wt-title">Week Tweak</h1>
+      <h1> Week Tweak </h1>        
+      <h2> Connect With favorite service </h2>
+      
+      <button (click)="loginGoogle()" class="btn btn-white btn-google">
+        <img src="assets/img/google.jpg">
+        <strong>Connect with google</strong>
+      </button>
 
-    <div class="welcome-msg">
-      <h2>Welcome back!</h2>
-      <h3>Sign in to continue to Week Tweak.</h3>
+      <button class="btn btn-twiiter">
+        <img src="assets/img/twitter.jpg">
+        <strong> Connect with twitter</strong>
+      </button>
+
+      <button class="btn btn-github">
+        <img src="assets/img/github.jpg">
+        <strong> Connect with github</strong>
+      </button>
+
+      <button (click)="loginFb()" class="btn btn-facebook">
+        <img src="assets/img/facebook.jpg">
+        <strong> Connect with facebook</strong>
+      </button>
+      
+      <div class="divider"> <span>OR </span> </div>
+      
+      <button class="foo btn btn-white btn-block"> Sign In with Email </button>
+      {{error}}
     </div>
 
-    <button (click)="loginGoogle()" class="btn fbox-sa red btn-md btn-block m-y-md" id="google">
-      <span class="icon-container icon-container-sm">
-        <svg class="icon"><use xlink:href="../icons.svg#icon-menu"></use></svg>
-      </span>
-      Login With Google
-    </button>
-
-    <div style="text-align:center;" class="title m-y"> Or </div>
-    
-    <form class="login-form m-y">
-
-      <div class="form-group">
-        <input type="username"  placeholder="Username" class="form-control input-lg input-block" active>
-      </div>
-
-      <div class="form-group">
-        <input type="password"  placeholder="Password" class="form-control input-lg input-block">
-      </div>
-
-      <button type="button" class="btn btn-blue btn-lg btn-block m-y">Login</button>
-
-    </form>
-
-    <span class="error hidden" *ngIf="error">{{ error }}</span>
-
-    <div style="text-align: center;" routerLink="/signup" routerLinkActive="active" class="title text-blue m-y-md"><a>Don`t have an account? SignUp</a></div>
-
   </div>
+
 </div>

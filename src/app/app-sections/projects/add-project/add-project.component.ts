@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProjectsService }   from './../projects.service';
 import { Router }            from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router }            from '@angular/router';
 })
 
 export class AddProjectComponent implements OnInit {
-
+ @Input() addProjectModalVisible;
   db;
   project;
   userId;

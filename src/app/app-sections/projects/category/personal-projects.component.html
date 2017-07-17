@@ -3,15 +3,15 @@
 
   <div class="card-container" *ngFor="let i=index; let k of personalProjects | async">
   
-    <div class="card-header">
+    <div class="fbox-sb p-y">
         <div class="title">{{k.title}} </div>  
         <div class="dropdown-container">
-            <span class="icon-container clickable" (click)="setSelected(i)">
+            <span title="Project Actions" class="icon-container clickable" (click)="setSelected(i)">
               <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-v-dots"></use> </svg>
             </span>
             <div class="dropdown-content" [class.dropdown-active]="selected===i">
-              <div class="card-header" style="padding: 0 0.35em;">
-                <div class="title-sm"> Project Actions </div>
+              <div class="fbox-sb p-x p-y">
+                <div class="title title-sm"> Project Actions </div>
                 <span class="icon-container icon-container-sm clickable" (click)="selected=null;">
                   <svg class="icon"><use xlink:href="assets/svg/icons.svg#icon-cross"></use> </svg>
                 </span>
@@ -32,13 +32,13 @@
 
     <div class="description">{{k.summary}}</div>
 
-    <div class="activity"> {{k.dateAdded | date:'longDate'}} - {{k.dateAdded | amTimeAgo}}</div>
+    <div class="activity"> {{k.dateAdded | date:'longDate'}} </div>
 
-    <div class="box-f">
+    <div class="fbox-sa p-y-md">
 
         <div class="card-info">
             <span class="card-info-detail text-blue">{{k.steps}}</span>
-            <span class="card-info-title text-grey">Steps</span>
+            <span class="card-info-title">Steps</span>
         </div>
         <div class="card-info">
             <span class="card-info-detail text-blue">{{k.tasks}}</span>

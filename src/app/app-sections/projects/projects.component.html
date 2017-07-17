@@ -1,9 +1,9 @@
 <app-top-section [tabsData]="projectsTabsData" [pageTitle]="pageTitle"></app-top-section>
-<div class="fbox-sb p-x p-y-md filter-bar">
-    <div class="title"> {{contentTitle}}</div>
-    <label for="modal-toggle" style="font-weight: initial;" class="btn btn-sm btn-blue">Create a Project</label>
+<div class="fbox-sb p-x p-y-md">
+    <div></div>
+    <button class="btn btn-sm btn-blue" (click)="addProjectModalVisible = true">Create a Project</button>
 </div>
 
 <router-outlet></router-outlet>
 
-<app-add-project></app-add-project>
+<app-add-project [addProjectModalVisible]="addProjectModalVisible"></app-add-project>
